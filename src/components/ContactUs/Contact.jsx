@@ -1,10 +1,7 @@
-// ContactForm.js
-
 import React, { useState } from "react";
-import "./ContactForm.css"; // Import the CSS file for styling
-import { Button } from "react-bootstrap";
 
-const ContactForm = () => {
+const ContactUs = () => {
+
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -79,48 +76,78 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form-container">
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Phone Number:
-          <input
-            type="tel"
-            name="number"
-            value={formData.number}
-            onChange={handleChange}
-            pattern="[0-9]{10}"
-            required
-          />
-          {phoneNumberError && (
+    <section className="container mx-auto px-6 py-12 lg:py-16 bg-gray-900 text-gray-200">
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white">
+          Get in <span className="text-red-400">Touch</span>
+        </h2>
+        <p className="mt-4 text-gray-300 text-lg">
+          Have questions or need support? Reach out to us, and we'll get back to you as soon as possible.
+        </p>
+      </div>
+
+      <div className="mt-10 max-w-2xl mx-auto bg-gray-800 p-6 rounded-xl shadow-lg">
+        <form onSubmit={handleSubmit}>
+          {/* Name Input */}
+          <div className="mb-4">
+            <label className="block text-gray-300 text-lg">Name
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full mt-2 p-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+              placeholder="Enter your name"
+              required
+            />
+            </label>
+          </div>
+
+          {/* Email Input */}
+          <div className="mb-4">
+            <label className="block text-gray-300 text-lg">Phone Number
+            <input
+              type="tel"
+              name="number"
+              className="w-full mt-2 p-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+              value={formData.number}
+              onChange={handleChange}
+              pattern="[0-9]{10}"
+              placeholder="Enter your number"
+              required
+            />
+             {phoneNumberError && (
             <span className="error-message">{phoneNumberError}</span>
           )}
-        </label>
-        <label>
-          Message:
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <button type="submit" disabled={submitting} className="Contact-btn">
+          </label>
+          </div>
+
+          {/* Message Input */}
+          <div className="mb-4">
+            <label className="block text-gray-300 text-lg">Message
+            <textarea
+              className="w-full mt-2 p-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Type your message..."
+              required
+            ></textarea>
+            </label>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full mt-4 px-6 py-3 text-lg font-semibold text-white bg-red-500 rounded-lg shadow-md hover:bg-red-600 transition duration-300"
+          >
           {submitting ? "Submitting..." : "Submit"}
-        </button>{" "}
-      </form>
-    </div>
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
-export default ContactForm;
+export default ContactUs;

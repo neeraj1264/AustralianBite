@@ -60,6 +60,8 @@ const MyCarousel = () => {
 
   return (
     <>
+        {/* <Header/> */}
+
     <Carousel activeIndex={index} onSelect={handleSelect} controls={false}>
     {items.map((item) => (
         <Carousel.Item key={item.id}>
@@ -77,7 +79,6 @@ const MyCarousel = () => {
         </Carousel.Item>
       ))}
     </Carousel>
-    <Header/>
     <FaWhatsapp className='whatsapp-button' onClick={() => handleChatMsg()}/>
 <AboutUs/>
 <ContactForm/>

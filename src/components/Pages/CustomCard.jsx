@@ -183,7 +183,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
                   ? description.substring(0, 50) + "..."
                   : description}
                 {description.length > 50 && (
-                  <span style={{ color: "black", fontWeight: 500 }}>
+                  <span style={{ color: "var(--bg)", fontWeight: 500 }}>
                     {" "}
                     read more
                   </span>

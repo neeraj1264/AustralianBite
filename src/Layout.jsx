@@ -9,7 +9,7 @@ function Layout() {
          <CartProvider>
       <div className="app-container">
         {/* <Header /> */}
-        <div className="main-content">
+        <div className="main-content text-white">
           <Outlet />
         </div>
         <Footer />

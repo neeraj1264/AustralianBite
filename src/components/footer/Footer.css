@@ -9,7 +9,7 @@ footer {
   /* left: 38%; */
   align-items: center;
   background: var(--bg);
-  border-radius: 1rem 1rem 0 0 ;
+  height: 12vh;
 }
 .badge {
   position: absolute;

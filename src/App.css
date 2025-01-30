@@ -3,10 +3,13 @@ a {
 }
 :root {
   --bg: #d32e2e;
+  --in: #2d3748;
+  --out: #1a202c;
+  --light: #edf2f7;
 }
-.main-content {
+/* .main-content {
   margin-bottom: 4rem;
-}
+} */
 .product-card {
   display: flex;
   justify-content: space-between;
@@ -79,34 +82,34 @@ a {
 
 .cust {
   color: grey;
-  margin-top: -0.5rem;
+  margin: -0.5rem auto 0 0 ;
 }
 
 /* -------------------------------------Header Css------------------------------------ */
 
-.header{
+.header {
   background-color: var(--bg);
   border-radius: 0 0 1rem 1rem;
   color: whitesmoke;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
 }
-.headername{
- text-align: center;
- font-weight: 700;
- font-size: 1.1rem;
+.headername {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
-.chat{
+.chat {
   text-align: center;
   font-weight: 700;
   background-color: whitesmoke;
   color: var(--bg);
-  padding: .1rem .5rem;
+  padding: 0.1rem 0.5rem;
   border-radius: 1rem;
   border: 1px solid darkgoldenrod;
   box-shadow: 3px 2px 3px 0px black;
 }
-.img img{
+.img img {
   height: 2.3rem;
   width: 2.3rem;
   box-shadow: -2px 1px 2px 2px black;
@@ -130,14 +133,14 @@ a {
   }
 }
 
-.search-icon{
+.search-icon {
   font-size: 2.7rem;
   position: fixed;
   right: 10px;
   bottom: 2rem;
   color: white;
   background: var(--bg);
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   z-index: 1000; /* Ensure it stays on top */
   animation: pulsate 1s infinite; /* Apply the pulsate animation */
@@ -155,52 +158,135 @@ a {
   font-size: 14px;
 }
 
-.category-header{
+.category-header {
   text-align: center;
   margin-top: 1rem;
-  }
+}
 
-  .menu-btn-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: black;
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    transition: bottom 0.3s ease; /* Smooth transition when shifting */
-  }
-  
-  .menu-btn {
-    cursor: pointer;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: white;
-    background: #121212;
-    padding: .5rem;
-    border-radius: .5rem;
-    margin: 0;
-    border: 1px solid #ddd;
-  }
-  
-  .menu-search {
-    flex-grow: 1;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #121212;
-    border-radius: .5rem;
-    color: white;
-  }
-  
-  .menu-search:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
-  }
-  
+.menu-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--in);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: bottom 0.3s ease;
+  z-index: 10;
+  border-radius: 1rem 1rem 0 0;
+}
+
+/* Add this new rule */
+.menu-btn-container.footer-visible {
+  bottom: 12vh; /* Adjust the height value according to the footer's height */
+}
+
+.menu-btn {
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: var(--out);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 4px 2px black;
+}
+
+.menu-search {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: var(--out);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.menu-search:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+.card-body {
+  flex: 1 1 auto;
+  text-align: center;
+  font-weight: 800;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--bg);
+}
+
+.card {
+  width: 100%; /* Set width to 100% so the cards take full width */
+  margin: 1rem 0.5rem;
+  border: none;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: black;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}
+
+.outer-card {
+  position: fixed;
+  top: 10%;
+  left: 15%;
+  width: 70%;
+  background-color: var(--in);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  height: 70vh;
+  box-shadow: 0px 4px 4px 2px black;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  border-radius: 1rem;
+}
+
+.outer-card a {
+  width: 100%;  /* Ensure the anchor takes up full width */
+}
+
+.category-card{
+  display: flex;
+  justify-content: space-between;
+  margin: .5rem 0;
+}
+
+.outer-card .category-card h2 {
+  margin-left: 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  /* margin: 0; */
+  color: white;
+}
+
+.outer-card .category-card h3 {
+  margin-right: 1rem;
+  color: white;
+}
+
+.leftarrow {
+  z-index: 1001;
+  font-size: 1.3rem;
+  position: fixed;
+  top: 0;
+  color: var(--bg);
+}
