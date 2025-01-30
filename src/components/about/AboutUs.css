@@ -1,0 +1,43 @@
+.about-heading{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 3rem;
+}
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px; 
+  }
+  
+  .about-us-image {
+    width: 100%;
+    max-width: 400px;
+
+  }
+  .offer-image{
+    width: 100%;
+    max-width: 400px;
+    border-radius: 2rem;
+    box-shadow: 0px 1px 7px 2px;
+    margin-top: 2rem;
+  }
+  
+  .about-us-content {
+    max-width: 600px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .about-us-content h2 {
+    color: #333;
+  }
+  
+  .about-us-content p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
