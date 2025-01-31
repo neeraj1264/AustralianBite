@@ -1,0 +1,125 @@
+import React from "react";
+import "./HomeFooter.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
+import { Link } from 'react-router-dom';
+
+const HomeFooter = () => {
+
+  const handleChatMsg = () => {
+    const whatsappNumber = "+917015823645";
+    const message = `Hello! I'm interested in placing an order. Could you please provide me with more information about your menu options and delivery timings? Thanks!`;
+
+    const whatsappLink =
+      "https://api.whatsapp.com/send?phone=" +
+      encodeURIComponent(whatsappNumber) +
+      "&text=" +
+      encodeURIComponent(message);
+
+    console.log("WhatsApp link:", whatsappLink);
+
+    // Open WhatsApp chat in a new window
+    window.open(whatsappLink, "_blank");
+  };
+
+  return (
+    <div className="home-footer">
+      <div className="home-footer-container">
+        <div className="home-footer-section">
+          <h3>Contact Us</h3>
+          <p>Kurukshetra Road, Pehowa</p>
+          <p>+91 1234567890</p>
+          <p>info@example.com</p>
+        </div>
+
+        <div className="home-footer-section">
+          <h3>Follow Us</h3>
+
+          <p>
+            <Link
+              href="https://www.facebook.com"
+              target="_blank"
+              className="social-icon fb"
+            >
+              <i className="fa fa-facebook"></i>
+              <span>
+              Facebook
+              </span>
+            </Link>
+          </p>
+          <p>
+            <Link
+              href="https://www.twitter.com"
+              target="_blank"
+              className="social-icon twitter"
+            >
+              <i className="fa fa-twitter"></i>
+              <span>
+              Twitter
+              </span>
+            </Link>
+          </p>
+          <p>
+            <Link
+              href="https://www.instagram.com"
+              target="_blank"
+              className="social-icon insta"
+            >
+              <i className="fa fa-instagram"></i>
+              <span>
+              Instagram
+              </span>
+            </Link>
+          </p>
+          <p>
+            <Link
+              onClick={()=>handleChatMsg()}
+              target="_blank"
+              className="social-icon linkedin"
+            >
+              <i className="fa fa-whatsapp"></i>
+              <span>
+              Whatsapp
+              </span>
+            </Link>
+          </p>
+          <p>
+            <Link
+              href="https://www.linkedin.com"
+              target="_blank"
+              className="social-icon linkedin"
+            >
+              <i className="fa fa-linkedin"></i>
+              <span>
+              Linkedin
+              </span>
+            </Link>
+          </p>
+        </div>
+
+        <div className="home-footer-section">
+          <h3>Opening</h3>
+          <p>Monday - Saturday</p>
+          <p> 09AM - 09PM</p>
+          <p>Sunday</p>
+          <p>10AM - 08PM</p>
+        </div>
+
+        <div className="home-footer-section">
+          <h3>Links</h3>
+          <p><Link to="#about"></Link>About</p>
+          <p><Link to="#about"></Link>Contact Us</p>
+          <p><Link to="#about"></Link>Menu</p>
+          <p><Link to="#about"></Link>Address</p>
+        </div>
+      </div>
+      <div className="home-footer-links">
+          <p>Copyright © australianbite.online</p>
+          <p> All Rights Reserved.</p>
+          <span>Design by Neeraj 70158-23645</span>
+        </div>
+    </div>
+  );
+};
+
+export default HomeFooter;

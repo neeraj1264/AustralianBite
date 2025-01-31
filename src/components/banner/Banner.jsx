@@ -6,6 +6,8 @@ import Header from '../header/Header';
 import AboutUs from '../about/AboutUs';
 import ContactForm from '../ContactUs/Contact';
 import { FaWhatsapp } from "react-icons/fa";
+import HomeFooter from '../footer/HomeFooter';
+import GoogleMap from '../map/GoogleMap';
 
 const items = [
   { id: 1,  imageUrl: '/img/burger.jpg',      title: 'Delicious Burger',   target: 'Burger'   , description: 'Hot Pattie, fresh veggies, and savory sauces in a perfect bun.' },
@@ -87,7 +89,12 @@ const MyCarousel = () => {
     </Carousel>
     <FaWhatsapp className='whatsapp-button' onClick={() => handleChatMsg()}/>
 <AboutUs/>
+{/* <div>
+      <h2>Find Us on Google Maps</h2>
+      <GoogleMap/>
+    </div> */}
 <ContactForm/>
+<HomeFooter/>
     </>
   );
 };
