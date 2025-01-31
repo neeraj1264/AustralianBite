@@ -13,7 +13,7 @@ const Burger = () => {
   
   return (
     <>
-      <h2 id='burger' className='category-header'>Delicious Burger</h2>
+      <h2 id='Burger' className='category-header'>Delicious Burger</h2>
       {renderCards(BurgerData)}
     </>
   );

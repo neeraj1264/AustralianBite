@@ -1,114 +1,91 @@
-import React, { useState, useEffect } from "react";
-import { allItems } from "./components/data/FoodData";
-import CustomCard from "./components/Pages/CustomCard";
-import { useCart } from "./ContextApi";
+import React, { useState } from 'react';
+import Burger from './components/Pages/Burger/Burger';
+import Pasta from './components/Pages/Pasta/Pasta';
+import Category from './components/categories/Category';
+import Sandwich from './components/Pages/Sandwich';
+import Shake from './components/Pages/Shake';
+import GarlicBread from './components/Pages/GarlicBread';
+import Chinese from './components/Pages/Chinese';
+import Wrap from './components/Pages/Wrap';
+import Snacks from './components/Pages/Snacks';
+import Momos from './components/Pages/Momos';
+import Chaap from './components/Pages/Chaap';
+import Dinner from './components/Pages/Dinner';
+import Pizza from './components/Pages/Pizza/Pizza';
+import Cakes from './components/Pages/cakes/Cakes';
+import Naan from './components/Pages/Naan';
+import Juice from './components/Pages/Juice';
+import { IoMdCloseCircle } from "react-icons/io";
+
+const menuItems = [
+  { name: 'Burger', component: <Burger /> },
+  { name: 'Pasta', component: <Pasta /> },
+  { name: 'Sandwich', component: <Sandwich /> },
+  { name: 'Shake', component: <Shake /> },
+  { name: 'Garlic Bread', component: <GarlicBread /> },
+  // { name: 'Chinese', component: <Chinese /> },
+  { name: 'Wrap', component: <Wrap /> },
+  { name: 'Snacks', component: <Snacks /> },
+  // { name: 'Momos', component: <Momos /> },
+  { name: 'Chaap', component: <Chaap /> },
+  { name: 'Dinner', component: <Dinner /> },
+  { name: 'Pizza', component: <Pizza /> },
+  { name: 'Cakes', component: <Cakes /> },
+  { name: 'Naan', component: <Naan /> },
+  { name: 'Juice', component: <Juice /> },
+];
 
 const MenuLayout = () => {
-  const { cartItemsCount } = useCart();
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-  const [searchText, setSearchText] = useState(""); // Search Input State
   const [showCategory, setShowCategory] = useState(false); // State to toggle Category visibility
-
-  // Group items by category
-  const groupedItems = allItems.reduce((acc, item) => {
-    const { category } = item;
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(item);
-    return acc;
-  }, {});
-
-  // Filter items based on search text
-  const filteredGroupedItems = Object.keys(groupedItems).reduce((acc, category) => {
-    const filteredItems = groupedItems[category].filter((item) =>
-      item.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    if (filteredItems.length > 0) {
-      acc[category] = filteredItems;
-    }
-    return acc;
-  }, {});
+  const [searchText, setSearchText] = useState(""); // State to handle search input
 
   const toggleCategory = () => {
-    setShowCategory(!showCategory); // Toggle between Category and Search Input
     if (!showCategory) {
       setSearchText(""); // Reset search input when hiding the search bar
     }
+    setShowCategory(!showCategory); // Toggle between Category and Search Input
   };
 
-  // Scroll to the section when a category link is clicked
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const offset = section.offsetTop - parseFloat(getComputedStyle(section).marginTop);
-      window.scrollTo({
-        top: offset,
-        behavior: "smooth",
-      });
-    }
-    setShowCategory(!showCategory);
-  };
-
-  useEffect(() => {
-    if (cartItemsCount > 0) {
-      setIsFooterVisible(true);
-    } else {
-      setIsFooterVisible(false);
-    }
-  }, [cartItemsCount]);
+  // Filter menu items based on search text
+  const filteredMenuItems = menuItems.filter((item) =>
+    item.name.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   return (
     <>
-      {/* Menu Button and Search Bar */}
-      <div className={`menu-btn-container ${isFooterVisible ? "footer-visible" : ""}`}>
-      <input
-          type="text"
-          className="menu-search"
-          placeholder="Search for items..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <h1 className="menu-btn" onClick={toggleCategory}>
-          {!showCategory ? "Menu" : "Hide"}
-        </h1>
+
+<div className="menu-items">
+        {filteredMenuItems.map((item, index) => (
+          <div key={index} className="menu-item">
+            {item.component}
+          </div>
+        ))}
       </div>
+      
+  <h1 className="menu-btn" onClick={toggleCategory}>
+        Menu
+      </h1>
 
       {/* Render Categories Dynamically */}
       {showCategory && (
         <div className="outer-card">
-          {Object.keys(filteredGroupedItems).map((category) => (
-            <a
-              key={category}
-              href={`#${category}`} // This will link to the corresponding section
-              onClick={() => scrollToSection(category)} // Scroll to section on click
-            >
-              <div className="category-card">
-              <h2>{category}</h2>     
-              <h3>{filteredGroupedItems[category].length}</h3>
-                       </div>
-            </a>
-          ))}
-        </div>
-      )}
+            <button className="close-btn" onClick={() => setShowCategory(false)}>
+            <IoMdCloseCircle/>
+          </button>
 
-      {/* Render Filtered Items by Category */}
+      {/* Conditional Rendering */}
+      {showCategory && <Category />}
+
+      {/* Display Filtered Menu Items */}
       <div className="menu-items">
-        {Object.keys(filteredGroupedItems).length > 0 ? (
-          Object.keys(filteredGroupedItems).map((category) => (
-            <div key={category} id={category}> {/* Add ID for scrolling */}
-              <h2 className="text-center">{category}</h2>
-              <div className="category-items">
-                {filteredGroupedItems[category].map((item) => (
-                  <CustomCard key={item.id} {...item} />
-                ))}
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No items found</p>
-        )}
+        {filteredMenuItems.map((item, index) => (
+          <div key={index} className="menu-item">
+            {item.component}
+          </div>
+        ))}
       </div>
+      </div>
+      )}
     </>
   );
 };

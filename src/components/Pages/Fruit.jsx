@@ -18,7 +18,7 @@ const Fruit = () => {
   
   return (
     <>
-      <h2 id='fruits' className='category-header'>Fruit Chaat</h2>
+      <h2 id='Fruits' className='category-header'>Fruit Chaat</h2>
       {renderCards(Data)}
     </>
   );

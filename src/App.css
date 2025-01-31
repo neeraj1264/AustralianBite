@@ -3,8 +3,8 @@ a {
 }
 :root {
   --bg: #d32e2e;
-  --in: #2d3748;
-  --out: #1a202c;
+  --out: #2d3748;
+  --in: #1a202c;
   --light: #edf2f7;
 }
 /* .main-content {
@@ -43,7 +43,7 @@ a {
   font-size: 0.8rem;
 }
 .add-btn {
-  box-shadow: 1px 0px 3px 3px var(--bg);
+  box-shadow: 1px 0px 3px 3px var(--in);
   background: whitesmoke;
   width: fit-content;
   align-items: center;
@@ -56,10 +56,11 @@ a {
   color: var(--bg);
 }
 .add-btn button {
-  color: var(--bg);
+  color: var(--in);
   font-weight: 800;
   padding: 0.4rem 1rem;
   font-size: 1.2rem;
+  background: ghostwhite;
 }
 .added {
   border: none;
@@ -160,7 +161,6 @@ a {
 
 .category-header {
   text-align: center;
-  margin-top: 1rem;
 }
 
 .menu-btn-container {
@@ -188,15 +188,31 @@ a {
   cursor: pointer;
   font-size: 1.3rem;
   font-weight: bold;
-  background: var(--out);
+  background: var(--in);
   color: white;
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin: 0;
   border: 1px solid #ddd;
-  box-shadow: 0px 4px 4px 2px black;
+  box-shadow: 2px -2px 9px 2px black;
+  width: fit-content;
+  position: fixed;
+  bottom: 6rem;
+  z-index: 1000;
+  left: 40%;
 }
-
+.close-btn {
+  position: absolute;
+  top: -10px;
+  /* right: 81px; */
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 2rem;
+  z-index: 10000;
+}
 .menu-search {
   flex-grow: 1;
   padding: 0.5rem;
@@ -223,11 +239,7 @@ a {
   color: var(--bg);
 }
 
-.card {
-  width: 100%; /* Set width to 100% so the cards take full width */
-  margin: 1rem 0.5rem;
-  border: none;
-}
+
 
 .card img {
   width: 50px;
@@ -238,12 +250,26 @@ a {
 }
 
 .card-text {
-  font-size: 0.9rem;
+  font-size: 1.5rem;
+  padding: .5rem 0 0 1rem;
+  font-weight: bold;
+  background: var(--in);
+  width: fit-content;
+  color: white;
+  border: none;
 }
-
+.item-count{
+  font-size: 1.5rem;
+  padding: .5rem 1rem 0 1rem;
+  font-weight: bold;
+  background: var(--in);
+  width: fit-content;
+  color: white;
+  border: none;
+}
 .outer-card {
   position: fixed;
-  top: 10%;
+  top: 15%;
   left: 15%;
   width: 70%;
   background-color: var(--in);
@@ -252,7 +278,7 @@ a {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  height: 70vh;
+  max-height: 70vh;
   box-shadow: 0px 4px 4px 2px black;
   padding: 1rem 0;
   scrollbar-width: none;
@@ -260,7 +286,9 @@ a {
 }
 
 .outer-card a {
-  width: 100%;  /* Ensure the anchor takes up full width */
+  width: 100%;  
+  display: flex;
+  justify-content: space-between;
 }
 
 .category-card{

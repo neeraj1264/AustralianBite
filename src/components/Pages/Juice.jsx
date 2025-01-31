@@ -16,7 +16,7 @@ const Juice = () => {
   
   return (
     <>
-      <h2 id='juice' className='category-header'>Fresh Juices</h2>
+      <h2 id='Juice' className='category-header'>Fresh Juices</h2>
       {renderCards(Data)}
     </>
   );

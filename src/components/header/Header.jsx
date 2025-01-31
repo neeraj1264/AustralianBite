@@ -1,68 +1,206 @@
-import React, { useState } from "react";
-import { BiMessageDetail } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
+import "./Header.css";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
-function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Header = ({ headerName, setSearch, onClick }) => {
+  const [isSearchVisible, setIsSearchVisible] = useState(false); // Track visibility of search
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false); // Track logout modal visibility
+  const [isDarkMode, setIsDarkMode] = useState(false); // Theme state
+  const toggleButtonRef = useRef(null); // Ref for the toggle button
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  // Load saved theme from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setIsDarkMode(true);
+      document.body.classList.add("dark-theme");
+    }
+  }, []);
+
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value); // Update search state
+  };
+
+  const toggleSearch = () => {
+    setIsSearchVisible((prev) => !prev); // Toggle visibility
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      toggleSearch();
+
+      if (toggleButtonRef.current) {
+        toggleButtonRef.current.click(); // Trigger the button click programmatically
+      }
+    }
+  };
+
+  const handleLogout = () => {
+    // Remove userBaseUrl from local storage
+    localStorage.removeItem("userBaseUrl");
+    localStorage.removeItem("advancedFeature");
+    window.location.reload();
+  };
+
+  // Toggle theme between light and dark mode
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => !prev);
+    if (isDarkMode) {
+      document.body.classList.remove("dark-theme");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.body.classList.add("dark-theme");
+      localStorage.setItem("theme", "dark");
+    }
   };
 
   return (
-    <>
-      <header className=" text-white shadow-md fixed top-0 left-0 w-full z-50" style={{background: "var(--in)"}}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0">
-              <a href="/" className="text-xl font-bold text-white">Australian Bite</a>
-            </div>
-
-            <nav className="hidden md:flex space-x-4">
-              <a href="/" className="text-white hover:text-blue-400">Home</a>
-              <a href="/about" className="text-white hover:text-blue-400">About</a>
-              <a href="/services" className="text-white hover:text-blue-400">Services</a>
-              <a href="/contact" className="text-white hover:text-blue-400">Contact</a>
-            </nav>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={toggleMenu}
-                className="text-white hover:text-blue-400 focus:outline-none"
+    <nav className="navbar navbar-expand-lg fixed-top custom-navbar">
+      <div className="container-fluid">
+        <NavLink
+          onClick={onClick}
+          className={({ isActive }) =>
+            isActive ? "navbar-brand active" : "navbar-brand"
+          }
+          to="/invoice"
+        >
+          Australian Bite
+        </NavLink>
+        {/* Show search input only on the /invoice page */}
+        {location.pathname === "/invoice" && (
+          <form className="search" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search products..."
+              aria-label="Search"
+              onChange={handleSearchChange}
+              onKeyDown={handleKeyDown}
+            />
+          </form>
+        )}
+        <button
+          ref={toggleButtonRef}
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link custom-text active"
+                    : "nav-link custom-text"
+                }
+                to="/invoice"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  ></path>
-                </svg>
+                Invoice
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link custom-text active"
+                    : "nav-link custom-text"
+                }
+                to="/NewProduct"
+              >
+                Add Product
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link custom-text active"
+                    : "nav-link custom-text"
+                }
+                to="/history"
+              >
+                Order History
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link custom-text active"
+                    : "nav-link custom-text"
+                }
+                to="/customer-data"
+              >
+                Data
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link custom-text active"
+                    : "nav-link custom-text"
+                }
+                to="/advance"
+              >
+                Setting
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <button
+                className="nav-link custom-text"
+                onClick={toggleTheme}
+              >
+                {isDarkMode ? "Light Mode" : "Dark Mode"}
+              </button>
+            </li>
+            <li className="nav-item">
+              <button
+                className="nav-link custom-text"
+                onClick={() => setIsLogoutModalOpen(true)}
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* Logout Confirmation Modal */}
+      {isLogoutModalOpen && (
+        <div className="custom-modal-overlay">
+          <div className="custom-modal-content">
+            <p className="custom-modal-message">
+              Are you sure you want to logout?
+            </p>
+            <div className="custom-modal-actions">
+              <button
+                className="custom-modal-button cancel-button"
+                onClick={() => setIsLogoutModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="custom-modal-button confirm-button"
+                onClick={handleLogout}
+              >
+                Logout
               </button>
             </div>
           </div>
         </div>
-
-        {/* Mobile menu */}
-        <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`} id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="/" className="block text-white hover:text-blue-400">Home</a>
-            <a href="/about" className="block text-white hover:text-blue-400">About</a>
-            <a href="/services" className="block text-white hover:text-blue-400">Services</a>
-            <a href="/contact" className="block text-white hover:text-blue-400">Contact</a>
-          </div>
-        </div>
-      </header>
-
-    </>
+      )}
+    </nav>
   );
-}
+};
 
 export default Header;

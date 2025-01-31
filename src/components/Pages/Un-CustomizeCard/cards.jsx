@@ -136,9 +136,9 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                 style={{
                   color: "whitesmoke",
                   border: "none",
-                  background: "#d32e2e",
+                  background: "var(--in)",
                   borderRadius: ".5rem",
-                  boxShadow: "white 1px 0px 3px 3px",
+                  boxShadow: "var(--out) 1px 0px 3px 3px",
                 }}
                 onClick={handleRemoveToCart}
               >

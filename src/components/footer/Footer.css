@@ -8,7 +8,7 @@ footer {
   width: 100%;
   /* left: 38%; */
   align-items: center;
-  background: var(--bg);
+  background: var(--in);
   height: 12vh;
 }
 .badge {
@@ -52,14 +52,12 @@ footer {
 }
 .nav-link .icon {
   font-size: 1.3rem;
-  color: var(--bg);
+  color: var(--out);
   background: white;
   border-radius: 3rem;
   margin-bottom: .3rem;
 }
-.nav-link{
-  font-size: .8rem !important;
-}
+
 .nav-link.active  {
   font-weight: 800;
   /* font-size: .8rem; */

@@ -60,7 +60,13 @@ const MyCarousel = () => {
 
   return (
     <>
-        {/* <Header/> */}
+        <Header/>
+        <div className="front-image">
+  <img src="/img/outer2.jpg" alt="Delicious Food" />
+  <Link to="/menu" className="menu-button">
+    Visit Our Menu
+  </Link>
+</div>
 
     <Carousel activeIndex={index} onSelect={handleSelect} controls={false}>
     {items.map((item) => (
