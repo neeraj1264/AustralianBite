@@ -15,7 +15,7 @@ const Wrap = () => {
   
   return (
     <>
-      <h2 id='Wrap' className='category-header'>Delicious Wrap</h2>
+      <h2 id='Wrap' className='category-header'> Wrap</h2>
       {renderCards(WrapData)}
     </>
   );

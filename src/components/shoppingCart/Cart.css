@@ -2,7 +2,7 @@
   text-align: center;
     /* margin: .5rem; */
     font-size: 1.4rem;
-    background: var(--bg);
+    background: var(--blue);
     color: white;
     padding: .5rem;
     border-radius: 0 0 1rem 1rem;
@@ -24,7 +24,7 @@
 
 .cart-table th {
   /* background-color: #f2f2f2; */
-  color: var(--bg);
+  color: var(--blue);
   text-align: center;
 }
 
@@ -41,9 +41,9 @@
   font-size: 1rem;
   border: none !important;
   background: white;
-  color: var(--bg);
+  color: var(--blue);
   border-radius: 2rem;
-  box-shadow: 0px 1px 7px 3px var(--bg);
+  box-shadow: 0px 1px 7px 3px var(--blue);
   margin-top: 1rem;
 }
 .cart-navigation-buttons {
@@ -54,14 +54,14 @@
 
 }
 .back-btn {
-  background-color: var(--bg);
+  background-color: var(--blue);
   border-radius: 1rem;
   padding: 0.4rem 1rem;
   font-weight: 800;
   color: white;
 }
 .next-btn {
-  background-color: var(--bg);
+  background-color: var(--blue);
   color: white;
   border-radius: 1rem;
   padding: 0.4rem 1rem;

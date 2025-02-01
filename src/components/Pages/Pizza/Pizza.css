@@ -17,7 +17,7 @@
     border-radius: .7rem;
 }
 .addtocart{
-    background-color: var(--bg);
+    background-color: var(--blue);
     color: white;
     border: none;
 }
@@ -29,12 +29,12 @@
     z-index: 999;
 }
 input[type="radio"] {
-   accent-color: var(--bg);
+   accent-color: var(--blue);
    border: 1px solid red;
   }
   .form-check-input:checked {
-    background-color: var(--bg);
-    border-color: var(--bg);
+    background-color: var(--blue);
+    border-color: var(--blue);
   }
   .form-check-input{
     border: 2px solid grey;

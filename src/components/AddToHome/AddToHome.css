@@ -33,7 +33,7 @@
   top: -2rem;
   left: 42%;
   border-radius: 50%;
-  background-color: var(--bg);
+  background-color: var(--blue);
   /* border: 2px solid red; */
   display: flex;
   justify-content: center;
@@ -71,7 +71,7 @@
   padding-top: 0.5rem;
 }
 .install {
-  background: var(--bg);
+  background: var(--blue);
   font-weight: 700;
   font-size: 1.5rem;
   color: white;

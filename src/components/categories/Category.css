@@ -1,0 +1,9 @@
+.card-text,
+.item-count {
+  transition: color 0.3s;
+}
+
+.card-text.active,
+.item-count.active {
+  color: var(--blue); /* Color for active state */
+}

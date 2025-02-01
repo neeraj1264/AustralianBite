@@ -20,7 +20,7 @@
 }
 
 .contact-header span {
-  color: #f87171;
+  color: var(--blue);
 }
 
 .contact-header p {
@@ -62,7 +62,7 @@
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #f87171;
+  border-color: var(--blue);
   box-shadow: 0 0 5px rgba(248, 113, 113, 0.5);
 }
 
@@ -72,7 +72,7 @@
 }
 
 .error-message {
-  color: #f87171;
+  color: var(--blue);
   font-size: 14px;
   margin-top: 4px;
 }
@@ -84,7 +84,7 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
-  background-color: #ff4d4d;
+  background-color: var(--blue);
   border: none;
   border-radius: 8px;
   cursor: pointer;

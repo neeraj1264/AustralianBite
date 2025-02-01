@@ -15,7 +15,7 @@ const Pasta = () => {
   
   return (
     <>
-       <h2 id='Pasta' className='category-header'>Delicious Pasta</h2>
+       <h2 id='Pasta' className='category-header'>Pasta</h2>
        {renderCards(pastaData)}
     </>
   );

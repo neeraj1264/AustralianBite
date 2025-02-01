@@ -26,7 +26,7 @@ const Pizza = () => {
   return (
     <div>
       <h2 id="Pizza" className='category-header'>
-        Delicious Pizza
+        Pizza
       </h2>
       {PizzaData.map((Pizza) => (
         <PizzaPage key={Pizza.id} {...Pizza} />

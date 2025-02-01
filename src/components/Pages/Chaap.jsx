@@ -15,7 +15,7 @@ const Chaap = () => {
   
   return (
     <>
-      <h2 id='Chaap' className='category-header'>Delicious Chaap</h2>
+      <h2 id='Chaap' className='category-header'> Chaap</h2>
       {renderCards(ChaapData)}
     </>
   );

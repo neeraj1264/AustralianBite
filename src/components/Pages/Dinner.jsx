@@ -27,7 +27,7 @@ const Dinner = () => {
   
   return (
     <>
-      <h2 id='Dinner' className='category-header'>Delicious Dinner</h2>
+      <h2 id='Dinner' className='category-header'> Dinner</h2>
       {renderCards(DinnerData)}
     </>
   );

@@ -217,7 +217,7 @@ Service Charge = ₹ 20.00
         <h2 className="cart-header">Shopping Cart</h2>
         {Loading ? (
           <HashLoader
-            color="var(--bg)"
+            color="var(--blue)"
             style={{ position: "absolute", top: "50%", left: "50%" }}
           />
         ) : (
@@ -289,7 +289,7 @@ Service Charge = ₹ 20.00
                                 onClick={() => dec(index)}
                                 style={{
                                   background: "whitesmoke",
-                                  color: "var(--bg)",
+                                  color: "var(--blue)",
                                   borderRadius: "0.8rem 0 0 0.8rem",
                                   border: "none",
                                   paddingBottom: "0.3rem",
@@ -301,7 +301,7 @@ Service Charge = ₹ 20.00
                               <span
                                 style={{
                                   background: "whitesmoke",
-                                  color: "var(--bg)",
+                                  color: "var(--blue)",
                                   fontSize: "1rem",
                                   fontWeight: 700,
                                 }}
@@ -312,7 +312,7 @@ Service Charge = ₹ 20.00
                                 onClick={() => inc(index)}
                                 style={{
                                   background: "whitesmoke",
-                                  color: "var(--bg)",
+                                  color: "var(--blue)",
                                   borderRadius: "0 0.8rem 0.8rem 0",
                                   border: "none",
                                   paddingBottom: "0.3rem",

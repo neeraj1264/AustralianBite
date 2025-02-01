@@ -13,7 +13,7 @@ const GarlicBread = () => {
   
   return (
     <>
-      <h2 id='Garlic-Bread' className='category-header'>Delicious Garlic Bread</h2>
+      <h2 id='Garlic-Bread' className='category-header'> Garlic Bread</h2>
       {renderCards(GarlicBreadData)}
     </>
   );

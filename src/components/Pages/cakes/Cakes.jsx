@@ -16,7 +16,7 @@ const Cakes = () => {
   
   return (
     <>
-      <h2 id='Cakes' className='category-header'>Delicious Cakes</h2>
+      <h2 id='Cakes' className='category-header'>Cakes</h2>
       {renderCards(Data)}
     </>
   );

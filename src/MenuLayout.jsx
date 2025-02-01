@@ -19,20 +19,20 @@ import { IoMdCloseCircle } from "react-icons/io";
 
 const menuItems = [
   { name: 'Burger', component: <Burger /> },
-  { name: 'Pasta', component: <Pasta /> },
   { name: 'Sandwich', component: <Sandwich /> },
+  { name: 'Pizza', component: <Pizza /> },
+  { name: 'Pasta', component: <Pasta /> },
+  { name: 'Juice', component: <Juice /> },
   { name: 'Shake', component: <Shake /> },
+  { name: 'Cakes', component: <Cakes /> },
   { name: 'Garlic Bread', component: <GarlicBread /> },
-  // { name: 'Chinese', component: <Chinese /> },
   { name: 'Wrap', component: <Wrap /> },
   { name: 'Snacks', component: <Snacks /> },
   // { name: 'Momos', component: <Momos /> },
   { name: 'Chaap', component: <Chaap /> },
   { name: 'Dinner', component: <Dinner /> },
-  { name: 'Pizza', component: <Pizza /> },
-  { name: 'Cakes', component: <Cakes /> },
   { name: 'Naan', component: <Naan /> },
-  { name: 'Juice', component: <Juice /> },
+    // { name: 'Chinese', component: <Chinese /> },
 ];
 
 const MenuLayout = () => {
@@ -63,27 +63,18 @@ const MenuLayout = () => {
       </div>
       
   <h1 className="menu-btn" onClick={toggleCategory}>
-        Menu
+        {!showCategory ? "Menu": "Hide"}
       </h1>
 
       {/* Render Categories Dynamically */}
       {showCategory && (
         <div className="outer-card">
-            <button className="close-btn" onClick={() => setShowCategory(false)}>
-            <IoMdCloseCircle/>
-          </button>
 
       {/* Conditional Rendering */}
       {showCategory && <Category />}
 
       {/* Display Filtered Menu Items */}
-      <div className="menu-items">
-        {filteredMenuItems.map((item, index) => (
-          <div key={index} className="menu-item">
-            {item.component}
-          </div>
-        ))}
-      </div>
+     
       </div>
       )}
     </>

@@ -101,7 +101,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
             <span
               style={{
                 marginLeft: ".5rem",
-                color: "var(--bg)",
+                color: "var(--blue)",
               }}
             >
               {(((mrp - price) / mrp) * 100).toFixed(0)}% off
@@ -116,7 +116,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                   ? description.substring(0, 50) + "..."
                   : description}
                 {description.length > 50 && (
-                 <span style={{ color: "var(--bg)", fontWeight: 500 }}>
+                 <span style={{ color: "var(--blue)", fontWeight: 500 }}>
                  {" "}
                  read more
                </span>
@@ -218,7 +218,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                   <span
                     style={{
                       marginLeft: ".5rem",
-                      color: "var(--bg)",
+                      color: "var(--blue)",
                     }}
                   >
                     {(((mrp - price) / mrp) * 100).toFixed(0)}% off
@@ -231,7 +231,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                 <div className="quantity-update">
                   <Button
                     variant="contained"
-                    style={{ color: "var(--bg)" }}
+                    style={{ color: "var(--blue)" }}
                     onClick={handleDecrement}
                   >
                     <FaMinus />
@@ -241,7 +241,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                   </span>
                   <Button
                     variant="contained"
-                    style={{ color: "var(--bg)" }}
+                    style={{ color: "var(--blue)" }}
                     onClick={handleIncrement}
                   >
                     <FaPlus />

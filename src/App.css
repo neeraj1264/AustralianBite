@@ -6,10 +6,22 @@ a {
   --out: #2d3748;
   --in: #1a202c;
   --light: #edf2f7;
+  --blue: #3B82F6;
 }
 /* .main-content {
   margin-bottom: 4rem;
 } */
+
+body{
+  background-color: var(--in) !important;
+}
+.menu-items{
+  background: var(--in);
+}
+.menu-item{
+  background: var(--out);
+  margin: 1rem .3rem;
+}
 .product-card {
   display: flex;
   justify-content: space-between;
@@ -53,7 +65,7 @@ a {
   display: inline-block;
   font-size: 1rem;
   font-weight: 800;
-  color: var(--bg);
+  color: var(--blue);
 }
 .add-btn button {
   color: var(--in);
@@ -66,8 +78,8 @@ a {
   border: none;
 }
 .quantity-update {
-  border: 1px solid var(--bg);
-  background: var(--bg);
+  border: 1px solid var(--blue);
+  background: var(--blue);
   width: fit-content;
   align-items: center;
   margin: -1rem auto 0;
@@ -89,7 +101,7 @@ a {
 /* -------------------------------------Header Css------------------------------------ */
 
 .header {
-  background-color: var(--bg);
+  background-color: var(--blue);
   border-radius: 0 0 1rem 1rem;
   color: whitesmoke;
   padding-left: 1rem !important;
@@ -104,7 +116,7 @@ a {
   text-align: center;
   font-weight: 700;
   background-color: whitesmoke;
-  color: var(--bg);
+  color: var(--blue);
   padding: 0.1rem 0.5rem;
   border-radius: 1rem;
   border: 1px solid darkgoldenrod;
@@ -140,7 +152,7 @@ a {
   right: 10px;
   bottom: 2rem;
   color: white;
-  background: var(--bg);
+  background: var(--blue);
   padding: 0.5rem;
   border-radius: 1rem;
   z-index: 1000; /* Ensure it stays on top */
@@ -153,15 +165,17 @@ a {
   /* margin: auto; */
   padding: 8px 12px;
   /* margin-left: 5%; */
-  border: 2px solid var(--bg);
-  box-shadow: 2px 2px 6px 2px var(--bg);
+  border: 2px solid var(--blue);
+  box-shadow: 2px 2px 6px 2px var(--blue);
   border-radius: 4px;
   font-size: 14px;
 }
 
 .category-header {
-  text-align: center;
-  padding: 1rem 0;
+  /* text-align: center; */
+  padding: 1rem 0 .5rem 1rem;
+  font-size: 2rem;
+  color: whitesmoke;
 }
 
 .menu-btn-container {
@@ -198,7 +212,7 @@ a {
   box-shadow: 2px -2px 9px 2px black;
   width: fit-content;
   position: fixed;
-  bottom: 6rem;
+  bottom: 12vh;
   z-index: 1000;
   left: 33%;
 }
@@ -237,7 +251,7 @@ a {
   font-weight: 800;
   padding: 0.5rem;
   font-size: 1rem;
-  color: var(--bg);
+  color: var(--blue);
 }
 
 
@@ -279,8 +293,8 @@ a {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  max-height: 70vh;
-  box-shadow: 0px 4px 4px 2px black;
+  max-height: 50vh;
+  box-shadow: 2px -2px 9px 2px black;
   padding: 1rem 0;
   scrollbar-width: none;
   border-radius: 1rem;
@@ -317,5 +331,5 @@ a {
   font-size: 1.3rem;
   position: fixed;
   top: 0;
-  color: var(--bg);
+  color: var(--blue);
 }

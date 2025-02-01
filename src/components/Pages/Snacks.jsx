@@ -13,7 +13,7 @@ const Snacks = () => {
   
   return (
     <>
-      <h2 id='Snacks' className='category-header'>Delicious Snacks</h2>
+      <h2 id='Snacks' className='category-header'> Snacks</h2>
       {renderCards(SnacksData)}
     </>
   );

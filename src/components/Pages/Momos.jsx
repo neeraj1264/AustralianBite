@@ -13,7 +13,7 @@ const Momos = () => {
   
   return (
     <>
-      <h2 id='Momos' className='category-header'>Delicious Momos</h2>
+      <h2 id='Momos' className='category-header'> Momos</h2>
       {renderCards(MomosData)}
     </>
   );
