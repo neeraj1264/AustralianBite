@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Header.css";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Header = ({ headerName, setSearch, onClick }) => {
   const [isSearchVisible, setIsSearchVisible] = useState(false); // Track visibility of search
@@ -10,6 +10,11 @@ const Header = ({ headerName, setSearch, onClick }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const closeNavbar = () => {
+    if (toggleButtonRef.current) {
+      toggleButtonRef.current.classList.remove("show"); // Remove the Bootstrap 'show' class
+    }
+  };
   // Load saved theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -60,28 +65,9 @@ const Header = ({ headerName, setSearch, onClick }) => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top custom-navbar">
       <div className="container-fluid">
-        <NavLink
-          onClick={onClick}
-          className={({ isActive }) =>
-            isActive ? "navbar-brand active" : "navbar-brand"
-          }
-          to="/invoice"
-        >
+        <a href="#" className="navbar-brand">
           Australian Bite
-        </NavLink>
-        {/* Show search input only on the /invoice page */}
-        {location.pathname === "/invoice" && (
-          <form className="search" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search products..."
-              aria-label="Search"
-              onChange={handleSearchChange}
-              onKeyDown={handleKeyDown}
-            />
-          </form>
-        )}
+        </a>
         <button
           ref={toggleButtonRef}
           className="navbar-toggler"
@@ -94,83 +80,56 @@ const Header = ({ headerName, setSearch, onClick }) => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          ref={toggleButtonRef}
+          className="collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "nav-link custom-text active"
-                    : "nav-link custom-text"
-                }
-                to="/invoice"
-              >
-                Invoice
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "nav-link custom-text active"
-                    : "nav-link custom-text"
-                }
-                to="/NewProduct"
-              >
-                Add Product
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "nav-link custom-text active"
-                    : "nav-link custom-text"
-                }
-                to="/history"
-              >
-                Order History
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "nav-link custom-text active"
-                    : "nav-link custom-text"
-                }
-                to="/customer-data"
-              >
-                Data
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "nav-link custom-text active"
-                    : "nav-link custom-text"
-                }
-                to="/advance"
-              >
-                Setting
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <button
+              <Link
                 className="nav-link custom-text"
-                onClick={toggleTheme}
+                to="/menu"
+                onClick={closeNavbar}
               >
-                {isDarkMode ? "Light Mode" : "Dark Mode"}
-              </button>
+                Menu
+              </Link>
             </li>
             <li className="nav-item">
-              <button
+              <a
+                href="#"
                 className="nav-link custom-text"
-                onClick={() => setIsLogoutModalOpen(true)}
+                onClick={closeNavbar}
               >
-                Logout
-              </button>
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="#about"
+                className="nav-link custom-text"
+                onClick={closeNavbar}
+              >
+                About
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="#address"
+                className="nav-link custom-text"
+                onClick={closeNavbar}
+              >
+                Contact Us
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="#feedback"
+                className="nav-link custom-text"
+                onClick={closeNavbar}
+              >
+                Feedback
+              </a>
             </li>
           </ul>
         </div>

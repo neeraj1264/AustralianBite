@@ -63,12 +63,12 @@ const MyCarousel = () => {
   return (
     <>
         <Header/>
-        <div className="front-image">
+        {/* <div className="front-image">
   <img src="/img/outer2.jpg" alt="Delicious Food" />
   <Link to="/menu" className="menu-button">
     Visit Our Menu
   </Link>
-</div>
+</div> */}
 
     <Carousel activeIndex={index} onSelect={handleSelect} controls={false}>
     {items.map((item) => (
@@ -89,10 +89,8 @@ const MyCarousel = () => {
     </Carousel>
     <FaWhatsapp className='whatsapp-button' onClick={() => handleChatMsg()}/>
 <AboutUs/>
-{/* <div>
-      <h2>Find Us on Google Maps</h2>
+
       <GoogleMap/>
-    </div> */}
 <ContactForm/>
 <HomeFooter/>
     </>
@@ -100,4 +98,3 @@ const MyCarousel = () => {
 };
 
 export default MyCarousel;
- 

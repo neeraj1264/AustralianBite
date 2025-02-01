@@ -116,10 +116,10 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                   ? description.substring(0, 50) + "..."
                   : description}
                 {description.length > 50 && (
-                  <span style={{ color: "black", fontWeight: 500 }}>
-                    {" "}
-                    read more
-                  </span>
+                 <span style={{ color: "var(--bg)", fontWeight: 500 }}>
+                 {" "}
+                 read more
+               </span>
                 )}
               </>
             )}

@@ -16,6 +16,7 @@
   font-size: 32px;
   font-weight: bold;
   color: white;
+  padding-top: 4rem;
 }
 
 .contact-header span {
@@ -29,14 +30,14 @@
 }
 
 .contact-form-container {
-  margin-top: 40px;
+  margin: 4rem 0;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   background-color: var(--in);
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 17px 10px black;
 }
 
 .contact-form label {
@@ -51,7 +52,7 @@
   width: 100%;
   margin-top: 8px;
   padding: 12px;
-  background-color: #3b3b3b;
+  background-color: var(--out);
   color: white;
   border: 1px solid #555;
   border-radius: 8px;

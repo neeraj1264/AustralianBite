@@ -56,8 +56,8 @@ const ContactUs = () => {
 
   return (
     <section className="container">
-      <div className="contact-header">
-        <h2>
+      <div className="contact-header" id="contact">
+        <h2 id="feedback">
           Get in <span>Touch</span>
         </h2>
         <p>
