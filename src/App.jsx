@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './Layout';
 import Banner from './components/banner/Banner';
 import Pizza from './components/Pages/Pizza/Pizza';
@@ -11,14 +11,20 @@ import MenuLayout from './MenuLayout';
 import AddToHomeModal from './components/AddToHome/AddToHome';
 import { useEffect, useState } from 'react';
 import { HashLoader } from 'react-spinners';
+import AboutUs from './components/about/AboutUs';
+import GoogleMap from './components/map/GoogleMap';
+import Feedback from './components/ContactUs/Contact';
+
 function App() {
+  const location = useLocation();
+
   const [installPrompt, setInstallPrompt] = useState(null);
   const [Loading, SetLoading] = useState(true)
 
   useEffect(() => {
    setTimeout(() => {
     SetLoading(false)
-   }, 500);
+   }, 1000);
   }, []);
 
   const handleInstallClick = () => {
@@ -62,18 +68,25 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    // Scroll to top whenever the route changes
+    window.scrollTo(0, 0);
+  }, [location]);
+
   // Get the current route
   const currentRoute = window.location.pathname;
 
   return (
    <>
-        {Loading ? <HashLoader color="#d32e2e" style={{position: 'absolute', top: '50%', left: '50%'}}/> : (
+        {Loading ?(
+        <div className="lds-ripple"><div></div><div></div></div>
+        )  : (
  <Routes>
     <Route path="" element={<Layout />}>
       <Route index element={<MyCarousel/>} />
-      <Route path="Pizza" element={<Pizza />} />
-      <Route path="address" element={<Address />} />
-      <Route path="confirm" element={<ConfirmOrder />} />
+      <Route path="about" element={<AboutUs />} />
+      <Route path="feedback" element={<Feedback />} />
+      <Route path="address" element={<GoogleMap />} />
       {/* <Route path="Pasta" element={<Pasta />} />
       <Route path="Pizza" element={<Pizza />} />
       <Route path="Burger" element={<Burger />} /> */}

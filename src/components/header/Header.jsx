@@ -104,37 +104,33 @@ const Header = ({ headerName, setSearch, onClick }) => {
                 Home
               </Link>
             </li>
-            {location.pathname === "/" && (
-<>
             <li className="nav-item">
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="nav-link custom-text"
                 onClick={closeNavbar}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="#address"
+              <Link
+                to="/address"
                 className="nav-link custom-text"
                 onClick={closeNavbar}
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="#feedback"
+              <Link
+                to="/feedback"
                 className="nav-link custom-text"
                 onClick={closeNavbar}
               >
                 Feedback
-              </a>
+              </Link>
             </li>
-            </>
-           )}
           </ul>
         </div>
       </div>

@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./AboutUs.css"; // Import the external CSS
+import Header from "../header/Header";
+import HomeFooter from "../footer/HomeFooter";
 
 const AboutUs = () => {
+  const location = useLocation();
   return (
+    <>
+    {location.pathname === "/about" && <Header />}
     <section className="about-container">
       <div className="about-grid">
         {/* Image Section */}
@@ -31,6 +36,9 @@ const AboutUs = () => {
         </div>
       </div>
     </section>
+    {location.pathname === "/about" && <HomeFooter />}
+
+    </>
   );
 };
 

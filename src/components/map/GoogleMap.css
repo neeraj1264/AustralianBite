@@ -1,19 +1,40 @@
-.address{
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding-top: 4rem;
+.contact-heading{
+  margin: 4rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
+.contact-main{
+  margin: 1rem;
+  background: var(--out);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 17px 10px black;
+  ;
+}
+.contact{
+  display: flex;
+}
+.contact i{
+  color: var(--blue);
+  font-size: 2rem;
+  margin-right: 2rem;
+  margin-top: .5rem;
+}
+.contact span{
+  font-size: .8rem;
+}
+
 .highlight{
     color: var(--blue);
 }
 .map {
-    width: 92%;
+    width: 96%;
     max-width: 1000px; /* Adjust max width if needed */
-    margin: 20px auto;
+    margin: 38px auto;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0px 2px 17px 10px black;
+    /* box-shadow: 0px 2px 17px 10px black; */
   }
   
   .map iframe {
@@ -27,12 +48,6 @@
   @media (max-width: 768px) {
     .map iframe {
       height: 300px; /* Smaller height for mobile screens */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .map iframe {
-      height: 250px; /* Adjust height for very small screens */
     }
   }
   

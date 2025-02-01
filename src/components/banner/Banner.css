@@ -2,7 +2,7 @@
   bottom: -34px;
 }
 .carousel-indicators [data-bs-target] {
-background-color: black;
+background-color: whitesmoke;
 }
 .carousel-caption {
 bottom: -14px;

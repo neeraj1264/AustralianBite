@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import "./Contact.css";
+import { useLocation } from "react-router-dom";
+import Header from "../header/Header";
+import HomeFooter from "../footer/HomeFooter";
 
-const ContactUs = () => {
+const Feedback = () => {
   const [formData, setFormData] = useState({
     name: "",
     number: "",
     message: "",
   });
 
+      const location = useLocation();
+  
   const [submitting, setSubmitting] = useState(false);
   const [phoneNumberError, setPhoneNumberError] = useState("");
 
@@ -55,6 +60,10 @@ const ContactUs = () => {
   };
 
   return (
+    <>
+    
+    {location.pathname === "/feedback" && <Header />}
+
     <section className="container">
       <div className="contact-header" id="contact">
         <h2 id="feedback">
@@ -109,7 +118,11 @@ const ContactUs = () => {
         </form>
       </div>
     </section>
+
+    {location.pathname === "/feedback" && <HomeFooter />}
+
+    </>
   );
 };
 
-export default ContactUs;
+export default Feedback;
