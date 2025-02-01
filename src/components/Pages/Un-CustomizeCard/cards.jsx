@@ -159,11 +159,6 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
               className="modeldialog"
               show={show}
               onHide={handleClose}
-              style={{
-                position: "fixed",
-                bottom: "2px",
-                background: "white",
-              }}
             >
               <Modal.Header closeButton className="modalheader">
                 <Modal.Title>
@@ -177,14 +172,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                   </div>
                 </Modal.Title>
               </Modal.Header>
-              <Modal.Body
-                style={{
-                  height: "75vh",
-                  overflowY: "auto",
-                  scrollbarWidth: "thin",
-                  scrollbarColor: "transparent transparent",
-                }}
-              >
+                <Modal.Body className="modal-body">
                 <div
                   style={{
                     display: "flex",
@@ -236,7 +224,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                   >
                     <FaMinus />
                   </Button>
-                  <span style={{ margin: "0 0.5rem", color: "black" }}>
+                  <span style={{ margin: "0 0.5rem", color: "white" }}>
                     {quantity}
                   </span>
                   <Button

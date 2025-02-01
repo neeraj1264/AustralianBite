@@ -226,23 +226,11 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
                 className="modeldialog"
                 show={show}
                 onHide={handleClose}
-                style={{
-                  position: "fixed",
-                  bottom: "2px",
-                  background: "white",
-                }}
               >
                 <Modal.Header closeButton className="modalheader">
                   <Modal.Title>{name}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body
-                  style={{
-                    height: "75vh",
-                    overflowY: "auto",
-                    scrollbarWidth: "thin",
-                    scrollbarColor: "transparent transparent",
-                  }}
-                >
+                <Modal.Body className="modal-body">
                   <div
                     style={{
                       display: "flex",
@@ -306,7 +294,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
                     >
                       <FaMinus />
                     </Button>
-                    <span style={{ margin: "0 0.5rem", color: "black" }}>
+                    <span style={{ margin: "0 0.5rem", color: "white" }}>
                       {quantity}
                     </span>
                     <Button
@@ -331,11 +319,6 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
                 className="modeldialog"
                 show={show}
                 onHide={handleClose}
-                style={{
-                  position: "fixed",
-                  bottom: "2px",
-                  background: "white",
-                }}
               >
                 <Modal.Header closeButton className="modalheader">
                   <Modal.Title>
@@ -349,14 +332,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
                     </div>
                   </Modal.Title>
                 </Modal.Header>
-                <Modal.Body
-                  style={{
-                    height: "75vh",
-                    overflowY: "auto",
-                    scrollbarWidth: "thin",
-                    scrollbarColor: "transparent transparent",
-                  }}
-                >
+                <Modal.Body className="modal-body">
                   <div
                     style={{
                       display: "flex",
@@ -414,7 +390,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
                     >
                       <FaMinus />
                     </Button>
-                    <span style={{ margin: "0 0.5rem", color: "black" }}>
+                    <span style={{ margin: "0 0.5rem", color: "white" }}>
                       {quantity}
                     </span>
                     <Button

@@ -18,7 +18,7 @@ const categories = [
   { id: 14, name: "Naan", image: "/img/butternaan.jpeg", itemCount: 13 },
 ];
 
-function Category() {
+function Category({setShowCategory}) {
   const location = useLocation();
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -76,8 +76,10 @@ function Category() {
      <Link
      to={`#${encodeURIComponent(category.name)}`}
      key={category.id}
-     onClick={() => setActiveCategory(category.name)} // Update active category directly when clicked
-   >
+     onClick={() => {
+      setActiveCategory(category.name);
+      setTimeout(() => setShowCategory(false), 300); // Delay hiding menu
+    }}   >
      <h2
        className={`card-text ${
          activeCategory === category.name ? "active" : ""

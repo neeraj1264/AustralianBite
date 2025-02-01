@@ -3,6 +3,7 @@ import { Button, Modal, Table, Form } from "react-bootstrap";
 import { useCart } from "../../../ContextApi";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import "./Pizza.css";
+import { IoMdCloseCircle } from "react-icons/io";
 
 const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
   const { size1, size2, size3 } = size || {};
@@ -287,26 +288,15 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                 className="modeldialog"
                 show={show}
                 onHide={handleClose}
-                style={{
-                  position: "fixed",
-                  bottom: "2px",
-                  background: "white",
-                }}
               >
                 <Modal.Header closeButton className="modalheader">
                   <img
                     src={image}
                     alt={name}
-                    style={{
-                      maxWidth: "5rem",
-                      height: "4rem",
-                      margin: "0 10px 10px 0",
-                      borderRadius: "1rem",
-                    }}
                   />
                   <Modal.Title>{name}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="modal-body">
                   <h3>Select Size</h3>
 
                   <Table striped bordered hover>
@@ -403,7 +393,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     >
                       <FaMinus />
                     </Button>
-                    <span style={{ margin: "0 0.5rem", color: "black" }}>
+                    <span style={{ margin: "0 0.5rem", color: "white" }}>
                       {quantity}
                     </span>
                     <Button
@@ -428,11 +418,6 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                 className="modeldialog"
                 show={show}
                 onHide={handleClose}
-                style={{
-                  position: "fixed",
-                  bottom: "2px",
-                  background: "white",
-                }}
               >
                 <Modal.Header closeButton className="modalheader">
                   <Modal.Title>
@@ -452,6 +437,8 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     overflowY: "auto",
                     scrollbarWidth: "thin",
                     scrollbarColor: "transparent transparent",
+                    background: "var(--in)",
+                    color: "whitesmoke"
                   }}
                 >
                   <div
@@ -511,7 +498,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     >
                       <FaMinus />
                     </Button>
-                    <span style={{ margin: "0 0.5rem", color: "black" }}>
+                    <span style={{ margin: "0 0.5rem", color: "white" }}>
                       {quantity}
                     </span>
                     <Button

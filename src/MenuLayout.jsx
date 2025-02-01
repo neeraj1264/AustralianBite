@@ -71,7 +71,7 @@ const MenuLayout = () => {
         <div className="outer-card">
 
       {/* Conditional Rendering */}
-      {showCategory && <Category />}
+      {showCategory && <Category setShowCategory={setShowCategory} />}
 
       {/* Display Filtered Menu Items */}
      

@@ -21,6 +21,7 @@ body{
 .menu-item{
   background: var(--out);
   margin: 1rem .3rem;
+  border-radius: 1rem;
 }
 .product-card {
   display: flex;
