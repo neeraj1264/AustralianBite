@@ -16,6 +16,7 @@ import Cakes from './components/Pages/cakes/Cakes';
 import Naan from './components/Pages/Naan';
 import Juice from './components/Pages/Juice';
 import { IoMdCloseCircle } from "react-icons/io";
+import Header from './components/header/Header';
 
 const menuItems = [
   { name: 'Burger', component: <Burger /> },
@@ -53,7 +54,7 @@ const MenuLayout = () => {
 
   return (
     <>
-
+<Header/>
 <div className="menu-items">
         {filteredMenuItems.map((item, index) => (
           <div key={index} className="menu-item">

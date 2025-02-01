@@ -65,9 +65,9 @@ const Header = ({ headerName, setSearch, onClick }) => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top custom-navbar">
       <div className="container-fluid">
-        <a href="#" className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           Australian Bite
-        </a>
+        </Link>
         <button
           ref={toggleButtonRef}
           className="navbar-toggler"
@@ -96,14 +96,16 @@ const Header = ({ headerName, setSearch, onClick }) => {
               </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="nav-link custom-text"
                 onClick={closeNavbar}
               >
                 Home
-              </a>
+              </Link>
             </li>
+            {location.pathname === "/" && (
+<>
             <li className="nav-item">
               <a
                 href="#about"
@@ -131,6 +133,8 @@ const Header = ({ headerName, setSearch, onClick }) => {
                 Feedback
               </a>
             </li>
+            </>
+           )}
           </ul>
         </div>
       </div>

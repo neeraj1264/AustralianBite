@@ -18,7 +18,7 @@ const categories = [
   { id: 14, name: "Naan", image: "/img/butternaan.jpeg", itemCount: 13 },
 ];
 
-function Category({setShowCategory}) {
+function Category({ setShowCategory }) {
   const location = useLocation();
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -34,8 +34,9 @@ function Category({setShowCategory}) {
     const section = document.getElementById(sectionId);
 
     if (section) {
-      const offset =
-        section.offsetTop - parseFloat(getComputedStyle(section).marginTop);
+      const headerHeight = document.querySelector("header")?.offsetHeight || 60; // Adjust header height dynamically
+      const offset = section.offsetTop - headerHeight - 10; // Add extra margin
+
       window.scrollTo({
         top: offset,
         behavior: "smooth",
@@ -56,7 +57,7 @@ function Category({setShowCategory}) {
       },
       { threshold: 0.5 }
     );
-  
+
     // Observe all sections
     categories.forEach((category) => {
       const section = document.getElementById(category.name);
@@ -64,40 +65,40 @@ function Category({setShowCategory}) {
         observer.observe(section);
       }
     });
-  
+
     return () => {
       observer.disconnect();
     };
-  }, []);  
+  }, []);
 
   return (
     <div className="outer-card">
-    {categories.map((category) => (
-     <Link
-     to={`#${encodeURIComponent(category.name)}`}
-     key={category.id}
-     onClick={() => {
-      setActiveCategory(category.name);
-      setTimeout(() => setShowCategory(false), 300); // Delay hiding menu
-    }}   >
-     <h2
-       className={`card-text ${
-         activeCategory === category.name ? "active" : ""
-       }`}
-     >
-       {category.name}
-     </h2>
-     <h2
-       className={`item-count ${
-         activeCategory === category.name ? "active" : ""
-       }`}
-     >
-       {category.itemCount}
-     </h2>
-   </Link>   
-    ))}
-  </div>
-  
+      {categories.map((category) => (
+        <Link
+          to={`#${encodeURIComponent(category.name)}`}
+          key={category.id}
+          onClick={() => {
+            setActiveCategory(category.name);
+            setTimeout(() => setShowCategory(false), 300); // Delay hiding menu
+          }}
+        >
+          <h2
+            className={`card-text ${
+              activeCategory === category.name ? "active" : ""
+            }`}
+          >
+            {category.name}
+          </h2>
+          <h2
+            className={`item-count ${
+              activeCategory === category.name ? "active" : ""
+            }`}
+          >
+            {category.itemCount}
+          </h2>
+        </Link>
+      ))}
+    </div>
   );
 }
 
