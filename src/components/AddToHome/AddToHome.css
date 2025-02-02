@@ -33,7 +33,7 @@
   top: -2rem;
   left: 42%;
   border-radius: 50%;
-  background-color: var(--blue);
+  background-color: var(--out);
   /* border: 2px solid red; */
   display: flex;
   justify-content: center;
