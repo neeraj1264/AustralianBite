@@ -1,8 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Team.css"
+import { useLocation } from "react-router-dom";
+import Header from "../header/Header";
+import HomeFooter from "../footer/HomeFooter";
 
 const Team = () => {
+
+  const location = useLocation();
+
   const teamMembers = [
     { img: "./img/team-1.jpg", name: "Full Name", designation: "Designation" },
     { img: "./img/team-2.jpg", name: "Full Name", designation: "Designation" },
@@ -11,6 +17,9 @@ const Team = () => {
   ];
 
   return (
+<>
+
+    {location.pathname === "/team" && <Header />}
     <div className="container-xxl pt-5 pb-3">
       <div className="container" id="team">
         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -49,6 +58,8 @@ const Team = () => {
         </div>
       </div>
     </div>
+    {location.pathname === "/team" && <HomeFooter />}
+    </>
   );
 };
 

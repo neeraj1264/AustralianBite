@@ -9,8 +9,7 @@
   background: var(--out);
   padding: 1rem;
   border-radius: 1rem;
-  box-shadow: 0px 2px 17px black;
-  ;
+  box-shadow: 0 0 45px rgba(0, 0, 0, .08);
 }
 .contact{
   display: flex;

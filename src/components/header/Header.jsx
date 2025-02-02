@@ -75,6 +75,15 @@ const Header = ({ headerName, setSearch, onClick }) => {
             </li>
             <li className="nav-item">
               <Link
+                to="/team"
+                className="nav-link custom-text"
+                onClick={closeNavbar}
+              >
+                Our Team
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
                 to="/feedback"
                 className="nav-link custom-text"
                 onClick={closeNavbar}

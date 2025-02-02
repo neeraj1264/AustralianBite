@@ -27,9 +27,10 @@ const HomeFooter = () => {
       <div className="home-footer-container">
         <div className="home-footer-section">
           <h3>Contact Us</h3>
-          <p>Kurukshetra Road, Pehowa</p>
-          <p>+91 1234567890</p>
-          <p>info@example.com</p>
+          
+          <p><span><i className="fa fa-home"></i></span>Kurukshetra Road, Pehowa</p>
+          <p><span><i className="fa fa-phone"></i></span>+91 1234567890</p>
+          <p><span><i className="fa fa-envelope"></i></span>info@example.com</p>
         </div>
 
         <div className="home-footer-section">

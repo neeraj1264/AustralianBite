@@ -44,6 +44,9 @@
     font-size: 17px;
     margin-bottom: 8px;
   }
+  .home-footer-section i {
+    margin-right: 1rem;
+  }
   
   .home-footer-section input {
     width: 100%;

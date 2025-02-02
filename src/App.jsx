@@ -14,6 +14,7 @@ import { HashLoader } from 'react-spinners';
 import GoogleMap from './components/map/GoogleMap';
 import Feedback from './components/ContactUs/Contact';
 import About from './components/about/About';
+import Team from './components/team/Team';
 
 function App() {
   const location = useLocation();
@@ -91,6 +92,7 @@ function App() {
       <Route path="Pizza" element={<Pizza />} />
       <Route path="Burger" element={<Burger />} /> */}
       <Route path="cart" element={<Cart />} />
+      <Route path="team" element={<Team />} />
       <Route path="menu" element={<MenuLayout/>} />
       <Route path="MyCarousel" element={<MyCarousel />} />
     </Route>
