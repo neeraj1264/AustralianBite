@@ -62,7 +62,7 @@ footer {
   font-weight: 800;
   /* font-size: .8rem; */
   background: white;
-  color: var(--blue) !important;
+  color: var(--yellow) !important;
   padding: .2rem .5rem;
   border-radius: .5rem;
 }
@@ -70,7 +70,7 @@ footer {
   font-weight: 800;
     font-size: 1rem;
     background: white;
-    color: var(--blue) !important;
+    color: var(--yellow) !important;
     padding: .2rem 1.3rem;
     border-radius: .5rem;
 }

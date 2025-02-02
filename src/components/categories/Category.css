@@ -5,5 +5,5 @@
 
 .card-text.active,
 .item-count.active {
-  color: var(--blue); /* Color for active state */
+  color: var(--yellow); /* Color for active state */
 }

@@ -4,9 +4,9 @@ a {
 :root {
   --bg: #d32e2e;
   --out: #2d3748;
-  --in: #1a202c;
+  --in: #0F172B;
   --light: #edf2f7;
-  --blue: #3B82F6;
+  --yellow: #FEA116;
 }
 /* .main-content {
   margin-bottom: 4rem;
@@ -66,7 +66,7 @@ body{
   display: inline-block;
   font-size: 1rem;
   font-weight: 800;
-  color: var(--blue);
+  color: var(--yellow);
 }
 .add-btn button {
   color: var(--in);
@@ -79,8 +79,8 @@ body{
   border: none;
 }
 .quantity-update {
-  border: 1px solid var(--blue);
-  background: var(--blue);
+  border: 1px solid var(--yellow);
+  background: var(--yellow);
   width: fit-content;
   align-items: center;
   margin: -1rem auto 0;
@@ -102,7 +102,7 @@ body{
 /* -------------------------------------Header Css------------------------------------ */
 
 .header {
-  background-color: var(--blue);
+  background-color: var(--yellow);
   border-radius: 0 0 1rem 1rem;
   color: whitesmoke;
   padding-left: 1rem !important;
@@ -117,7 +117,7 @@ body{
   text-align: center;
   font-weight: 700;
   background-color: whitesmoke;
-  color: var(--blue);
+  color: var(--yellow);
   padding: 0.1rem 0.5rem;
   border-radius: 1rem;
   border: 1px solid darkgoldenrod;
@@ -153,7 +153,7 @@ body{
   right: 10px;
   bottom: 2rem;
   color: white;
-  background: var(--blue);
+  background: var(--yellow);
   padding: 0.5rem;
   border-radius: 1rem;
   z-index: 1000; /* Ensure it stays on top */
@@ -166,8 +166,8 @@ body{
   /* margin: auto; */
   padding: 8px 12px;
   /* margin-left: 5%; */
-  border: 2px solid var(--blue);
-  box-shadow: 2px 2px 6px 2px var(--blue);
+  border: 2px solid var(--yellow);
+  box-shadow: 2px 2px 6px 2px var(--yellow);
   border-radius: 4px;
   font-size: 14px;
 }
@@ -252,7 +252,7 @@ body{
   font-weight: 800;
   padding: 0.5rem;
   font-size: 1rem;
-  color: var(--blue);
+  color: var(--yellow);
 }
 
 
@@ -332,7 +332,7 @@ body{
   font-size: 1.3rem;
   position: fixed;
   top: 0;
-  color: var(--blue);
+  color: var(--yellow);
 }
 
 
@@ -348,7 +348,7 @@ body{
     top: 44%;
     left: 38%;
     transform: translate(-50%, -50%);
-    color: var(--blue);
+    color: var(--yellow);
 }
 .lds-ripple div {
   position: absolute;

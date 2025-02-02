@@ -1,64 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import "./Header.css";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = ({ headerName, setSearch, onClick }) => {
-  const [isSearchVisible, setIsSearchVisible] = useState(false); // Track visibility of search
-  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false); // Track logout modal visibility
-  const [isDarkMode, setIsDarkMode] = useState(false); // Theme state
   const toggleButtonRef = useRef(null); // Ref for the toggle button
-  const navigate = useNavigate();
-  const location = useLocation();
+
 
   const closeNavbar = () => {
     if (toggleButtonRef.current) {
       toggleButtonRef.current.classList.remove("show"); // Remove the Bootstrap 'show' class
-    }
-  };
-  // Load saved theme from localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-      document.body.classList.add("dark-theme");
-    }
-  }, []);
-
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value); // Update search state
-  };
-
-  const toggleSearch = () => {
-    setIsSearchVisible((prev) => !prev); // Toggle visibility
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      toggleSearch();
-
-      if (toggleButtonRef.current) {
-        toggleButtonRef.current.click(); // Trigger the button click programmatically
-      }
-    }
-  };
-
-  const handleLogout = () => {
-    // Remove userBaseUrl from local storage
-    localStorage.removeItem("userBaseUrl");
-    localStorage.removeItem("advancedFeature");
-    window.location.reload();
-  };
-
-  // Toggle theme between light and dark mode
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
-    if (isDarkMode) {
-      document.body.classList.remove("dark-theme");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.body.classList.add("dark-theme");
-      localStorage.setItem("theme", "dark");
     }
   };
 
@@ -66,6 +16,7 @@ const Header = ({ headerName, setSearch, onClick }) => {
     <nav className="navbar navbar-expand-lg fixed-top custom-navbar">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
+        <i className="fa fa-utensils me-2"></i>
           Australian Bite
         </Link>
         <button
@@ -134,30 +85,6 @@ const Header = ({ headerName, setSearch, onClick }) => {
           </ul>
         </div>
       </div>
-      {/* Logout Confirmation Modal */}
-      {isLogoutModalOpen && (
-        <div className="custom-modal-overlay">
-          <div className="custom-modal-content">
-            <p className="custom-modal-message">
-              Are you sure you want to logout?
-            </p>
-            <div className="custom-modal-actions">
-              <button
-                className="custom-modal-button cancel-button"
-                onClick={() => setIsLogoutModalOpen(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="custom-modal-button confirm-button"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

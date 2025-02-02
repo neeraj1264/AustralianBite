@@ -10,27 +10,27 @@ const GoogleMap = () => {
     <>
       {location.pathname === "/address" && <Header />}
 
-      <div className="contact-heading">
+      <div className="contact-heading" id="contact">
         Contact <span className="highlight">Us</span>
       </div>
 
       <div className="contact-main">
         <div className="contact">
-          <i class="fa fa-home"></i>
+          <i className="fa fa-home"></i>
           <span>
             <h5>Australian Bite</h5>
             <p>Pehowa, Haryana, Pincode: 136128</p>
           </span>
         </div>
         <div className="contact">
-          <i class="fa fa-phone"></i>
+          <i className="fa fa-phone"></i>
           <span>
             <h5>+91 12345-67890</h5>
             <p>Monday to Sunday, 10AM to 10PM</p>
           </span>
         </div>
         <div className="contact">
-          <i class="fa fa-envelope"></i>
+          <i className="fa fa-envelope"></i>
           <span>
             <h5>xyz@gmail.com</h5>
             <p>Email us your query</p>

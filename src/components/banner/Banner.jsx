@@ -3,11 +3,14 @@ import { Carousel } from 'react-bootstrap';
 import './Banner.css'
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
-import AboutUs from '../about/AboutUs';
 import ContactForm from '../ContactUs/Contact';
 import { FaWhatsapp } from "react-icons/fa";
 import HomeFooter from '../footer/HomeFooter';
 import GoogleMap from '../map/GoogleMap';
+import Hero from '../hero/Hero';
+import About from '../about/About';
+import Services from '../service/Services';
+import Team from '../team/Team';
 
 const items = [
   { id: 1,  imageUrl: '/img/burger.jpg',      title: 'Delicious Burger',   target: 'Burger'   , description: 'Hot Pattie, fresh veggies, and savory sauces in a perfect bun.' },
@@ -63,6 +66,10 @@ const MyCarousel = () => {
   return (
     <>
         <Header/>
+        <Hero/>
+        <Services/>
+        <About/>
+        <Team/>
         {/* <div className="front-image">
   <img src="/img/outer2.jpg" alt="Delicious Food" />
   <Link to="/menu" className="menu-button">
@@ -70,7 +77,7 @@ const MyCarousel = () => {
   </Link>
 </div> */}
 
-    <Carousel activeIndex={index} onSelect={handleSelect} controls={false}>
+    {/* <Carousel activeIndex={index} onSelect={handleSelect} controls={false}>
     {items.map((item) => (
         <Carousel.Item key={item.id}>
             <div className="carousel-inner">
@@ -78,17 +85,12 @@ const MyCarousel = () => {
       <Link
        to={`/menu`}>
           <img className="d-block" src={item.imageUrl} alt={item.title} />
-          {/* <Carousel.Caption>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </Carousel.Caption> */}
           </Link>
           </div>
         </Carousel.Item>
       ))}
-    </Carousel>
+    </Carousel> */}
     <FaWhatsapp className='whatsapp-button' onClick={() => handleChatMsg()}/>
-<AboutUs/>
 
       <GoogleMap/>
 <ContactForm/>

@@ -41,8 +41,8 @@ const HomeFooter = () => {
               target="_blank"
               className="social-icon fb"
             >
-              <i className="fa fa-facebook"></i>
-              <span>
+<i className="fab fa-facebook"></i>
+<span>
               Facebook
               </span>
             </Link>
@@ -53,7 +53,7 @@ const HomeFooter = () => {
               target="_blank"
               className="social-icon twitter"
             >
-              <i className="fa fa-twitter"></i>
+              <i className="fab fa-twitter"></i>
               <span>
               Twitter
               </span>
@@ -65,7 +65,7 @@ const HomeFooter = () => {
               target="_blank"
               className="social-icon insta"
             >
-              <i className="fa fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
               <span>
               Instagram
               </span>
@@ -77,7 +77,7 @@ const HomeFooter = () => {
               target="_blank"
               className="social-icon linkedin"
             >
-              <i className="fa fa-whatsapp"></i>
+              <i className="fab fa-whatsapp"></i>
               <span>
               Whatsapp
               </span>
@@ -89,7 +89,7 @@ const HomeFooter = () => {
               target="_blank"
               className="social-icon linkedin"
             >
-              <i className="fa fa-linkedin"></i>
+              <i className="fab fa-linkedin"></i>
               <span>
               Linkedin
               </span>

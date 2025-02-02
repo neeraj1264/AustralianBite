@@ -235,7 +235,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
               <span
                 style={{
                   marginLeft: ".5rem",
-                  color: "var(--blue)",
+                  color: "var(--yellow)",
                 }}
               >
                 {(((mrp - price) / mrp) * 100).toFixed(0)}% off
@@ -245,7 +245,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
               <span
                 style={{
                   marginLeft: ".5rem",
-                  color: "var(--blue)",
+                  color: "var(--yellow)",
                 }}
               >
                 {(((mrp - priceR || price) / mrp) * 100).toFixed(0)}% off
@@ -388,7 +388,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                   <div className="quantity-update">
                     <Button
                       variant="contained"
-                      style={{ color: "var(--blue)" }}
+                      style={{ color: "var(--yellow)" }}
                       onClick={handleDecrement}
                     >
                       <FaMinus />
@@ -398,7 +398,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     </span>
                     <Button
                       variant="contained"
-                      style={{ color: "var(--blue)", border: "none" }}
+                      style={{ color: "var(--yellow)", border: "none" }}
                       onClick={handleIncrement}
                     >
                       <FaPlus />
@@ -480,7 +480,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     <span
                       style={{
                         marginLeft: ".5rem",
-                        color: "var(--blue)",
+                        color: "var(--yellow)",
                       }}
                     >
                       {(((mrp - price) / mrp) * 100).toFixed(0)}% off
@@ -493,7 +493,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                   <div className="quantity-update">
                     <Button
                       variant="contained"
-                      style={{ color: "var(--blue)" }}
+                      style={{ color: "var(--yellow)" }}
                       onClick={handleDecrement}
                     >
                       <FaMinus />
@@ -503,7 +503,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     </span>
                     <Button
                       variant="contained"
-                      style={{ color: "var(--blue)" }}
+                      style={{ color: "var(--yellow)" }}
                       onClick={handleIncrement}
                     >
                       <FaPlus />

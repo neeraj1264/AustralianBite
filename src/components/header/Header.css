@@ -1,7 +1,7 @@
 .custom-navbar {
   padding: 0;
   border-radius: 0 0 1rem 1rem;
-  background-color: var(--in);
+  background-color: #0F172B;
 }
 
 .custom-text {
@@ -10,13 +10,13 @@
 
 .custom-navbar .navbar-toggler,
 .custom-navbar .navbar-toggler-icon {
-  border-color: whitesmoke;
+  /* border-color: whitesmoke; */
   color: var(--out);
   font-size: 1rem;
 }
 
 .custom-navbar .navbar-brand {
-  color: whitesmoke !important; /* Custom brand color */
+  color: #FEA116 !important; /* Custom brand color */
   margin: 0;
   font-weight: bold;
 }

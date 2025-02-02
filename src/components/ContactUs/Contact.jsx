@@ -65,8 +65,8 @@ const Feedback = () => {
     {location.pathname === "/feedback" && <Header />}
 
     <section className="container">
-      <div className="contact-header" id="contact">
-        <h2 id="feedback">
+      <div className="contact-header" id="feedback">
+        <h2>
           Get in <span>Touch</span>
         </h2>
         <p>

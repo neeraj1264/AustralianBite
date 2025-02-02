@@ -25,7 +25,7 @@
 .quantity-update{
   background-color: var(--out);
   border-radius: .7rem;
-  color: var(--blue);
+  color: var(--yellow);
 }
 .table-striped>tbody>tr:nth-of-type(odd)>*{
   background: var(--out);
@@ -40,7 +40,7 @@
 }
 
 .addtocart{
-    background-color: var(--blue);
+    background-color: var(--yellow);
     color: white;
     border: none;
 }
@@ -61,12 +61,12 @@
   border-radius: 1rem;
 }
 input[type="radio"] {
-   accent-color: var(--blue);
+   accent-color: var(--yellow);
    border: 1px solid red;
   }
   .form-check-input:checked {
-    background-color: var(--blue);
-    border-color: var(--blue);
+    background-color: var(--yellow);
+    border-color: var(--yellow);
   }
   .form-check-input{
     border: 2px solid grey;

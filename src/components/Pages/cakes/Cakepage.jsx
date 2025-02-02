@@ -162,7 +162,7 @@ const CakeCard = ({ id, name, description, price, image, mrp, size }) => {
               <span
                 style={{
                   marginLeft: ".5rem",
-                  color: "var(--blue)",
+                  color: "var(--yellow)",
                 }}
               >
                 {(((mrp - price) / mrp) * 100).toFixed(0)}% off
@@ -172,7 +172,7 @@ const CakeCard = ({ id, name, description, price, image, mrp, size }) => {
               <span
                 style={{
                   marginLeft: ".5rem",
-                  color: "var(--blue)",
+                  color: "var(--yellow)",
                 }}
               >
                 {(((mrp - cake1 || price) / mrp) * 100).toFixed(0)}% off
@@ -307,7 +307,7 @@ const CakeCard = ({ id, name, description, price, image, mrp, size }) => {
                   <div className="quantity-update">
                     <Button
                       variant="contained"
-                      style={{ color: "var(--blue)" }}
+                      style={{ color: "var(--yellow)" }}
                       onClick={handleDecrement}
                     >
                       <FaMinus />
@@ -317,7 +317,7 @@ const CakeCard = ({ id, name, description, price, image, mrp, size }) => {
                     </span>
                     <Button
                       variant="contained"
-                      style={{ color: "var(--blue)" }}
+                      style={{ color: "var(--yellow)" }}
                       onClick={handleIncrement}
                     >
                       <FaPlus />

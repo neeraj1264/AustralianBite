@@ -11,9 +11,9 @@ import MenuLayout from './MenuLayout';
 import AddToHomeModal from './components/AddToHome/AddToHome';
 import { useEffect, useState } from 'react';
 import { HashLoader } from 'react-spinners';
-import AboutUs from './components/about/AboutUs';
 import GoogleMap from './components/map/GoogleMap';
 import Feedback from './components/ContactUs/Contact';
+import About from './components/about/About';
 
 function App() {
   const location = useLocation();
@@ -84,7 +84,7 @@ function App() {
  <Routes>
     <Route path="" element={<Layout />}>
       <Route index element={<MyCarousel/>} />
-      <Route path="about" element={<AboutUs />} />
+      <Route path="about" element={<About />} />
       <Route path="feedback" element={<Feedback />} />
       <Route path="address" element={<GoogleMap />} />
       {/* <Route path="Pasta" element={<Pasta />} />

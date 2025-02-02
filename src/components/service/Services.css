@@ -1,0 +1,17 @@
+.service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+.fa-3x{
+    color: #FEA116 !important;
+}
+.p4{
+    box-shadow: 2px 2px 2px 2px wheat;
+}
+.service-item h5{
+    font-weight: 800;
+    color: white;
+}
+.service-item p{
+    color: grey;
+}
