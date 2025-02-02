@@ -76,7 +76,7 @@ const MyCarousel = () => {
             <div className="carousel-inner">
 
       <Link
-       to={`/menu#${encodeURIComponent(item.target)}`}>
+       to={`/menu`}>
           <img className="d-block" src={item.imageUrl} alt={item.title} />
           {/* <Carousel.Caption>
             <h3>{item.title}</h3>

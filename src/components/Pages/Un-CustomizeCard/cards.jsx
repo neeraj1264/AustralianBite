@@ -168,7 +168,7 @@ const Cards = ({ id, name, description, price, image, mrp }) => {
                       fontWeight: "700",
                     }}
                   >
-                    Foodies Hub
+                    Australian Bite
                   </div>
                 </Modal.Title>
               </Modal.Header>

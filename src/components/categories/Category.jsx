@@ -77,10 +77,12 @@ function Category({ setShowCategory }) {
         <Link
           to={`#${encodeURIComponent(category.name)}`}
           key={category.id}
-          onClick={() => {
-            setActiveCategory(category.name);
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection(category.name); // Ensure smooth scrolling first
             setTimeout(() => setShowCategory(false), 300); // Delay hiding menu
           }}
+          
         >
           <h2
             className={`card-text ${

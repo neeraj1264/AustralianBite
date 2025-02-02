@@ -427,7 +427,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                         fontWeight: "700",
                       }}
                     >
-                      Foodies Hub
+                      Australian Bite
                     </div>
                   </Modal.Title>
                 </Modal.Header>
