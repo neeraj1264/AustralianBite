@@ -11,6 +11,10 @@ const Hero = () => {
             <h1 className="display-3 text-white animated slideInLeft">
               Enjoy Our<br />Delicious Meal
             </h1>
+            <p class="text-white animated slideInLeft mb-4 pb-2">
+  Indulge in a world of flavors with our handcrafted meals. Fresh ingredients, bold flavors, and unforgettable dining experiences await you!
+</p>
+
             <Link to="/menu" className="bttn py-sm-3 px-sm-5 me-3 animated slideInLeft">
               View Our Menu
             </Link>

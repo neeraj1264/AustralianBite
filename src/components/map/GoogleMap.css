@@ -6,10 +6,10 @@
 }
 .contact-main{
   margin: 1rem;
-  background: var(--out);
+  background: var(--in);
   padding: 1rem;
   border-radius: 1rem;
-  box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+  box-shadow: 0 0 45px var(--in);
 }
 .contact{
   display: flex;

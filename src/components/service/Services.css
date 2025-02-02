@@ -1,6 +1,7 @@
 .service-item {
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    box-shadow: 0 0 45px var(--in);
     transition: .5s;
+    background: var(--in);
 }
 .fa-3x{
     color: #FEA116 !important;
@@ -15,3 +16,17 @@
 .service-item p{
     color: grey;
 }
+
+/* Initially hidden */
+.opacity-0 {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  
+  /* Fade-in and slide-up animation */
+  .animate-fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  

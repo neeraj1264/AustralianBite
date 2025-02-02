@@ -4,6 +4,7 @@ import "./Team.css"
 import { useLocation } from "react-router-dom";
 import Header from "../header/Header";
 import HomeFooter from "../footer/HomeFooter";
+import { useInView } from "react-intersection-observer";
 
 const Team = () => {
 
@@ -29,12 +30,18 @@ const Team = () => {
           <h1 className="mb-5">Our Master Chefs</h1>
         </div>
         <div className="row g-4">
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="col-lg-3 col-md-6 wow fadeInUp"
-              data-wow-delay={`${0.2 * index}s`}
-            >
+        {teamMembers.map((member, index) => {
+              const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+              return (
+                <div
+                  ref={ref}
+                  key={index}
+                  className={`col-lg-3 col-md-6 team-item-container ${
+                    inView ? "animate-fade-in-up" : "opacity-0"
+                  }`}
+                  data-wow-delay={`${0.2 * index}s`}
+                >
               <div className="team-item text-center rounded overflow-hidden">
                 <div className="rounded-circle overflow-hidden m-4">
                   <img className="img-fluid" src={member.img} alt={member.name} />
@@ -54,10 +61,11 @@ const Team = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
+  </div>
     {location.pathname === "/team" && <HomeFooter />}
     </>
   );
