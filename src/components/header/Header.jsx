@@ -4,50 +4,29 @@ import { Link } from "react-router-dom";
 
 const Header = ({ headerName, setSearch, onClick }) => {
   const toggleButtonRef = useRef(null); // Ref for the toggle button
+  const [isDarkMode, setIsDarkMode] = useState(false); // Theme state
 
-  // const [darkTheme, setDarkTheme] = useState(() => {
-  //   return localStorage.getItem("theme") === "dark"; // Check local storage
-  // });
 
-  // const toggleTheme = () => {
-  //   const newTheme = !darkTheme;
-  //   setDarkTheme(newTheme);
-  //   localStorage.setItem("theme", newTheme ? "dark" : "light");
-  
-  //   if (newTheme) {
-  //     document.documentElement.style.setProperty("--bg-color", "#0F172B");
-  //     document.documentElement.style.setProperty("--in", "#edf2f7"); // Light color in dark mode
-  //     document.documentElement.style.setProperty("--light", "#0F172B"); // Dark color in dark mode
-  //   } else {
-  //     document.documentElement.style.setProperty("--bg-color", "#edf2f7");
-  //     document.documentElement.style.setProperty("--in", "#0F172B"); // Dark color in light mode
-  //     document.documentElement.style.setProperty("--light", "#edf2f7"); // Light color in light mode
-  //   }
-  // };
-  
-  // // Apply theme on page load
-  // useEffect(() => {
-  //   if (darkTheme) {
-  //     document.documentElement.style.setProperty("--bg-color", "#0F172B");
-  //     document.documentElement.style.setProperty("--out", "#edf2f7");
-  //     document.documentElement.style.setProperty("--light", "#0F172B");
-  //   } else {
-  //     document.documentElement.style.setProperty("--bg-color", "#edf2f7");
-  //     document.documentElement.style.setProperty("--out", "#0F172B");
-  //     document.documentElement.style.setProperty("--light", "#edf2f7");
-  //   }
-  // }, [darkTheme]);
-  
+  // Function to toggle theme
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => !prev);
+    if (isDarkMode) {
+      document.body.classList.remove("dark-theme");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.body.classList.add("dark-theme");
+      localStorage.setItem("theme", "dark");
+    }
+  };
 
-  //     // Apply theme on page load
-  // useEffect(() => {
-  //   if (darkTheme) {
-  //     document.documentElement.style.setProperty("--bg-color", "#0F172B");
-  //   } else {
-  //     document.documentElement.style.setProperty("--bg-color", "#edf2f7");
-  //   }
-  // }, [darkTheme]);
-
+  // Load saved theme from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setIsDarkMode(true);
+      document.body.classList.add("dark-theme");
+    }
+  }, []);
 
   const closeNavbar = () => {
     if (toggleButtonRef.current) {
@@ -134,13 +113,13 @@ const Header = ({ headerName, setSearch, onClick }) => {
                 Feedback
               </Link>
             </li>
+            <li>
+        {/* Dark Mode Toggle Button */}
+        <button className="theme-toggle-btn" onClick={toggleTheme}>
+            {!isDarkMode ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </button>
+            </li>
           </ul>
-           {/* Dark Mode Toggle Button */}
-           {/* <button className="theme-toggle-btn"
-            // onClick={toggleTheme}
-            >
-            {darkTheme ? "🌙 Dark Mode" : "☀️ Light Mode"}
-          </button> */}
         </div>
       </div>
     </nav>

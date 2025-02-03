@@ -15,6 +15,10 @@ a {
 body{
   background-color: var(--out) !important;
 }
+body.dark-theme {
+  background-color: var(--light) !important; /* Dark background */
+  color: black !important;  /* Light text */
+}
 .menu-items{
   background: var(--in);
 }
