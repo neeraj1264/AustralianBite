@@ -1,9 +1,52 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef , useState} from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ headerName, setSearch, onClick }) => {
   const toggleButtonRef = useRef(null); // Ref for the toggle button
+
+  // const [darkTheme, setDarkTheme] = useState(() => {
+  //   return localStorage.getItem("theme") === "dark"; // Check local storage
+  // });
+
+  // const toggleTheme = () => {
+  //   const newTheme = !darkTheme;
+  //   setDarkTheme(newTheme);
+  //   localStorage.setItem("theme", newTheme ? "dark" : "light");
+  
+  //   if (newTheme) {
+  //     document.documentElement.style.setProperty("--bg-color", "#0F172B");
+  //     document.documentElement.style.setProperty("--in", "#edf2f7"); // Light color in dark mode
+  //     document.documentElement.style.setProperty("--light", "#0F172B"); // Dark color in dark mode
+  //   } else {
+  //     document.documentElement.style.setProperty("--bg-color", "#edf2f7");
+  //     document.documentElement.style.setProperty("--in", "#0F172B"); // Dark color in light mode
+  //     document.documentElement.style.setProperty("--light", "#edf2f7"); // Light color in light mode
+  //   }
+  // };
+  
+  // // Apply theme on page load
+  // useEffect(() => {
+  //   if (darkTheme) {
+  //     document.documentElement.style.setProperty("--bg-color", "#0F172B");
+  //     document.documentElement.style.setProperty("--out", "#edf2f7");
+  //     document.documentElement.style.setProperty("--light", "#0F172B");
+  //   } else {
+  //     document.documentElement.style.setProperty("--bg-color", "#edf2f7");
+  //     document.documentElement.style.setProperty("--out", "#0F172B");
+  //     document.documentElement.style.setProperty("--light", "#edf2f7");
+  //   }
+  // }, [darkTheme]);
+  
+
+  //     // Apply theme on page load
+  // useEffect(() => {
+  //   if (darkTheme) {
+  //     document.documentElement.style.setProperty("--bg-color", "#0F172B");
+  //   } else {
+  //     document.documentElement.style.setProperty("--bg-color", "#edf2f7");
+  //   }
+  // }, [darkTheme]);
 
 
   const closeNavbar = () => {
@@ -92,6 +135,12 @@ const Header = ({ headerName, setSearch, onClick }) => {
               </Link>
             </li>
           </ul>
+           {/* Dark Mode Toggle Button */}
+           {/* <button className="theme-toggle-btn"
+            // onClick={toggleTheme}
+            >
+            {darkTheme ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </button> */}
         </div>
       </div>
     </nav>
