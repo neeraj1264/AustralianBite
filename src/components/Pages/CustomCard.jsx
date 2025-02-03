@@ -53,14 +53,14 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
 
   const handleAddToCart = () => {
     if (hasPriceOptions && selectedSize === "") {
-    alert("Please select a size.");
-    return;
-  }
+      alert("Please select a size.");
+      return;
+    }
 
     const product = {
       id,
       name: selectedSize ? `${name} [${selectedSize}]` : name,
-      price: selectedSizePrice ?? price, 
+      price: selectedSizePrice ?? price,
       quantity,
       image,
       mrp,
@@ -88,7 +88,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
   };
 
   const handleAddBtnClick = () => {
-      handleShow();
+    handleShow();
   };
 
   const handleRemoveToCart = () => {
@@ -130,7 +130,9 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
     typeof price === "object" && "priceH" in price && "priceF" in price;
 
   const getTotalPrice = () => {
-    let total = selectedSizePrice ? selectedSizePrice * quantity : price * quantity;
+    let total = selectedSizePrice
+      ? selectedSizePrice * quantity
+      : price * quantity;
     return total;
   };
 
@@ -140,7 +142,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
       <div className="product-card">
         <div className="product-details">
           <h3 style={{ fontSize: "1rem", fontWeight: 700 }}>
-          {name} {size1 ? `[${size1}]` : ""}
+            {name} {size1 ? `[${size1}]` : ""}
           </h3>
           <p style={{ fontWeight: "700" }}>
             ₹{priceH || price}
@@ -222,11 +224,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
               </button>
             )}
             {hasPriceOptions && (
-              <Modal
-                className="modeldialog"
-                show={show}
-                onHide={handleClose}
-              >
+              <Modal className="modeldialog" show={show} onHide={handleClose}>
                 <Modal.Header closeButton className="modalheader">
                   <Modal.Title>{name}</Modal.Title>
                 </Modal.Header>
@@ -249,7 +247,12 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
                     />
                   </div>
 
-                  <Table striped bordered hover>
+                  <Table
+                    striped
+                    bordered
+                    hover
+                    style={{ marginBottom: "10rem" }}
+                  >
                     <thead>
                       <tr>
                         <th>Size</th>
@@ -315,11 +318,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
               </Modal>
             )}
             {!hasPriceOptions && (
-              <Modal
-                className="modeldialog"
-                show={show}
-                onHide={handleClose}
-              >
+              <Modal className="modeldialog" show={show} onHide={handleClose}>
                 <Modal.Header closeButton className="modalheader">
                   <Modal.Title>
                     <div

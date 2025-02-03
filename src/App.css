@@ -20,7 +20,7 @@ body{
 }
 .menu-item{
   background: var(--out);
-  margin: 3rem .3rem;
+  margin: 2.8rem .3rem;
   border-radius: 1rem;
 }
 .product-card {

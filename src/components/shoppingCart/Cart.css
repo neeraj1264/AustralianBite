@@ -17,7 +17,7 @@
 
 .cart-table th,
 .cart-table td {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding: 4px;
   text-align: left;
 }

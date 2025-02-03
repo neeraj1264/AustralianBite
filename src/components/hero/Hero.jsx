@@ -11,7 +11,7 @@ const Hero = () => {
             <h1 className="display-3 text-white animated slideInLeft">
               Enjoy Our<br />Delicious Meal
             </h1>
-            <p class="text-white animated slideInLeft mb-4 pb-2">
+            <p className="text-white animated slideInLeft mb-4 pb-2">
   Indulge in a world of flavors with our handcrafted meals. Fresh ingredients, bold flavors, and unforgettable dining experiences await you!
 </p>
 

@@ -183,7 +183,7 @@ const CakeCard = ({ id, name, description, price, image, mrp, size }) => {
         </div>
         <div className="add-to-cart">
           <div>
-            <img src={image} alt="Product" onClick={()=> handleShow()} />
+            <img src={image} alt="Product" onClick={() => handleShow()} />
           </div>
           <div className="add-btn">
             {productShowButtons && (
@@ -212,11 +212,7 @@ const CakeCard = ({ id, name, description, price, image, mrp, size }) => {
             )}
 
             {hascakeOptions && (
-              <Modal
-                className="modeldialog"
-                show={show}
-                onHide={handleClose}
-              >
+              <Modal className="modeldialog" show={show} onHide={handleClose}>
                 <Modal.Header closeButton className="modalheader">
                   <Modal.Title style={{ textAlign: "center" }}>
                     {name}
@@ -243,7 +239,12 @@ const CakeCard = ({ id, name, description, price, image, mrp, size }) => {
 
                   <h3 style={{ textAlign: "center" }}>Select Size</h3>
 
-                  <Table striped bordered hover>
+                  <Table
+                    striped
+                    bordered
+                    hover
+                    style={{ marginBottom: "10rem" }}
+                  >
                     <thead>
                       <tr>
                         <th>Size</th>
