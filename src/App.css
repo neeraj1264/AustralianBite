@@ -176,13 +176,6 @@ body.dark-theme {
   font-size: 14px;
 }
 
-.category-header {
-  /* text-align: center; */
-  padding: 1rem 0 .5rem 1rem;
-  font-size: 2rem;
-  color: whitesmoke;
-}
-
 .menu-btn-container {
   display: flex;
   align-items: center;
@@ -269,24 +262,6 @@ body.dark-theme {
   background: black;
 }
 
-.card-text {
-  font-size: 1.5rem;
-  padding: .5rem 0 0 1rem;
-  font-weight: bold;
-  background: var(--in);
-  width: fit-content;
-  color: white;
-  border: none;
-}
-.item-count{
-  font-size: 1.5rem;
-  padding: .5rem 1rem 0 1rem;
-  font-weight: bold;
-  background: var(--in);
-  width: fit-content;
-  color: white;
-  border: none;
-}
 .outer-card {
   position: fixed;
   top: 15%;

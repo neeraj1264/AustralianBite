@@ -1,18 +1,18 @@
 import React from 'react';
 import Cards from './Un-CustomizeCard/cards';
-import { WrapData } from '../data/FoodData';
+import { VegSplData } from '../data/FoodData';
 
 const renderCards = (data) => {
   return data.map((item) => <Cards key={item.id} {...item} />);
 };
-const Wrap = () => {
+const VegSpecial = () => {
   
   return (
     <>
-      <h2 id='Wrap' className='category-header'> Wrap</h2>
-      {renderCards(WrapData)}
+      <h2 id='Veg_Special' className='category-header'>Veg_Special</h2>
+      {renderCards(VegSplData)}
     </>
   );
 };
 
-export default Wrap;
+export default VegSpecial;

@@ -340,7 +340,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     </tbody>
                   </Table>
 
-                  <h3>Cheese</h3>
+                  {/* <h3>Cheese</h3>
 
                   <Table striped bordered hover>
                     <tbody>
@@ -382,7 +382,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                         </tr>
                       ))}
                     </tbody>
-                  </Table>
+                  </Table> */}
                 </Modal.Body>
                 <Modal.Footer className="modalfooter">
                   <div className="quantity-update">

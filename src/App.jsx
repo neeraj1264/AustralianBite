@@ -1,11 +1,7 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './Layout';
-import Banner from './components/banner/Banner';
-import Pizza from './components/Pages/Pizza/Pizza';
 import Cart from './components/shoppingCart/Cart';
-import Address from './components/shippingAddress/Address';
-import ConfirmOrder from './components/confirm/ConfirmOrder';
 import MyCarousel from './components/banner/Banner';
 import MenuLayout from './MenuLayout';
 import AddToHomeModal from './components/AddToHome/AddToHome';
@@ -88,9 +84,6 @@ function App() {
       <Route path="about" element={<About />} />
       <Route path="feedback" element={<Feedback />} />
       <Route path="address" element={<GoogleMap />} />
-      {/* <Route path="Pasta" element={<Pasta />} />
-      <Route path="Pizza" element={<Pizza />} />
-      <Route path="Burger" element={<Burger />} /> */}
       <Route path="cart" element={<Cart />} />
       <Route path="team" element={<Team />} />
       <Route path="menu" element={<MenuLayout/>} />
