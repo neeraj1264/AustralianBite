@@ -21,7 +21,8 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
 
   const [show, setShow] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState(size1);
+  // const [selectedSize, setSelectedSize] = useState(size1);
+  const [selectedSize, setSelectedSize] = useState(size1 || "");
   const [selectedSizePrice, setSelectedSizePrice] = useState(priceR);
   const [AddonsPrice, setAddonsPrice] = useState(30);
   const [cheesePrice, setcheesePrice] = useState(40);
@@ -60,54 +61,56 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
   ];
 
   const cheeselist = [
-    { name: "Extra Cheese", key: "extraCheese" },
-    { name: "Cheeseburst", key: "cheeseburst" },
+    { name: "Extra Cheese", key: "extraCheese", prices: { R: 35, M: 50, L: 90 } },
+    { name: "CheeseBrust", key: "CheeseBrust", prices: { R: 60, M: 90, L: 110 } },
+    { name: "PanBase", key: "PanBase", prices: { R: 10, M: 20, L: 30 } },
+    { name: "ThinCrust", key: "ThinCrust", prices: { R: 20, M: 30, L: 50 } },
   ];
+  const [selectedCLSize, setSelectedCLSize] = useState("R"); // Default size
 
   const getTotalPrice = () => {
-    let total = selectedSizePrice
-      ? selectedSizePrice * quantity
-      : price * quantity;
-
+    let total = selectedSizePrice * quantity;
+  
     addonsList.forEach((addon) => {
       if (addons[addon.key]) {
         total += AddonsPrice * quantity;
       }
     });
-
+  
     cheeselist.forEach((addon) => {
       if (addons[addon.key]) {
+        const cheesePrice = addon.prices[selectedCLSize]; // Use updated selectedCLSize
         total += cheesePrice * quantity;
       }
     });
+  
     return total;
   };
+  
 
   const handleSizeChange = (event) => {
     const newSize = event.target.value;
     setSelectedSize(newSize);
-
-    // Update the selected size's price based on the chosen size
+  
     switch (newSize) {
       case size1:
         setSelectedSizePrice(priceR);
-        setAddonsPrice(30);
-        setcheesePrice(40);
+        setSelectedCLSize("R"); // Update selectedCLSize
         break;
       case size2:
         setSelectedSizePrice(priceM);
-        setAddonsPrice(50);
-        setcheesePrice(60);
+        setSelectedCLSize("M"); // Update selectedCLSize
         break;
       case size3:
         setSelectedSizePrice(priceL);
-        setAddonsPrice(70);
-        setcheesePrice(90);
+        setSelectedCLSize("L"); // Update selectedCLSize
         break;
       default:
-        setSelectedSizePrice(priceR); // Default to priceR if an unknown size is selected
+        setSelectedSizePrice(priceR);
+        setSelectedCLSize("R"); // Update selectedCLSize
     }
   };
+  
 
   const handleIncrement = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -140,24 +143,24 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
       alert("Please select a size.");
       return;
     }
-    const selectedAddons = [];
-    addonsList.forEach((addon) => {
-      if (addons[addon.key]) {
-        selectedAddons.push({
-          name: addon.name,
-          price: AddonsPrice,
-        });
-      }
-    });
+    // const selectedAddons = [];
+    // addonsList.forEach((addon) => {
+    //   if (addons[addon.key]) {
+    //     selectedAddons.push({
+    //       name: addon.name,
+    //       price: AddonsPrice,
+    //     });
+    //   }
+    // });
 
     const selectedCheeses = [];
     cheeselist.forEach((addon) => {
-      if (addons[addon.key]) {
-        selectedCheeses.push({
-          name: addon.name,
-          price: cheesePrice,
-        });
-      }
+        if (addons[addon.key]) {
+            selectedCheeses.push({
+                name: addon.name,
+                price: addon.prices[selectedCLSize],  // <-- Fix here, dynamically use the selected size price
+            });
+        }
     });
 
     const product = {
@@ -167,29 +170,29 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
       quantity,
       image,
       mrp,
-      ...(selectedAddons && selectedAddons.length > 0 && { addons: selectedAddons }),
-      ...(selectedCheeses && selectedCheeses.length > 0 && { cheeses: selectedCheeses }),
-    };
-
-    let total = selectedSizePrice * quantity;
-
-    selectedAddons.forEach((addon) => {
-      total += AddonsPrice * quantity;
-    });
-
-    selectedCheeses.forEach((addon) => {
-      total += cheesePrice * quantity;
-    });
-
-    product.totalPrice = total;
-
-    AddToCart(product);
-    incrementCart();
-    setSelectedSize("");
-    setSelectedSizePrice(priceR); // Reset the selected size's price to default
-    setShow(false);
-    setShowButtons((prevShowButtons) => ({ ...prevShowButtons, [id]: true }));
+      // ...(selectedAddons.length > 0 && { addons: selectedAddons }),
+      ...(selectedCheeses.length > 0 && { cheeses: selectedCheeses }),
   };
+
+  let total = selectedSizePrice * quantity;
+
+  // selectedAddons.forEach((addon) => {
+  //     total += AddonsPrice * quantity;  // This might need adjustment if addon prices change per size
+  // });
+
+  selectedCheeses.forEach((addon) => {
+      total += addon.price * quantity;  // Fix: Use the dynamically determined cheese price
+  });
+
+  product.totalPrice = total;
+
+  AddToCart(product);
+  incrementCart();
+  setSelectedSize("");
+  setSelectedSizePrice(priceR); 
+  setShow(false);
+  setShowButtons((prevShowButtons) => ({ ...prevShowButtons, [id]: true }));
+};
 
   const handleRemoveToCart = () => {
     decrementCart();
@@ -340,14 +343,14 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     </tbody>
                   </Table>
 
-                  {/* <h3>Cheese</h3>
+                 <h3>Addons</h3>
 
                   <Table striped bordered hover>
                     <tbody>
                       {cheeselist.map((addon) => (
                         <tr key={addon.key}>
                           <td>{addon.name}</td>
-                          <td>₹{cheesePrice}</td>
+                          <td>₹{addon.prices[selectedCLSize]}</td> {/* Display price based on selected size */}
                           <td>
                             <Form.Check
                               type="checkbox"
@@ -359,7 +362,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                       ))}
                     </tbody>
                   </Table>
-                  <h3>Toppings</h3>
+                {/*    <h3>Toppings</h3>
 
                   <Table
                     striped

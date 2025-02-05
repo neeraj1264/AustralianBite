@@ -27,8 +27,20 @@ const categories = [
     { id:23, image: "/img/aloowrap.jpeg",itemCount: 4,  name: "Salad" },
     { id:24, image: "/img/aloowrap.jpeg",itemCount: 4,  name: "Sandwich" },
     { id:25, image: "/img/aloowrap.jpeg",itemCount: 7,  name: "Sides" },
-    { id:26, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Taco" },
-];
+    { id:26, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Mushroom" },
+    { id:27, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Main" },
+    { id:28, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Combo" },
+    { id:29, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Vegetable" },
+    { id:30, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Maggie" },
+    { id:31, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Paneer" },
+    { id:32, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Noodles" },
+    { id:33, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Momos" },
+    { id:34, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Sizzlers" },
+    { id:35, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Pasta" },
+    { id:36, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "VegSnacks" },
+    { id:37, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Roti" },
+    { id:38, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Tandoori_Non_Veg" },
+  ];
 
 function Category({ setShowCategory }) {
   const location = useLocation();
@@ -92,7 +104,7 @@ function Category({ setShowCategory }) {
           onClick={(e) => {
             e.preventDefault();
             scrollToSection(category.name); // Ensure smooth scrolling first
-            setTimeout(() => setShowCategory(false), 300); // Delay hiding menu
+            // setTimeout(() => setShowCategory(false), 300); 
           }}
           
         >

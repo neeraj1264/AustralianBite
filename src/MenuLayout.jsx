@@ -27,6 +27,20 @@ import Salad from './components/Pages/Salad';
 import Sandwich from './components/Pages/Sandwich';
 import Sides from './components/Pages/Sides';
 import Taco from './components/Pages/Taco';
+import Mushrom from './components/Pages/Mushroom';
+import Main from './components/Pages/Main';
+import Combo from './components/Pages/Combo';
+import Vegetable from './components/Pages/Vegetable';
+import Maggie from './components/Pages/Maggie';
+import Paneer from './components/Pages/Paneer';
+import Noodles from './components/Pages/Noodles';
+import Momos from './components/Pages/Momos';
+import Sizzlers from './components/Pages/Sizzlers';
+import Pasta from './components/Pages/Pasta';
+import VegSnacks from './components/Pages/VegSnacks';
+import Roti from './components/Pages/Roti';
+import TandooriNonVeg from './components/Pages/TandooriNonVeg';
+import Mushroom from './components/Pages/Mushroom';
 
 const menuItems = [
   { name: 'Simple Veg', component: <SimplePizza /> },
@@ -54,6 +68,20 @@ const menuItems = [
   { name: 'Sandwich', component: <Sandwich /> },
   { name: 'Sides', component: <Sides /> },
   { name: 'Taco', component: <Taco /> },
+  { name: 'Mushrom', component: <Mushroom /> },
+  { name: 'Main', component: <Main /> },
+  { name: 'Combo', component: <Combo /> },
+  { name: 'Vegetable', component: <Vegetable /> },
+  { name: 'Maggie', component: <Maggie /> },
+  { name: 'Paneer', component: <Paneer /> },
+  { name: 'Noodles', component: <Noodles /> },
+  { name: 'Momos', component: <Momos /> },
+  { name: 'Sizzlers', component: <Sizzlers /> },
+  { name: 'Pasta', component: <Pasta /> },
+  { name: 'VegSnacks', component: <VegSnacks /> },
+  { name: 'Roti', component: <Roti /> },
+  { name: 'TandooriNonVeg', component: <TandooriNonVeg /> },
+
 ];
 
 const MenuLayout = () => {
