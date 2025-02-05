@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const HomeFooter = () => {
   const handleChatMsg = () => {
-    const whatsappNumber = "+917015823645";
+    const whatsappNumber = "+918168228684";
     const message = `Hello! I'm interested in placing an order. Could you please provide me with more information about your menu options and delivery timings? Thanks!`;
 
     const whatsappLink =

@@ -171,7 +171,7 @@ const Cart = ({ id }) => {
   }, [cartItems]);
 
   const handlePlaceOrder = () => {
-    const whatsappNumber = "+917015823645";
+    const whatsappNumber = "+918168228684";
 
     // Construct the WhatsApp message
     function getRandom4DigitNumber() {
