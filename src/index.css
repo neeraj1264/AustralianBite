@@ -106,3 +106,20 @@ color: black;
 .dark-theme .social-icon {
 color: black;
 }
+.dark-theme .cart-item-name{
+    color: black;
+}
+.dark-theme .cart-item-total {
+color: black;
+}
+.dark-theme .delivery-row {
+    color: black;
+}
+.dark-theme .Delivery-amount{
+    color: black;
+}
+.dark-theme .cart-header {
+    background: whitesmoke;
+    color: black;
+    box-shadow: 7px 3px 4px 0px var(--in);
+}

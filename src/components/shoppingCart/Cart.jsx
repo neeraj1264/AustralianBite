@@ -242,12 +242,7 @@ Service Charge = ₹ 20.00
                           </td>
                           <td colSpan="2">
                             <div
-                              style={{
-                                color: "white",
-                                fontWeight: "500",
-                                textAlign: "left",
-                                fontSize: ".8rem"
-                              }}
+                            className="cart-item-name"
                             >
                               {item.name}
                             </div>
@@ -299,12 +294,7 @@ Service Charge = ₹ 20.00
                                 <FaMinusCircle />
                               </button>
                               <span
-                                style={{
-                                  background: "var(--in)",
-                                  color: "var(--yellow)",
-                                  fontSize: "1rem",
-                                  fontWeight: 700,
-                                }}
+                              className="cart-item-quantity"
                               >
                                 {item.quantity}
                               </span>
@@ -324,11 +314,7 @@ Service Charge = ₹ 20.00
                             </div>
                           </td>
                           <td
-                            style={{
-                              textAlign: "left",
-                              fontWeight: 700,
-                              paddingRight: ".5rem",
-                            }}
+                          className="cart-item-total"
                           >
                             ₹{calculateTotalForItem(item)}
                           </td>
@@ -348,10 +334,10 @@ Service Charge = ₹ 20.00
                     )}
                 {cartItems.length > 0 && (
                   <tr>
-                    <td colSpan="4" style={{ textAlign: "left" , fontWeight: 500 }}>
-                      Delivery Charge <span style={{textAlign: "center", paddingLeft: '2rem' , fontWeight: 700}}>[Upto 2Km]</span>
+                    <td colSpan="4" className="delivery-row">
+                      Delivery Charge <span className="Kilometer">[Upto 2Km]</span>
                     </td>
-                    <td style={{fontWeight: 700 , textAlign: "left", paddingRight: '1.5rem'}}>₹20</td>
+                    <td className="Delivery-amount">₹20</td>
                   </tr>
                 )}
 

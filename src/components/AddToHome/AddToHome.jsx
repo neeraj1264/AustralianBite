@@ -12,7 +12,7 @@ const AddToHomeModal = ({ installPrompt, onInstallClick, onCloseClick }) => {
         <FontAwesomeIcon className="circle" icon={faCircleXmark} />
                 </div>
           <div className="installApp">
-          <img src="img/logo.jpg" alt="logo"  className="install-img"/>
+          <img src="img/logo.png" alt="logo"  className="install-img"/>
             <p className="install-lable"> Install App in your device</p>
             {/* <p style={{ margin: "0 1rem", color: "white" }}>|</p> */}
             <span onClick={onInstallClick} className="install">
