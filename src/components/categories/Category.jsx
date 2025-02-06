@@ -104,7 +104,7 @@ function Category({ setShowCategory }) {
           onClick={(e) => {
             e.preventDefault();
             scrollToSection(category.name); // Ensure smooth scrolling first
-            // setTimeout(() => setShowCategory(false), 300); 
+            setTimeout(() => setShowCategory(false), 300); 
           }}
           
         >

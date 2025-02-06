@@ -26,18 +26,17 @@ const HomeFooter = () => {
       <div className="home-footer-container">
         <div className="home-footer-section">
           <h3>Contact Us</h3>
-
-          <p>
+          <div style={{ display: "flex" }}>
             <span>
               <i className="fa fa-home"></i>
             </span>
-            Kurukshetra Road, Pehowa
-          </p>
+            <p>Ambarsari Farm, Kurukshetra Road Pehowa, (136128)</p>
+          </div>
           <p>
             <span>
               <i className="fa fa-phone"></i>
             </span>
-            +91 1234567890
+            +91 81682-28684
           </p>
           <p>
             <span>
@@ -105,9 +104,9 @@ const HomeFooter = () => {
         <div className="home-footer-section">
           <h3>Opening</h3>
           <p>Monday - Saturday</p>
-          <p> 09AM - 09PM</p>
+          <p> 10AM - 10PM</p>
           <p>Sunday</p>
-          <p>10AM - 08PM</p>
+          <p>10AM - 10PM</p>
         </div>
 
         <div className="home-footer-section">

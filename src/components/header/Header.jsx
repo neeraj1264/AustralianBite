@@ -114,10 +114,11 @@ const Header = ({ headerName, setSearch, onClick }) => {
               </Link>
             </li>
             <li>
-        {/* Dark Mode Toggle Button */}
-        <button className="theme-toggle-btn" onClick={toggleTheme}>
-            {!isDarkMode ? "🌙 Dark Mode" : "☀️ Light Mode"}
-          </button>
+        {/* Dark Mode Toggle Switch */}
+              <label className="theme-switch">
+                <input type="checkbox" checked={!isDarkMode} onChange={toggleTheme} />
+                <span className="slider"></span>
+              </label>
             </li>
           </ul>
         </div>

@@ -38,13 +38,13 @@ const GoogleMap = () => {
           <i className="fa fa-home"></i>
           <span>
             <h5>Australian Bite</h5>
-            <p>Pehowa, Haryana, Pincode: 136128</p>
+            <p>Ambarsari Farm, Kurukshetra Road Pehowa, (136128)</p>
           </span>
         </div>
         <div className="contact">
           <i className="fa fa-phone"></i>
           <span>
-            <h5>+91 12345-67890</h5>
+            <h5>+91 81682-28684</h5>
             <p>Monday to Sunday, 10AM to 10PM</p>
           </span>
         </div>

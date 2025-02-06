@@ -217,6 +217,8 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
     "priceM" in price &&
     "priceL" in price;
 
+      const [showFullDescription, setShowFullDescription] = useState(false);
+      const toggleDescription = () => setShowFullDescription(!showFullDescription);
   return (
     <>
       <hr />
@@ -255,8 +257,23 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
               </span>
             )}
           </p>
-          <p style={{ fontSize: ".8rem" }}>{description}</p>
-        </div>
+          <p className="description" onClick={toggleDescription}>
+            {showFullDescription ? (
+              description
+            ) : (
+              <>
+                {description.length > 50
+                  ? description.substring(0, 50) + "..."
+                  : description}
+                {description.length > 50 && (
+                 <span style={{ color: "var(--yellow)", fontWeight: 500 }}>
+                 {" "}
+                 read more
+               </span>
+                )}
+              </>
+            )}
+          </p>        </div>
         <div className="add-to-cart">
           <div>
             <img src={image} alt="Product" onClick={handleShow}/>
@@ -490,8 +507,23 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                     </span>
                   </p>
 
-                  <p>{description}</p>
-                </Modal.Body>
+                  <p className="description" onClick={toggleDescription}>
+            {showFullDescription ? (
+              description
+            ) : (
+              <>
+                {description.length > 50
+                  ? description.substring(0, 50) + "..."
+                  : description}
+                {description.length > 50 && (
+                 <span style={{ color: "var(--yellow)", fontWeight: 500 }}>
+                 {" "}
+                 read more
+               </span>
+                )}
+              </>
+            )}
+          </p>                   </Modal.Body>
                 <Modal.Footer className="modalfooter">
                   <div className="quantity-update">
                     <Button
