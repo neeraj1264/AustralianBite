@@ -12,7 +12,7 @@ const ConfirmOrder = () => {
   };
 
   const handlePlaceOrder = () => {
-    const whatsappNumber = "+918168228684";
+    const whatsappNumber = "+917404339777";
 
     // Construct the WhatsApp message
     function getRandom4DigitNumber() {

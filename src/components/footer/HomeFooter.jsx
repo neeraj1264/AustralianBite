@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const HomeFooter = () => {
   const handleChatMsg = () => {
-    const whatsappNumber = "+918168228684";
+    const whatsappNumber = "+917404339777";
     const message = `Hello! I'm interested in placing an order. Could you please provide me with more information about your menu options and delivery timings? Thanks!`;
 
     const whatsappLink =
@@ -32,12 +32,19 @@ const HomeFooter = () => {
             </span>
             <p>Ambarsari Farm, Kurukshetra Road Pehowa, (136128)</p>
           </div>
-          <p>
-            <span>
+          <div style={{ display: "flex" }}>
+          <span>
               <i className="fa fa-phone"></i>
             </span>
-            +91 81682-28684
+            <div>
+          <p>
+            +91 74043-39777
           </p>
+          <p>
+            +91 74043-38777
+          </p>
+          </div>
+          </div>
           <p>
             <span>
               <i className="fa fa-envelope"></i>

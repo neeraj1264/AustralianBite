@@ -48,7 +48,7 @@ const MyCarousel = () => {
   }, []); // Empty dependency array ensures this effect runs once when the component mounts
 
   const handleChatMsg = () => {
-    const whatsappNumber = "+918168228684";
+    const whatsappNumber = "+917404339777";
     const message = `Hello! I'm interested in placing an order. Could you please provide me with more information about your menu options and delivery timings? Thanks!`;
 
     const whatsappLink =

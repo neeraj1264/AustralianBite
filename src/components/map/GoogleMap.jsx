@@ -44,7 +44,8 @@ const GoogleMap = () => {
         <div className="contact">
           <i className="fa fa-phone"></i>
           <span>
-            <h5>+91 81682-28684</h5>
+            <h5>+91 74043-39777</h5>
+            <h5>+91 74043-38777</h5>
             <p>Monday to Sunday, 10AM to 10PM</p>
           </span>
         </div>
