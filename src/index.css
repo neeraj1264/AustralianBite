@@ -126,3 +126,6 @@ color: black;
 .dark-theme .slider {
     box-shadow: 0px 2px 15px 5px black;;
 }
+.dark-theme .loading{
+    color: black;
+}

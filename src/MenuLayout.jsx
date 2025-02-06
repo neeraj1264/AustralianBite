@@ -116,7 +116,7 @@ const MenuLayout = () => {
 <Header/>
  <div className="menu-items">
         {loading ? (
-        <h2 style={{position: "absolute", left: "25%" , top:"45%"}}>Menu Loading...</h2>
+        <h2 className='loading'>Menu Loading...</h2>
       ) : (
           filteredMenuItems.map((item, index) => (
             <div key={index} className="menu-item">

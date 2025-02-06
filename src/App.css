@@ -370,3 +370,8 @@ body.dark-theme {
   }
 }
 
+.loading{
+  position: absolute;
+  top: 45%;
+  left: 25%;
+}
