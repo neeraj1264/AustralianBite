@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Category from './components/categories/Category';
 import Wrap from './components/Pages/Wrap';
 import { IoMdCloseCircle } from "react-icons/io";
@@ -91,6 +91,8 @@ const menuItems = [
 const MenuLayout = () => {
   const [showCategory, setShowCategory] = useState(false); // State to toggle Category visibility
   const [searchText, setSearchText] = useState(""); // State to handle search input
+  const [loading, setLoading] = useState(true); // Loading state to track the fetch status
+  const [filteredMenuItems, setFilteredMenuItems] = useState(menuItems);
 
   const toggleCategory = () => {
     if (!showCategory) {
@@ -99,20 +101,29 @@ const MenuLayout = () => {
     setShowCategory(!showCategory); // Toggle between Category and Search Input
   };
 
-  // Filter menu items based on search text
-  const filteredMenuItems = menuItems.filter((item) =>
-    item.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  useEffect(() => {
+    setLoading(true); // Start loading when searchText changes
+    // Filter the menuItems based on searchText
+    const filteredItems = menuItems.filter(item =>
+      item.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredMenuItems(filteredItems); // Update filtered items
+    setLoading(false);
+  }, [searchText]);  // Re-run the effect when searchText changes
 
   return (
     <>
 <Header/>
-<div className="menu-items">
-        {filteredMenuItems.map((item, index) => (
-          <div key={index} className="menu-item">
-            {item.component}
-          </div>
-        ))}
+ <div className="menu-items">
+        {loading ? (
+        <h2 style={{position: "absolute", left: "25%" , top:"45%"}}>Menu Loading...</h2>
+      ) : (
+          filteredMenuItems.map((item, index) => (
+            <div key={index} className="menu-item">
+              {item.component}
+            </div>
+          ))
+        )}
       </div>
       
   <h1 className="menu-btn" onClick={toggleCategory}>

@@ -8,10 +8,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    setLoading(true);
-    setTimeout(() => {
       navigate("/menu");
-    }, 500); // Delay before navigation
   };
 
       // Swipe handlers
