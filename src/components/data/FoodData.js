@@ -121,7 +121,7 @@ export const TasteOfIndiaData = [
     name: "Paneer Makhani Pizza",
     image: "/img/pizzaicon.png",
     description: "Topping: Onion , Red Pepper , Paneer , Makhni Sauce",
-    price: { priceR: "170", priceM: "310", priceL: "440" },
+    price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
@@ -130,7 +130,7 @@ export const TasteOfIndiaData = [
     name: "Achari Pizza",
     image: "/img/pizzaicon.png",
     description: "Topping: Paneer , Capsicum , corn , Achari Sauce",
-    price: { priceR: "170", priceM: "310", priceL: "440" },
+    price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
@@ -139,7 +139,7 @@ export const TasteOfIndiaData = [
     name: "Spicy Achari Pizza",
     image: "/img/pizzaicon.png",
     description: "Topping: Paneer , corn , Jalapeno , Red Paprika",
-    price: { priceR: "170", priceM: "310", priceL: "440" },
+    price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
@@ -148,7 +148,7 @@ export const TasteOfIndiaData = [
     name: "Tandoori Pizza",
     image: "/img/pizzaicon.png",
     description: "Topping: Onion , Capsicum , Paneer , Tandoori Sauce",
-    price: { priceR: "170", priceM: "310", priceL: "440" },
+    price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
@@ -327,6 +327,23 @@ export const NonVegSplData = [
     description: "Tender chicken wings shaped like lollipops, coated in a spicy, tangy sauce and fried to a crispy golden perfection.",
     price: 349,
     mrp: "400",
+  },
+  {
+    id: 228,
+    name: "Tangdi Kebab ~ 2pc",
+    image: "/img/foodicon.png",
+    description:
+      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      price: 120,
+    mrp: "180",
+  },  {
+    id: 229,
+    name: "Stuff Tangdi",
+    image: "/img/foodicon.png",
+    description:
+      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      price: 180,
+    mrp: "230",
   },
 ];
 export const ChickenburgerData = [
@@ -545,7 +562,7 @@ export const VegSplData = [
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 135,
+    price: 130,
     mrp: "160",
   },
   {
@@ -928,8 +945,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 85,
-    mrp: "100",
+    price: 115,
+    mrp: "140",
   },
   {
     id: 101,
@@ -937,7 +954,7 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
-    price: 110,
+    price: 115,
     mrp: "140",
   },
   {
@@ -946,7 +963,7 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 120,
+    price: 115,
     mrp: "155",
   },
   {
@@ -955,8 +972,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 85,
-    mrp: "100",
+    price: 115,
+    mrp: "150",
   },
   {
     id: 104,
@@ -964,8 +981,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
-    price: 110,
-    mrp: "140",
+    price: 120,
+    mrp: "160",
   },
   {
     id: 105,
@@ -982,8 +999,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 85,
-    mrp: "100",
+    price: 120,
+    mrp: "160",
   },
   {
     id: 107,
@@ -991,8 +1008,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
-    price: 110,
-    mrp: "140",
+    price: 140,
+    mrp: "180",
   },
   {
     id: 108,
@@ -1000,8 +1017,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 120,
-    mrp: "155",
+    price: 150,
+    mrp: "195",
   },
   {
     id: 109,
@@ -1009,8 +1026,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 85,
-    mrp: "100",
+    price: 145,
+    mrp: "190",
   },
   {
     id: 110,
@@ -1018,8 +1035,8 @@ export const ShakeData = [
     image: "/img/foodicon.png",
     description:
       " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
-    price: 110,
-    mrp: "140",
+    price: 120,
+    mrp: "160",
   },
 ];
 export const IcecreamData = [
@@ -1338,7 +1355,7 @@ export const MainData = [
 export const VegetablesData = [
   {
     id: 144,
-    name: "Vegetable Sprin Roll",
+    name: "Vegetable Spring Roll",
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
@@ -1631,8 +1648,8 @@ export const SizzlersData = [
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 109,
-    mrp: "150",
+    price: 199,
+    mrp: "250",
   },
   {
     id: 176,
@@ -1640,8 +1657,8 @@ export const SizzlersData = [
     image: "/img/foodicon.png",
     description:
       " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
-    price: 119,
-    mrp: "160",
+    price: 229,
+    mrp: "260",
   },
   {
     id: 177,
@@ -1649,8 +1666,8 @@ export const SizzlersData = [
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 149,
-    mrp: "210",
+    price: 239,
+    mrp: "290",
   },
 ];
 export const PastaData = [
@@ -1660,7 +1677,7 @@ export const PastaData = [
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 109,
+    price: 99,
     mrp: "150",
   },
   {
@@ -1678,8 +1695,8 @@ export const PastaData = [
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 149,
-    mrp: "210",
+    price: 119,
+    mrp: "160",
   },
   {
     id: 181,
@@ -1696,8 +1713,8 @@ export const PastaData = [
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 149,
-    mrp: "210",
+    price: 119,
+    mrp: "160",
   },
 ];
 export const ChaapData = [
@@ -2033,17 +2050,17 @@ export const TandooriNonVegData = [
     mrp: "370",
   },
   {
-    id: 228,
+    id: 230,
     name: "Chicken Malai Tikka",
     image: "/img/foodicon.png",
     description:
       "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
     size: { size1: "Half", size2: "Full" },
     price: { priceH: "250", priceF: "500" },
-    mrp: "3100",
+    mrp: "310",
   },
   {
-    id: 229,
+    id: 231,
     name: "Chicken Tikka",
     image: "/img/foodicon.png",
     description:

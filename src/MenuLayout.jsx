@@ -41,6 +41,7 @@ import VegSnacks from './components/Pages/VegSnacks';
 import Roti from './components/Pages/Roti';
 import TandooriNonVeg from './components/Pages/TandooriNonVeg';
 import Mushroom from './components/Pages/Mushroom';
+import Chaap from './components/Pages/Chaap';
 
 const menuItems = [
   { name: 'Simple Veg', component: <SimplePizza /> },
@@ -78,6 +79,7 @@ const menuItems = [
   { name: 'Momos', component: <Momos /> },
   { name: 'Sizzlers', component: <Sizzlers /> },
   { name: 'Pasta', component: <Pasta /> },
+  { name: 'Chaap', component: <Chaap /> },
   { name: 'VegSnacks', component: <VegSnacks /> },
   { name: 'Roti', component: <Roti /> },
   { name: 'TandooriNonVeg', component: <TandooriNonVeg /> },

@@ -37,6 +37,7 @@ const categories = [
     { id:33, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Momos" },
     { id:34, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Sizzlers" },
     { id:35, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Pasta" },
+    { id:39, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Chaap" },
     { id:36, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "VegSnacks" },
     { id:37, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Roti" },
     { id:38, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Tandoori_Non_Veg" },
