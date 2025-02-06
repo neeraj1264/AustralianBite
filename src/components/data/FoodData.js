@@ -6,7 +6,7 @@ export const simplepizzadata = [
     description: "Classic Margherita with a crispy crust and a generous topping of melted mozzarella cheese.",
     price: { priceR: "99", priceM: "179", priceL: "289" },
     mrp: "140",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const simplepizzadata = [
     description: "A cheesy delight featuring a golden crust topped with rich tomato sauce and loaded with gooey mozzarella cheese.",
     price: { priceR: "119", priceM: "199", priceL: "289" },
     mrp: "140",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const simplepizzadata = [
     description: "A delicious combination of cheesy goodness and fresh mushrooms on a perfectly baked crust with a flavorful base.",
     price: { priceR: "119", priceM: "199", priceL: "289" },
     mrp: "140",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
 ];
 export const Veg1Data = [
@@ -35,7 +35,7 @@ export const Veg1Data = [
     description: "Topping: Onion , Capsicum , Tomato , Mushroom",
     price: { priceR: "149", priceM: "299", priceL: "439" },
     mrp: "180",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ export const Veg1Data = [
     description: "Topping: Onion , Capsicum , Corn",
     price: { priceR: "149", priceM: "299", priceL: "439" },
     mrp: "180",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
 ];
 export const Veg2Data = [
@@ -55,7 +55,7 @@ export const Veg2Data = [
     description: "Topping: Onion , Capsicum , Corn , Mushroom , Paneer",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 7,
@@ -64,7 +64,7 @@ export const Veg2Data = [
     description: "Topping: Red Paper , Corn , Jalapeno  chilly sauce",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 8,
@@ -73,7 +73,7 @@ export const Veg2Data = [
     description: "Topping: Onion , Tomato , Capsicum , Jalapeno",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 9,
@@ -82,7 +82,7 @@ export const Veg2Data = [
     description: "Topping: Red Paprika , Paneer , capsicum , Jalapeno",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
 ];
 export const Veg3Data = [
@@ -90,29 +90,28 @@ export const Veg3Data = [
     id: 10,
     name: "Mix Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Onion , Corn , Capsicum , Mushroom , Black Olive , Paneer , Jalapeno",
     price: { priceR: "199", priceM: "379", priceL: "539" },
     mrp: "250",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 11,
     name: "Hawallan Pizza",
     image: "/img/pizzaicon.png",
-    description: "Topping: Onion , Corn , Capsicum , Mushroom , Black Olive , Paneer , Jalapeno",
+    description: "Topping: Onion , Mushroom , Black Olive , Paneer , RedPaprika , Pineapple",
     price: { priceR: "199", priceM: "379", priceL: "539" },
     mrp: "250",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
   {
     id: 12,
     name: "Australian Special Pizza",
     image: "/img/pizzaicon.png",
-    description: "Topping: Achari & Makhani Sauce , Onion , Capsicum , Paneer , Olives",
+    description: "Topping: Achari & Makhani Sauce , Onion , Capsicum , Paneer , Jalapeno , Olives",
     price: { priceR: "199", priceM: "379", priceL: "539" },
     mrp: "250",
-    size: { size1: "Regular", size2: "Mediun", size3: "Large" },
+    size: { size1: "Regular", size2: "Medium", size3: "Large" },
   },
 ];
 export const TasteOfIndiaData = [
@@ -120,7 +119,7 @@ export const TasteOfIndiaData = [
     id: 13,
     name: "Paneer Makhani Pizza",
     image: "/img/pizzaicon.png",
-    description: "Topping: Onion , Red Pepper , Paneer , Makhni Sauce",
+    description: "Topping: Onion , Capsicum , Paneer , Makhni Sauce",
     price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
@@ -129,7 +128,7 @@ export const TasteOfIndiaData = [
     id: 14,
     name: "Achari Pizza",
     image: "/img/pizzaicon.png",
-    description: "Topping: Paneer , Capsicum , corn , Achari Sauce",
+    description: "Topping: Capsicum , corn , Paneer , Achari Sauce",
     price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
@@ -138,7 +137,7 @@ export const TasteOfIndiaData = [
     id: 15,
     name: "Spicy Achari Pizza",
     image: "/img/pizzaicon.png",
-    description: "Topping: Paneer , corn , Jalapeno , Red Paprika",
+    description: "Topping: corn , Jalapeno , Red Paprika , Chilli Sauce",
     price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
@@ -147,7 +146,7 @@ export const TasteOfIndiaData = [
     id: 16,
     name: "Tandoori Pizza",
     image: "/img/pizzaicon.png",
-    description: "Topping: Onion , Capsicum , Paneer , Tandoori Sauce",
+    description: "Topping: Onion , Tomato , Paneer , Tandoori Sauce",
     price: { priceR: "169", priceM: "319", priceL: "469" },
     mrp: "220",
     size: { size1: "Regular", size2: "Medium", size3: "Large" },
@@ -332,16 +331,14 @@ export const NonVegSplData = [
     id: 228,
     name: "Tangdi Kebab ~ 2pc",
     image: "/img/foodicon.png",
-    description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+    description: "Succulent and flavorful chicken drumsticks marinated in aromatic spices, grilled to perfection for a smoky, juicy delight.",
       price: 120,
     mrp: "180",
   },  {
     id: 229,
     name: "Stuff Tangdi",
     image: "/img/foodicon.png",
-    description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+    description: "Indulge in a rich and juicy chicken drumstick, stuffed with a flavorful mix of spices and herbs, grilled to perfection.",
       price: 180,
     mrp: "230",
   },
@@ -402,8 +399,8 @@ export const VegburgerData = [
     name: "Aloo Tikki Burger",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
-    price: 39,
+    "Crispy and flavorful spiced potato patty, topped with fresh veggies and tangy sauces, served in a soft bun.",
+  price: 39,
     mrp: " 60",
   },
   {
@@ -411,7 +408,7 @@ export const VegburgerData = [
     name: "Yummy Burger",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
+      "A delicious combination of crispy veg patty, creamy mayo, and fresh lettuce, delivering a burst of flavors in every bite.",
     price: 49,
     mrp: " 70",
   },
@@ -420,7 +417,7 @@ export const VegburgerData = [
     name: "Spicy Burger",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
+    "A fiery delight with a crispy spicy veg patty, zesty sauces, and fresh veggies, perfect for spice lovers.",
     price: 59,
     mrp: " 80",
   },
@@ -429,8 +426,8 @@ export const VegburgerData = [
     name: "Paneer Tikka Burger ",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
-    price: 69,
+    "Juicy and smoky paneer tikka infused with aromatic spices, layered with crunchy veggies and creamy sauce in a soft bun.",
+        price: 69,
     mrp: " 90",
   },
   {
@@ -438,7 +435,7 @@ export const VegburgerData = [
     name: "Big Bite Burger",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
+      "A double-layered burger packed with crispy patties, melting cheese, fresh veggies, and signature sauces for a big bite of satisfaction.",
     price: 79,
     mrp: "110",
   },
@@ -447,8 +444,8 @@ export const VegburgerData = [
     name: "Australian Burger",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
-    price: 89,
+    "A gourmet-style burger with a crispy veggie patty, melted cheese, grilled onions, and a hint of smoky barbecue sauce.",
+  price: 89,
     mrp: "110",
   },
   {
@@ -456,7 +453,7 @@ export const VegburgerData = [
     name: "Veg Maharaja Burger",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
+      "A royal treat loaded with two crispy veg patties, rich sauces, fresh lettuce, and layers of cheese for a majestic taste experience.",
     price: 99,
     mrp: "130",
   },
@@ -465,7 +462,7 @@ export const VegburgerData = [
     name: "Paneer Maraja Burger",
     image: "/img/burgericon.png",
     description:
-      "A perfect harmony of spiced potato patties with zesty sauces, sandwiched between soft burger buns.",
+      "A grand burger featuring grilled paneer, creamy sauces, fresh lettuce, and a double-layered soft bun for an indulgent experience.",
     price: 119,
     mrp: "150",
   },
@@ -476,7 +473,7 @@ export const WrapData = [
     name: "Veggie Wrap",
     image: "/img/foodicon.png",
     description:
-      "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
+      "A wholesome wrap filled with crispy Aloo Tikki, crunchy fresh veggies, and our signature tangy sauces, all wrapped in a warm tortilla.",
     price: 89,
     mrp: "120",
   },
@@ -485,7 +482,7 @@ export const WrapData = [
     name: "Paneer Wrap",
     image: "/img/foodicon.png",
     description:
-      " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
+      "Savor the goodness of spiced and grilled paneer, paired with fresh veggies and creamy sauces, all wrapped in a soft tortilla.",
     price: 119,
     mrp: "150",
   },
@@ -494,7 +491,7 @@ export const WrapData = [
     name: "Tandoori Wrap",
     image: "/img/foodicon.png",
     description:
-      "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
+      "A smoky and flavorful wrap loaded with tandoori-spiced fillings, fresh veggies, and a hint of zesty sauces for an unforgettable taste.",
     price: 119,
     mrp: "160",
   },
@@ -503,7 +500,7 @@ export const WrapData = [
     name: "Spicy Wrap",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "Turn up the heat with our Spicy Wrap, packed with bold flavors, fiery sauces, and fresh crunchy veggies in a soft tortilla.",
     price: 119,
     mrp: "150",
   },
@@ -512,45 +509,46 @@ export const WrapData = [
     name: "Chicken Wrap",
     image: "/img/foodicon.png",
     description:
-      "Indulge in the delectable richness of our Paneer Parcel, a culinary delight that wraps spiced and succulent paneer (Indian cottage cheese) in a golden-brown.",
+      "A mouthwatering wrap featuring juicy, spiced chicken, crisp veggies, and a creamy sauce, all wrapped in a warm, soft tortilla.",
     price: 129,
     mrp: "170",
   },
 ];
+
 export const MojitoData = [
   {
     id: 56,
-    name: "Mint mojito",
+    name: "Mint Mojito",
     image: "/img/foodicon.png",
     description:
-      "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
+      "A refreshing blend of fresh mint, zesty lime, and sparkling soda, perfectly chilled for a cool and invigorating experience.",
     price: 75,
     mrp: "90",
   },
   {
     id: 57,
-    name: "Watar mojito",
+    name: "Water Mojito",
     image: "/img/foodicon.png",
     description:
-      " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
+      "A hydrating twist on the classic mojito, infused with cool mint, citrusy lime, and a splash of fresh water for ultimate refreshment.",
     price: 75,
     mrp: "90",
   },
   {
     id: 58,
-    name: "Green mojito",
+    name: "Green Mojito",
     image: "/img/foodicon.png",
     description:
-      "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
+      "A revitalizing mojito with a twist of green herbs, fresh lime, and cooling soda, delivering a burst of natural flavors.",
     price: 75,
     mrp: "90",
   },
   {
     id: 59,
-    name: "Virgin mojito",
+    name: "Virgin Mojito",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A non-alcoholic classic, combining crushed mint, lime juice, and soda for a light, bubbly, and utterly refreshing drink.",
     price: 75,
     mrp: "90",
   },
@@ -561,7 +559,7 @@ export const VegSplData = [
     name: "Plain Rice",
     image: "/img/foodicon.png",
     description:
-      "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
+      "Simple yet satisfying, our perfectly steamed plain rice is light, fluffy, and pairs well with any dish.",
     price: 130,
     mrp: "160",
   },
@@ -570,7 +568,7 @@ export const VegSplData = [
     name: "Jeera Rice",
     image: "/img/foodicon.png",
     description:
-      " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
+      "Fragrant basmati rice sautéed with aromatic cumin seeds, offering a light yet flavorful touch to your meal.",
     price: 150,
     mrp: "190",
   },
@@ -579,7 +577,7 @@ export const VegSplData = [
     name: "Veg Pulao",
     image: "/img/foodicon.png",
     description:
-      "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
+      "A delightful mix of basmati rice, fresh vegetables, and aromatic spices, cooked to perfection for a wholesome meal.",
     price: 180,
     mrp: "220",
   },
@@ -588,7 +586,7 @@ export const VegSplData = [
     name: "Veg Biryani",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "Aromatic basmati rice layered with a medley of vegetables and rich Indian spices, slow-cooked for an irresistible flavor.",
     price: 200,
     mrp: "240",
   },
@@ -597,7 +595,7 @@ export const VegSplData = [
     name: "Cheese Biryani",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A unique twist on classic biryani, featuring a rich blend of cheese, fragrant basmati rice, and exotic spices.",
     price: 230,
     mrp: "290",
   },
@@ -606,7 +604,7 @@ export const VegSplData = [
     name: "Hyderabadi Biryani",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A royal treat with perfectly spiced basmati rice and a slow-cooked blend of aromatic herbs, inspired by Hyderabadi flavors.",
     price: 250,
     mrp: "300",
   },
@@ -615,18 +613,19 @@ export const VegSplData = [
     name: "Egg Biryani",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A flavorful combination of spiced basmati rice and perfectly cooked eggs, offering a rich and satisfying taste.",
     price: 200,
     mrp: "260",
   },
 ];
+
 export const MainCourseData = [
   {
     id: 67,
     name: "Dal Fry",
     image: "/img/foodicon.png",
     description:
-      "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
+      "A comforting and flavorful dish made with lentils, tempered with aromatic spices, and finished with a touch of ghee.",
     price: 150,
     mrp: "190",
   },
@@ -635,7 +634,7 @@ export const MainCourseData = [
     name: "Dal Tadka",
     image: "/img/foodicon.png",
     description:
-      " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
+      "A rich and aromatic dal, infused with the flavors of roasted garlic, cumin, and red chilies for an irresistible taste.",
     price: 150,
     mrp: "190",
   },
@@ -644,16 +643,16 @@ export const MainCourseData = [
     name: "Dal Makhani",
     image: "/img/foodicon.png",
     description:
-      "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
+      "A creamy and indulgent slow-cooked black lentil dish, enriched with butter and cream for a delightful experience.",
     price: 180,
     mrp: "220",
   },
   {
     id: 70,
-    name: "Sahi Paneer",
+    name: "Shahi Paneer",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A royal delicacy made with soft paneer cubes cooked in a rich and creamy tomato-based gravy with aromatic spices.",
     price: 200,
     mrp: "240",
   },
@@ -662,7 +661,7 @@ export const MainCourseData = [
     name: "Kadhai Paneer",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A flavorful and spicy paneer dish stir-fried with capsicum, onions, and a special blend of kadhai masala.",
     price: 220,
     mrp: "290",
   },
@@ -671,7 +670,7 @@ export const MainCourseData = [
     name: "Matar Paneer",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A North Indian classic featuring paneer and green peas simmered in a rich tomato-based gravy.",
     price: 180,
     mrp: "230",
   },
@@ -680,34 +679,34 @@ export const MainCourseData = [
     name: "Paneer Butter Masala",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A creamy, mildly spiced tomato-based gravy with soft paneer cubes, finished with butter and cream.",
     price: 200,
     mrp: "260",
   },
   {
     id: 74,
-    name: "Paneer Burji",
+    name: "Paneer Bhurji",
     image: "/img/foodicon.png",
     description:
-      "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
+      "A delicious scrambled paneer dish cooked with onions, tomatoes, and aromatic spices for a spicy twist.",
     price: 200,
     mrp: "260",
   },
   {
     id: 75,
-    name: "Paneer Do Pyaja",
+    name: "Paneer Do Pyaza",
     image: "/img/foodicon.png",
     description:
-      " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
+      "A rich and flavorful paneer curry with a generous amount of onions, cooked in a thick masala gravy.",
     price: 200,
     mrp: "260",
   },
   {
     id: 76,
-    name: "Kaju Kadi",
+    name: "Kaju Kari",
     image: "/img/foodicon.png",
     description:
-      "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
+      "A rich and creamy cashew curry cooked with aromatic spices, offering a luxurious and nutty flavor.",
     price: 220,
     mrp: "280",
   },
@@ -716,7 +715,7 @@ export const MainCourseData = [
     name: "Cheese Tomato",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A delightful combination of melted cheese and tangy tomato gravy, making it a unique and comforting dish.",
     price: 200,
     mrp: "260",
   },
@@ -725,25 +724,25 @@ export const MainCourseData = [
     name: "Paneer Tikka Masala",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A smoky and spicy paneer dish where grilled paneer cubes are cooked in a luscious tomato-based gravy.",
     price: 200,
     mrp: "260",
   },
   {
     id: 79,
-    name: "Mushroom Masala ",
+    name: "Mushroom Masala",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A rich and flavorful dish made with mushrooms cooked in a spiced onion-tomato gravy.",
     price: 180,
     mrp: "230",
   },
   {
     id: 80,
-    name: "Mushroom Do Pyaja ",
+    name: "Mushroom Do Pyaza",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A spicy and flavorful mushroom curry cooked with double the amount of onions for an intense and aromatic taste.",
     price: 200,
     mrp: "260",
   },
@@ -752,11 +751,14 @@ export const MainCourseData = [
     name: "Butter Gravy",
     image: "/img/foodicon.png",
     description:
-      "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
+      "A rich and buttery tomato-based curry, perfect to pair with naan or rice for a delightful meal.",
     price: 150,
     mrp: "210",
   },
 ];
+
+// --------------------------description updated above
+
 export const NonVegMainData = [
   {
     id: 82,
@@ -1829,20 +1831,20 @@ export const ComboMixData = [
     mrp: "220",
   },
 ];
-// export const SaladandRaitaData = [
-//   { id: 195, name: 'Gareen Salad',   image: '/img/wrap/aloowrap.jpeg', description: 'The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.',                                         price: 100, mrp: '180' },
-//   { id: 196, name: 'Creame Kachumber Salad',  image: '/img/wrap/paneerwrap.jpeg', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 150, mrp: '220' },
-//   { id: 197, name: 'Onion Salad',  image: '/img/wrap/splwrap.jpeg', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 50, mrp: '180' },
-//   { id: 198, name: 'Bundi Rayta',  image: '/img/wrap/paneerwrap.jpeg', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 100, mrp: '220' },
-//   { id: 199, name: 'Mix Rayta',  image: '/img/wrap/splwrap.jpeg', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 80, mrp: '180' },
-//   { id: 200, name: 'Pineapple Rayta',  image: '/img/wrap/splwrap.jpeg', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 150, mrp: '220' },
-//   { id: 201, name: 'Aloo Rayta',  image: '/img/wrap/paneerwrap.jpeg', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 70, mrp: '220' },
-//   { id: 202, name: 'Penut Masala',  image: '/img/wrap/splwrap.jpeg', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 120, mrp: '180' },
-//   { id: 203, name: 'Fried Pappad',  image: '/img/wrap/paneerwrap.jpeg', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 100, mrp: '220' },
-//   { id: 204, name: 'Dry Pappad',  image: '/img/wrap/splwrap.jpeg', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 129, mrp: '180' },
-//   { id: 205, name: 'Masala Pappad',  image: '/img/wrap/splwrap.jpeg', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 169, mrp: '220' },
+export const SaladandRaitaData = [
+  { id: 195, name: 'Gareen Salad',   image: '/img/foodicon.png', description: 'The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.',                                         price: 100, mrp: '140' },
+  { id: 196, name: 'Creame Kachumber Salad',  image: '/img/foodicon.png', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 150, mrp: '190' },
+  { id: 197, name: 'Onion Salad',  image: '/img/foodicon.png', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 50, mrp: '80' },
+  { id: 198, name: 'Bundi Rayta',  image: '/img/foodicon.png', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 100, mrp: '140' },
+  { id: 199, name: 'Mix Rayta',  image: '/img/foodicon.png', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 80, mrp: '110' },
+  { id: 200, name: 'Pineapple Rayta',  image: '/img/foodicon.png', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 150, mrp: '190' },
+  { id: 201, name: 'Aloo Rayta',  image: '/img/foodicon.png', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 70, mrp: '100' },
+  { id: 202, name: 'Penut Masala',  image: '/img/foodicon.png', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 120, mrp: '180' },
+  { id: 203, name: 'Fried Pappad ~ 1pc',  image: '/img/foodicon.png', description: ' This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.',   price: 25, mrp: '30' },
+  { id: 204, name: 'Dry Pappad ~ 1pc',  image: '/img/foodicon.png', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 20, mrp: '25' },
+  { id: 205, name: 'Masala Pappad',  image: '/img/foodicon.png', description: 'Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.',                                                        price: 130, mrp: '190' },
 
-// ];
+];
 export const VegSnacksData = [
   {
     id: 206,
@@ -2056,7 +2058,7 @@ export const TandooriNonVegData = [
     description:
       "Experience the joy of unwrapping a delicious surprise with our Mix Veg Parcel.",
     size: { size1: "Half", size2: "Full" },
-    price: { priceH: "250", priceF: "500" },
+    price: { priceH: "350", priceF: "600" },
     mrp: "310",
   },
   {
