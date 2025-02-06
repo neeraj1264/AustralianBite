@@ -29,7 +29,7 @@ const categories = [
     { id:25, image: "/img/aloowrap.jpeg",itemCount: 7,  name: "Sides" },
     { id:26, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Mushroom" },
     { id:27, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Main" },
-    { id:28, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Combo" },
+    { id:28, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Combo_Mix" },
     { id:29, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Vegetable" },
     { id:30, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Maggie" },
     { id:31, image: "/img/aloowrap.jpeg",itemCount: 3,  name: "Paneer" },

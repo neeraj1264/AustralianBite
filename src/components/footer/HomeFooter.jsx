@@ -55,36 +55,15 @@ const HomeFooter = () => {
 
         <div className="home-footer-section">
           <h3>Follow Us</h3>
-
           <p>
-            <Link
-              href="https://www.facebook.com"
-              target="_blank"
-              className="social-icon fb"
-            >
-              <i className="fab fa-facebook"></i>
-              <span>Facebook</span>
-            </Link>
-          </p>
-          <p>
-            <Link
-              href="https://www.twitter.com"
-              target="_blank"
-              className="social-icon twitter"
-            >
-              <i className="fab fa-twitter"></i>
-              <span>Twitter</span>
-            </Link>
-          </p>
-          <p>
-            <Link
-              href="https://www.instagram.com"
+            <a
+              href="https://www.instagram.com/australian_bite?igsh=MTNvOXZzbGl0eDV2cw%3D%3D&utm_source=qr "
               target="_blank"
               className="social-icon insta"
             >
               <i className="fab fa-instagram"></i>
               <span>Instagram</span>
-            </Link>
+            </a>
           </p>
           <p>
             <Link
@@ -94,16 +73,6 @@ const HomeFooter = () => {
             >
               <i className="fab fa-whatsapp"></i>
               <span>Whatsapp</span>
-            </Link>
-          </p>
-          <p>
-            <Link
-              href="https://www.linkedin.com"
-              target="_blank"
-              className="social-icon linkedin"
-            >
-              <i className="fab fa-linkedin"></i>
-              <span>Linkedin</span>
             </Link>
           </p>
         </div>

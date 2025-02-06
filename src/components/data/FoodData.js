@@ -1,9 +1,9 @@
 export const simplepizzadata = [
   {
     id: 1,
-    name: "Maharaja Pizza",
+    name: "Margherita Pizza",
     image: "/img/pizzaicon.png",
-    description: 'A regal pizza topped with sweet corn, ripe tomatoes, and a blend of cheeses, all baked to perfection on a golden crust.', 
+    description: "Classic Margherita with a crispy crust and a generous topping of melted mozzarella cheese.",
     price: { priceR: "99", priceM: "179", priceL: "289" },
     mrp: "140",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -12,7 +12,7 @@ export const simplepizzadata = [
     id: 2,
     name: "Cheese Pizza",
     image: "/img/pizzaicon.png",
-    description: 'A classic cheese pizza with a rich blend of mozzarella and cheddar, served on a golden, crispy crust.', 
+    description: "A cheesy delight featuring a golden crust topped with rich tomato sauce and loaded with gooey mozzarella cheese.",
     price: { priceR: "119", priceM: "199", priceL: "289" },
     mrp: "140",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -21,8 +21,8 @@ export const simplepizzadata = [
     id: 3,
     name: "Cheese Mushroom Pizza",
     image: "/img/pizzaicon.png",
-    description: 'A cheesy delight with savory mushrooms, perfectly blended on a golden crust for a rich and hearty flavor.', 
-    price: { priceR: "199", priceM: "199", priceL: "289" },
+    description: "A delicious combination of cheesy goodness and fresh mushrooms on a perfectly baked crust with a flavorful base.",
+    price: { priceR: "119", priceM: "199", priceL: "289" },
     mrp: "140",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
   },
@@ -32,8 +32,7 @@ export const Veg1Data = [
     id: 4,
     name: "Faram House",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Onion , Capsicum , Tomato , Mushroom",
     price: { priceR: "149", priceM: "299", priceL: "439" },
     mrp: "180",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -42,8 +41,7 @@ export const Veg1Data = [
     id: 5,
     name: "Fresh Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Onion , Capsicum , Corn",
     price: { priceR: "149", priceM: "299", priceL: "439" },
     mrp: "180",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -54,8 +52,7 @@ export const Veg2Data = [
     id: 6,
     name: "Veggie Deluxe Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Onion , Capsicum , Corn , Mushroom , Paneer",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -64,8 +61,7 @@ export const Veg2Data = [
     id: 7,
     name: "Chilly Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Red Paper , Corn , Jalapeno  chilly sauce",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -74,8 +70,7 @@ export const Veg2Data = [
     id: 8,
     name: "Maxican Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Onion , Tomato , Capsicum , Jalapeno",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -84,8 +79,7 @@ export const Veg2Data = [
     id: 9,
     name: "Spicy Paneer Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Red Paprika , Paneer , capsicum , Jalapeno",
     price: { priceR: "179", priceM: "349", priceL: "489" },
     mrp: "210",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -106,8 +100,7 @@ export const Veg3Data = [
     id: 11,
     name: "Hawallan Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Onion , Corn , Capsicum , Mushroom , Black Olive , Paneer , Jalapeno",
     price: { priceR: "199", priceM: "379", priceL: "539" },
     mrp: "250",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -116,8 +109,7 @@ export const Veg3Data = [
     id: 12,
     name: "Australian Special Pizza",
     image: "/img/pizzaicon.png",
-    description:
-      "a perfect marriage of sweet corn and ripe tomatoes on a golden crust. ",
+    description: "Topping: Achari & Makhani Sauce , Onion , Capsicum , Paneer , Olives",
     price: { priceR: "199", priceM: "379", priceL: "539" },
     mrp: "250",
     size: { size1: "Regular", size2: "Mediun", size3: "Large" },
@@ -1767,56 +1759,56 @@ export const ChaapData = [
 export const ComboMixData = [
   {
     id: 189,
-    name: "Australian Crispy Chaap ~ 6pc",
+    name: " Veg Noodles Combo",
     image: "/img/foodicon.png",
     description:
       "The Aloo Tikki provides a satisfying crunch, complemented by the crispness of vegetables and the burst of flavors from our signature sauces.",
-    price: 129,
+    price: 149,
     mrp: "180",
   },
   {
     id: 190,
-    name: "Chaap Chilly ~ Dry",
+    name: " Paneer Noodles Combo",
     image: "/img/foodicon.png",
     description:
       " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
-    price: 169,
+    price: 179,
     mrp: "220",
   },
   {
     id: 191,
-    name: "Chaap Chilly ~ Gravy",
+    name: " Veg Rice Combo",
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 129,
+    price: 149,
     mrp: "180",
   },
   {
     id: 192,
-    name: "Chaap Manchurian ~ Dry",
+    name: " Paneer Rice Combo",
     image: "/img/foodicon.png",
     description:
       " This delectable creation features spiced and grilled paneer (Indian cottage cheese) patties, perfectly wrapped in a warm tortilla along with fresh veggies and flavorful sauces.",
-    price: 169,
+    price: 179,
     mrp: "220",
   },
   {
     id: 193,
-    name: "Chaap Manchurian ~ Gravy",
+    name: " Veg Rice Noodles Combo",
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 129,
+    price: 159,
     mrp: "180",
   },
   {
     id: 194,
-    name: "Honey Chilly Chaap",
+    name: " Paneer Rice Noodles Combo",
     image: "/img/foodicon.png",
     description:
       "Every bite promises a delightful amalgamation of savory, spicy, and zesty notes, creating a satisfying and memorable experience.",
-    price: 169,
+    price: 179,
     mrp: "220",
   },
 ];

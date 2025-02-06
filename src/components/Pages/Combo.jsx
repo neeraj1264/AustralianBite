@@ -9,7 +9,7 @@ const Combo = () => {
   
   return (
     <>
-      <h2 id='Combo' className='category-header'> Combo</h2>
+      <h2 id='Combo_Mix' className='category-header'> Combo Mix</h2>
       {renderCards(ComboMixData)}
     </>
   );

@@ -70,7 +70,7 @@ const menuItems = [
   { name: 'Taco', component: <Taco /> },
   { name: 'Mushrom', component: <Mushroom /> },
   { name: 'Main', component: <Main /> },
-  { name: 'Combo', component: <Combo /> },
+  { name: 'Combo_Mix', component: <Combo /> },
   { name: 'Vegetable', component: <Vegetable /> },
   { name: 'Maggie', component: <Maggie /> },
   { name: 'Paneer', component: <Paneer /> },
