@@ -101,6 +101,6 @@
 }
 .Delivery-amount{
   font-weight: 700;
-  text-align: left;
+  text-align: right !important;
   padding-right: 1.5rem;
 }

@@ -82,6 +82,7 @@
     font-size: 15px;
     margin: 0;
     color: var(--yellow);
+    font-weight: bold;
   }
   
   .home-footer-links span{

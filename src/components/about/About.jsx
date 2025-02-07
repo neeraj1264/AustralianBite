@@ -25,7 +25,8 @@ const About = () => {
                 <LazyLoadImage
                   className="img-fluid rounded w-100 wow zoomIn"
                   data-wow-delay="0.1s"
-                  src="/img/about-1.jpg"
+                  // src="/img/a1.jpg"
+                  src="/outer.jpg"
                   alt="About 1"
                   effect="blur"
                   visibleByDefault={false} 
@@ -36,7 +37,7 @@ const About = () => {
                 <LazyLoadImage
                   className="img-fluid rounded w-75 wow zoomIn"
                   data-wow-delay="0.3s"
-                  src="/img/about-2.jpg"
+                  src="/img/a2.jpg"
                   alt="About 2"
                   style={{ marginTop: "25%" }}
                   effect="blur"
@@ -48,7 +49,7 @@ const About = () => {
                 <LazyLoadImage
                   className="img-fluid rounded w-75 wow zoomIn"
                   data-wow-delay="0.5s"
-                  src="/img/about-3.jpg"
+                  src="/img/a3.jpg"
                   alt="About 3"
                   effect="blur"
                   visibleByDefault={false} 
@@ -59,7 +60,7 @@ const About = () => {
                 <LazyLoadImage
                   className="img-fluid rounded w-100 wow zoomIn"
                   data-wow-delay="0.7s"
-                  src="/img/about-4.jpg"
+                  src="/img/a4.jpg"
                   alt="About 4"
                   effect="blur"
                   visibleByDefault={false} 

@@ -11,10 +11,10 @@ const Team = () => {
   const location = useLocation();
 
   const teamMembers = [
-    { img: "./img/team-1.jpg", name: "Full Name", designation: "Designation" },
-    { img: "./img/team-2.jpg", name: "Full Name", designation: "Designation" },
-    { img: "./img/team-3.jpg", name: "Full Name", designation: "Designation" },
-    { img: "./img/team-4.jpg", name: "Full Name", designation: "Designation" },
+    { img: "./img/chef1.jpeg", name: "Full Name", designation: "Chinese Chef" },
+    { img: "./img/chef2.jpeg", name: "Full Name", designation: "Indian Chef" },
+    // { img: "./img/team-3.jpg", name: "Full Name", designation: "Designation" },
+    // { img: "./img/team-4.jpg", name: "Full Name", designation: "Designation" },
   ];
 
   return (
@@ -40,7 +40,7 @@ const Team = () => {
                   className={`col-lg-3 col-md-6 team-item-container ${
                     inView ? "animate-fade-in-up" : "opacity-0"
                   }`}
-                  data-wow-delay={`${0.2 * index}s`}
+                  data-wow-delay={`${2 * index}s`}
                 >
               <div className="team-item text-center rounded overflow-hidden">
                 <div className="rounded-circle overflow-hidden m-4">

@@ -98,7 +98,7 @@ const Cart = ({ id }) => {
         : 0;
 
       return total + basePrice + addonsPrice + cheesesPrice;
-    }, 20); // Assuming 20 is the initial total (Service Charge)
+    }, 0); // Assuming 20 is the initial total (Service Charge)
   };
 
   useEffect(() => {
@@ -335,9 +335,9 @@ Service Charge = ₹ 20.00
                 {cartItems.length > 0 && (
                   <tr>
                     <td colSpan="4" className="delivery-row">
-                      Delivery Charge <span className="Kilometer">[Upto 2Km]</span>
+                      Delivery Charge Free<span className="Kilometer">[Upto 5Km]</span>
                     </td>
-                    <td className="Delivery-amount">₹20</td>
+                    <td className="Delivery-amount">₹0</td>
                   </tr>
                 )}
 
