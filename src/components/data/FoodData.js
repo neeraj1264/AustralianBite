@@ -34,7 +34,7 @@ export const Veg1Data = [
   {
     id: 4,
     name: "Faram House",
-    image: "/img/pizzaicon.png",
+    image: "/img/pizza/farmhousepizza.jpg",
     description: "Topping: Onion , Capsicum , Tomato , Mushroom",
     price: { priceR: "149", priceM: "299", priceL: "439" },
     mrp: "180",

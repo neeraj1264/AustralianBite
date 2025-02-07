@@ -11,10 +11,10 @@ const Team = () => {
   const location = useLocation();
 
   const teamMembers = [
-    { img: "./img/chef1.jpeg", name: "Full Name", designation: "Chinese Chef" },
-    { img: "./img/chef2.jpeg", name: "Full Name", designation: "Indian Chef" },
-    // { img: "./img/team-3.jpg", name: "Full Name", designation: "Designation" },
-    // { img: "./img/team-4.jpg", name: "Full Name", designation: "Designation" },
+    { img: "./img/chef3.jpg", name: "Shweta", designation: "Receptionist" , insta:"/"},
+    { img: "./img/chef1.jpeg", name: "Full Name", designation: "Chinese Chef" , insta:"/"},
+    { img: "./img/chef2.jpeg", name: "Nandu", designation: "Indian Chef" , insta:"https://www.instagram.com/nandu_rajput_uk01/?igsh=a2g5b3RjcGJnZmQ5#"},
+    // { img: "./img/team-4.jpg", name: "Full Name", designation: "Designation" , insta:"/"},
   ];
 
   return (
@@ -49,13 +49,13 @@ const Team = () => {
                 <h5 className="mb-0">{member.name}</h5>
                 <small>{member.designation}</small>
                 <div className="d-flex justify-content-center mt-3">
-                  <a className="btn btn-square btn-primary mx-1" href="#">
+                  {/* <a className="btn btn-square btn-primary mx-1" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </a>
                   <a className="btn btn-square btn-primary mx-1" href="#">
                     <i className="fab fa-twitter"></i>
-                  </a>
-                  <a className="btn btn-square btn-primary mx-1" href="#">
+                  </a> */}
+                  <a className="btn btn-square btn-primary mx-1" href={member.insta}>
                     <i className="fab fa-instagram"></i>
                   </a>
                 </div>
