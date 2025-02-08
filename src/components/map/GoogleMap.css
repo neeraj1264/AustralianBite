@@ -16,14 +16,16 @@
 }
 .contact i{
   color: var(--yellow);
-  font-size: 2rem;
-  margin-right: 2rem;
+  font-size: 1rem;
+  margin-right: 1rem;
   margin-top: .5rem;
 }
-.contact span{
-  font-size: .8rem;
+.contact span h5{
+  font-size: 1rem;
 }
-
+.contact span p{
+  font-size: .7rem;
+}
 .highlight{
     color: var(--yellow);
 }

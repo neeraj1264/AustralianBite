@@ -49,7 +49,7 @@ const HomeFooter = () => {
             <span>
               <i className="fa fa-envelope"></i>
             </span>
-            info@example.com
+            australianbite41@gmail.com
           </p>
         </div>
 

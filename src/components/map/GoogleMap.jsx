@@ -52,7 +52,7 @@ const GoogleMap = () => {
         <div className="contact">
           <i className="fa fa-envelope"></i>
           <span>
-            <h5>xyz@gmail.com</h5>
+            <h5>australianbite41@gmail.com</h5>
             <p>Email us your query</p>
           </span>
         </div>
