@@ -11,6 +11,7 @@ import GoogleMap from './components/map/GoogleMap';
 import Feedback from './components/ContactUs/Contact';
 import About from './components/about/About';
 import Team from './components/team/Team';
+import AdminPanel from './AdminPanel';
 
 function App() {
   const location = useLocation();
@@ -87,6 +88,7 @@ function App() {
       <Route path="cart" element={<Cart />} />
       <Route path="team" element={<Team />} />
       <Route path="menu" element={<MenuLayout/>} />
+      <Route path="adminpanel" element={<AdminPanel/>} />
       <Route path="MyCarousel" element={<MyCarousel />} />
     </Route>
   </Routes>  
