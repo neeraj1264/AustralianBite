@@ -34,6 +34,24 @@ const Header = ({ headerName, setSearch, onClick }) => {
     }
   };
 
+   // List of menu image paths (Update these paths based on your setup)
+ const menuImages = [
+  "/menu/menu1.jpg",
+  "/menu/menu2.jpg",
+];
+
+ // Function to download all images directly
+ const downloadMenuImages = () => {
+  menuImages.forEach((imageUrl, index) => {
+    const link = document.createElement("a");
+    link.href = imageUrl;
+    link.download = `menu${index + 1}.jpg`; // Sets the filename for the downloaded image
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+};
+
   return (
     <nav className="navbar navbar-expand-lg fixed-top custom-navbar">
       <div className="container-fluid">
@@ -67,6 +85,12 @@ const Header = ({ headerName, setSearch, onClick }) => {
               >
                 Menu
               </Link>
+            </li>
+            <li className="nav-item">
+               {/* Download Menu Button */}
+          <button className="nav-link custom-text" onClick={downloadMenuImages}>
+            Download Menu
+          </button>
             </li>
             <li className="nav-item">
               <Link
