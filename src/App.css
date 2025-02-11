@@ -265,7 +265,9 @@ body.dark-theme {
   color: var(--yellow);
 }
 
-
+.search-results{
+  margin-top: 3rem;
+}
 
 .card img {
   width: 50px;
