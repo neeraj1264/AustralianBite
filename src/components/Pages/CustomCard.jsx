@@ -410,7 +410,7 @@ const CustomCard = ({ id, name, description, price, image, mrp, size }) => {
               </Modal>
             )}
           </div>
-          {hasPriceOptions && <div className="cust">customisable</div>}
+          {hasPriceOptions && <div className="cust">customized</div>}
         </div>
       </div>
     </>

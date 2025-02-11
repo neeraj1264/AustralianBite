@@ -198,7 +198,6 @@ Order      : *ORD-${orderId}*
 Amount   : *₹${total}*
     ----------Items----------\n
 ${productDetails}
-Service Charge = ₹ 20.00
 `;
 
     const whatsappLink =
