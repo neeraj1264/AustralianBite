@@ -11,10 +11,10 @@ const Team = () => {
   const location = useLocation();
 
   const teamMembers = [
-    { img: "./img/chef3.jpg", name: "Shweta", designation: "Receptionist" , insta:"/"},
-    { img: "./img/chef1.jpeg", name: "Full Name", designation: "Chinese Chef" , insta:"/"},
-    { img: "./img/chef2.jpeg", name: "Nandu", designation: "Indian Chef" , insta:"https://www.instagram.com/nandu_rajput_uk01/?igsh=a2g5b3RjcGJnZmQ5#"},
-    // { img: "./img/team-4.jpg", name: "Full Name", designation: "Designation" , insta:"/"},
+    { img: "./img/chef4.jpg", name: "Manjot singh", designation: "Manager"},
+    { img: "./img/chef3.jpg", name: "Shweta", designation: "Receptionist" },
+    { img: "./img/chef1.jpeg", name: "Full Name", designation: "Chinese Chef" },
+    { img: "./img/chef2.jpg", name: "Nandu", designation: "Indian Chef" , insta:"https://www.instagram.com/nandu_rajput_uk01/?igsh=a2g5b3RjcGJnZmQ5#"},
   ];
 
   return (
@@ -49,15 +49,22 @@ const Team = () => {
                 <h5 className="mb-0">{member.name}</h5>
                 <small>{member.designation}</small>
                 <div className="d-flex justify-content-center mt-3">
-                  {/* <a className="btn btn-square btn-primary mx-1" href="#">
+
+                {member.facebook && (
+                  <a className="btn btn-square btn-primary mx-1" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </a>
+                )}
+                  {member.twitter && (
                   <a className="btn btn-square btn-primary mx-1" href="#">
                     <i className="fab fa-twitter"></i>
-                  </a> */}
+                  </a>
+                  )}
+                  {member.insta && (
                   <a className="btn btn-square btn-primary mx-1" href={member.insta}>
                     <i className="fab fa-instagram"></i>
                   </a>
+                   )}
                 </div>
               </div>
             </div>
