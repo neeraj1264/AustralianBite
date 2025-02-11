@@ -43,7 +43,51 @@ import TandooriNonVeg from "./components/Pages/TandooriNonVeg";
 import Mushroom from "./components/Pages/Mushroom";
 import Chaap from "./components/Pages/Chaap";
 import SaladandRayta from "./components/Pages/Salad&Raita";
-import { ChaapData, ChickenburgerData, ChickenSnackData, CoffeeData, ComboMixData, CombopizzaData,  FriesData,  IcecreamData,  MaggieData,  MainCourseData,  MainData,  MojitoData,  MomosData,  MushromData,  NonVegMainData,  NonVegPizzaData,  NonVegSoupData,  NonVegSplData,  NoodlesData,  PaneerData,  PastaData,  RotiData,  SaladandRaitaData,  SaladData,  SandwichData,  ShakeData,  SidesData,  simplepizzadata, SizzlersData, TacoData, TandooriNonVegData, TasteOfIndiaData,Veg1Data,Veg2Data,Veg3Data,VegburgerData, VegetablesData, VegSnacksData, VegSplData, WrapData,} from "./components/data/FoodData";
+import {
+  allItems,
+  ChaapData,
+  ChickenburgerData,
+  ChickenSnackData,
+  CoffeeData,
+  ComboMixData,
+  CombopizzaData,
+  FriesData,
+  IcecreamData,
+  MaggieData,
+  MainCourseData,
+  MainData,
+  MojitoData,
+  MomosData,
+  MushromData,
+  NonVegMainData,
+  NonVegPizzaData,
+  NonVegSoupData,
+  NonVegSplData,
+  NoodlesData,
+  PaneerData,
+  PastaData,
+  RotiData,
+  SaladandRaitaData,
+  SaladData,
+  SandwichData,
+  ShakeData,
+  SidesData,
+  simplepizzadata,
+  SizzlersData,
+  TacoData,
+  TandooriNonVegData,
+  TasteOfIndiaData,
+  Veg1Data,
+  Veg2Data,
+  Veg3Data,
+  VegburgerData,
+  VegetablesData,
+  VegSnacksData,
+  VegSplData,
+  WrapData,
+} from "./components/data/FoodData";
+import PizzaPage from "./components/Pages/Pizza/PizzaPage";
+import { useCart } from "./ContextApi";
 
 const menuItems = [
   { name: "Simple Veg", component: <SimplePizza />, data: simplepizzadata },
@@ -51,10 +95,18 @@ const menuItems = [
   { name: "Veg2", component: <Veg2 />, data: Veg2Data },
   { name: "Veg3", component: <Veg3 />, data: Veg3Data },
   { name: "ComboPizza", component: <Combopizza />, data: CombopizzaData },
-  { name: "Taste Of India", component: <TasteOfIndia />, data: TasteOfIndiaData },
+  {
+    name: "Taste Of India",
+    component: <TasteOfIndia />,
+    data: TasteOfIndiaData,
+  },
   { name: "Non Veg Pizza", component: <NonVegPizza />, data: NonVegPizzaData },
   { name: "Vegburger", component: <Vegburger />, data: VegburgerData },
-  { name: "Chickenburger", component: <Chickenburger />, data: ChickenburgerData },
+  {
+    name: "Chickenburger",
+    component: <Chickenburger />,
+    data: ChickenburgerData,
+  },
   { name: "NonVegSpl", component: <NonVegSpl />, data: NonVegSplData },
   { name: "NonVegSoup", component: <NonVegSoup />, data: NonVegSoupData },
   { name: "ChickenSnack", component: <ChickenSnack />, data: ChickenSnackData },
@@ -82,10 +134,18 @@ const menuItems = [
   { name: "Sizzlers", component: <Sizzlers />, data: SizzlersData },
   { name: "Pasta", component: <Pasta />, data: PastaData },
   { name: "Chaap", component: <Chaap />, data: ChaapData },
-  { name: "SaladandRayta", component: <SaladandRayta />, data: SaladandRaitaData },
+  {
+    name: "SaladandRayta",
+    component: <SaladandRayta />,
+    data: SaladandRaitaData,
+  },
   { name: "VegSnacks", component: <VegSnacks />, data: VegSnacksData },
   { name: "Roti", component: <Roti />, data: RotiData },
-  { name: "TandooriNonVeg", component: <TandooriNonVeg />, data: TandooriNonVegData },
+  {
+    name: "TandooriNonVeg",
+    component: <TandooriNonVeg />,
+    data: TandooriNonVegData,
+  },
 ];
 
 const MenuLayout = () => {
@@ -93,6 +153,8 @@ const MenuLayout = () => {
   const [searchText, setSearchText] = useState(""); // State to handle search input
   const [loading, setLoading] = useState(true); // Loading state to track the fetch status
   const [filteredMenuItems, setFilteredMenuItems] = useState(menuItems);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const { cartItemsCount } = useCart();
 
   const toggleCategory = () => {
     if (!showCategory) {
@@ -103,62 +165,87 @@ const MenuLayout = () => {
 
   useEffect(() => {
     setLoading(true);
-
+  
     if (searchText.trim() === "") {
-      // If search is empty, show all menu items
       setFilteredMenuItems(menuItems);
     } else {
-      // Filter menu items based on category and search text
-      const filteredItems = menuItems
-        .map((item) => {
-          if (!item.data) return null; // Ensure data exists
-
-          // Filter items in the category
-          const filteredData = item.data.filter((dataItem) =>
-            dataItem.name.toLowerCase().includes(searchText.toLowerCase())
-          );
-
-          // If there are matching items, keep the category but ONLY with matched items
-          return filteredData.length > 0
-            ? { ...item, data: filteredData }
-            : null;
-        })
-        .filter((item) => item !== null); // Remove categories with no matches
-
-      setFilteredMenuItems(filteredItems);
+      const matchedItems = allItems.filter((item) =>
+        item.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+  
+      if (matchedItems.length > 0) {
+        setFilteredMenuItems([
+          {
+            name: "Search Results",
+            component: (
+              <div className="search-results">
+                {matchedItems.map((item) => (
+                  <PizzaPage key={item.id} {...item} />
+                ))}
+              </div>
+            ),
+            data: matchedItems,
+          },
+        ]);
+      } else {
+        setFilteredMenuItems([
+          {
+            name: "Not Found",
+            component: <h2 className="not-found">No items found!</h2>,
+            data: [],
+          },
+        ]);
+      }
     }
-
+  
     setLoading(false);
   }, [searchText]);
+  
+
+  useEffect(() => {
+    if (cartItemsCount > 0) {
+      setIsFooterVisible(true);
+    } else {
+      setIsFooterVisible(false);
+    }
+  }, [cartItemsCount]);
 
   return (
     <>
-    <Header/>
-      {/* Search Input */}
-      {/* <div className="search-bar" style={{ margin: "20px 0" }}>
+      <Header />
+
+      <div
+        className={`menu-btn-container ${
+          isFooterVisible ? "footer-visible" : ""
+        }`}
+      >
         <input
           type="text"
-          placeholder="Search items..."
+          className="menu-search"
+          placeholder="Search for items..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          style={{ padding: "10px", width: "80%", fontSize: "16px" }}
         />
-      </div> */}
+        <h1 className="menu-btn" onClick={toggleCategory}>
+          {!showCategory ? "Menu" : "Hide"}
+        </h1>
+      </div>
+      
       <div className="menu-items">
         {loading ? (
           <h2 className="loading">Menu Loading...</h2>
         ) : (
           filteredMenuItems.map((item, index) => (
             <div key={index} className="menu-item">
+              {/* Show category name only if not search results */}
+              {item.name !== "Search Results" && (
+                <h2 className="category-header"></h2>
+              )}
               {item.component}
             </div>
           ))
         )}
       </div>
-
-      <h1 className="menu-btn" onClick={toggleCategory}>
-        {!showCategory ? "Menu" : "Hide"}
-      </h1>
 
       {/* Render Categories Dynamically */}
       {showCategory && (

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Table, Form } from "react-bootstrap";
-import { useCart } from "../../../ContextApi";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { useCart } from "../../../ContextApi";
 import "./Pizza.css";
-import { IoMdCloseCircle } from "react-icons/io";
 
 const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
-  const { size1, size2, size3 } = size || {};
-  const { priceR, priceM, priceL } = price;
-
+  // Use cart context (same as before)
   const {
     decrementCart,
     incrementCart,
@@ -19,14 +16,37 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
     updateCartItemQuantity,
   } = useCart();
 
+  // Determine the product type based on the passed price object:
+  // - If price contains priceR, priceM and priceL → treat as "pizza" type.
+  // - If price contains priceH and priceF → treat as "custom" type.
+  // - Otherwise, treat it as a default product.
+  const isPizza =
+    price && typeof price === "object" && "priceR" in price && "priceM" in price && "priceL" in price;
+  const isCustom =
+    price && typeof price === "object" && "priceH" in price && "priceF" in price;
+
+  const productType = isPizza ? "pizza" : isCustom ? "custom" : "default";
+
+  // For products with size options, pick the default size and price.
+  const defaultSize =
+    productType === "pizza" ? (size?.size1 || "") : productType === "custom" ? (size?.size1 || "") : "";
+  const defaultPrice =
+    productType === "pizza" ? price.priceR : productType === "custom" ? price.priceH : price;
+
+  // Component states
   const [show, setShow] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  // const [selectedSize, setSelectedSize] = useState(size1);
-  const [selectedSize, setSelectedSize] = useState(size1 || "");
-  const [selectedSizePrice, setSelectedSizePrice] = useState(priceR);
-  const [AddonsPrice, setAddonsPrice] = useState(30);
-  const [cheesePrice, setcheesePrice] = useState(40);
+  const [selectedSize, setSelectedSize] = useState(defaultSize);
+  const [selectedSizePrice, setSelectedSizePrice] = useState(defaultPrice);
   const productShowButtons = showButtons[id] || false;
+
+  // For toggling the "read more" description
+  const [showFullDescription, setShowFullDescription] = useState(false);
+  const toggleDescription = () => setShowFullDescription(!showFullDescription);
+
+  // --- Only used for Pizza type ---
+  // For pizzas we want to offer addon (cheese) options.
+  const [selectedCLSize, setSelectedCLSize] = useState("R"); // to choose the cheese price (R, M, or L)
   const [addons, setAddons] = useState({
     extraCheese: false,
     cheeseburst: false,
@@ -37,251 +57,407 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
     mushroom: false,
   });
 
-  const handleShow = () => {
-    setShow(true);
-  };
-  const handleClose = () => {
-    setSelectedSize("");
-    setSelectedSizePrice(priceR);
-    setShow(false);
-  };
-  const handleAddonChange = (addon) => {
-    setAddons((prevAddons) => ({
-      ...prevAddons,
-      [addon]: !prevAddons[addon],
-    }));
-  };
-
-  const addonsList = [
-    { name: "onion ", key: "onion" },
-    { name: "capsicum", key: "capsicum" },
-    { name: "tomato", key: "tomato" },
-    { name: "sweetcorn", key: "sweetcorn" },
-    { name: "mushroom", key: "mushroom" },
-  ];
-
+  // Define the cheeselist (only for pizza)
   const cheeselist = [
     { name: "Extra Cheese", key: "extraCheese", prices: { R: 35, M: 50, L: 90 } },
-    { name: "CheeseBrust", key: "CheeseBrust", prices: { R: 60, M: 90, L: 110 } },
+    { name: "CheeseBrust", key: "cheeseburst", prices: { R: 60, M: 90, L: 110 } },
     { name: "PanBase", key: "PanBase", prices: { R: 10, M: 20, L: 30 } },
     { name: "ThinCrust", key: "ThinCrust", prices: { R: 20, M: 30, L: 50 } },
   ];
-  const [selectedCLSize, setSelectedCLSize] = useState("R"); // Default size
 
-  const getTotalPrice = () => {
-    let total = selectedSizePrice * quantity;
-  
-    addonsList.forEach((addon) => {
-      if (addons[addon.key]) {
-        total += AddonsPrice * quantity;
-      }
-    });
-  
-    cheeselist.forEach((addon) => {
-      if (addons[addon.key]) {
-        const cheesePrice = addon.prices[selectedCLSize]; // Use updated selectedCLSize
-        total += cheesePrice * quantity;
-      }
-    });
-  
-    return total;
+  // Handle addon checkbox changes (for pizza type)
+  const handleAddonChange = (addonKey) => {
+    setAddons((prevAddons) => ({
+      ...prevAddons,
+      [addonKey]: !prevAddons[addonKey],
+    }));
   };
-  
+  // --- End pizza-specific state ---
 
-  const handleSizeChange = (event) => {
-    const newSize = event.target.value;
-    setSelectedSize(newSize);
-  
-    switch (newSize) {
-      case size1:
-        setSelectedSizePrice(priceR);
-        setSelectedCLSize("R"); // Update selectedCLSize
-        break;
-      case size2:
-        setSelectedSizePrice(priceM);
-        setSelectedCLSize("M"); // Update selectedCLSize
-        break;
-      case size3:
-        setSelectedSizePrice(priceL);
-        setSelectedCLSize("L"); // Update selectedCLSize
-        break;
-      default:
-        setSelectedSizePrice(priceR);
-        setSelectedCLSize("R"); // Update selectedCLSize
+  // Retrieve stored quantity from localStorage on mount (if needed)
+  useEffect(() => {
+    const storedQuantity = localStorage.getItem(`${id}_quantity`);
+    if (storedQuantity) {
+      setQuantity(parseInt(storedQuantity, 10));
+      setShowButtons((prev) => ({ ...prev, [id]: true }));
     }
-  };
-  
+  }, [id, setShowButtons]);
 
-  const handleIncrement = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+  // Modal open/close handlers
+  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    setSelectedSize(defaultSize);
+    setSelectedSizePrice(defaultPrice);
+    setShow(false);
   };
 
+  // Quantity increment/decrement
+  const handleIncrement = () => setQuantity((prevQuantity) => prevQuantity + 1);
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity((prevQuantity) => prevQuantity - 1);
     }
   };
 
-  const handleAddBtnToCart = () => {
-    const product = {
-      id,
-      name,
-      price,
-      quantity,
-      image,
-      mrp,
-    };
-    AddToCart(product);
-    setShowButtons((prevShowButtons) => ({ ...prevShowButtons, [id]: true }));
-    incrementCart();
-    setQuantity(quantity);
-  };
-
-  const handleAddToCart = () => {
-    if (selectedSize === "") {
-      // Handle the case where no size is selected
-      alert("Please select a size.");
-      return;
+  // Handle size selection changes.
+  // For pizza, we expect three sizes; for custom, two sizes.
+  const handleSizeChange = (event) => {
+    const newSize = event.target.value;
+    setSelectedSize(newSize);
+    if (productType === "pizza") {
+      if (newSize === size.size1) {
+        setSelectedSizePrice(price.priceR);
+        setSelectedCLSize("R");
+      } else if (newSize === size.size2) {
+        setSelectedSizePrice(price.priceM);
+        setSelectedCLSize("M");
+      } else if (newSize === size.size3) {
+        setSelectedSizePrice(price.priceL);
+        setSelectedCLSize("L");
+      } else {
+        setSelectedSizePrice(price.priceR);
+        setSelectedCLSize("R");
+      }
+    } else if (productType === "custom") {
+      if (newSize === size.size1) {
+        setSelectedSizePrice(price.priceH);
+      } else if (newSize === size.size2) {
+        setSelectedSizePrice(price.priceF);
+      } else {
+        setSelectedSizePrice(price.priceH);
+      }
     }
-    // const selectedAddons = [];
-    // addonsList.forEach((addon) => {
-    //   if (addons[addon.key]) {
-    //     selectedAddons.push({
-    //       name: addon.name,
-    //       price: AddonsPrice,
-    //     });
-    //   }
-    // });
-
-    const selectedCheeses = [];
-    cheeselist.forEach((addon) => {
-        if (addons[addon.key]) {
-            selectedCheeses.push({
-                name: addon.name,
-                price: addon.prices[selectedCLSize],  // <-- Fix here, dynamically use the selected size price
-            });
-        }
-    });
-
-    const product = {
-      id,
-      name: selectedSize ? `${name} [${selectedSize}]` : name,
-      price: selectedSizePrice || price,
-      quantity,
-      image,
-      mrp,
-      // ...(selectedAddons.length > 0 && { addons: selectedAddons }),
-      ...(selectedCheeses.length > 0 && { cheeses: selectedCheeses }),
   };
 
-  let total = selectedSizePrice * quantity;
+  // Calculate total price based on quantity, selected size, and (if pizza) addons
+  const getTotalPrice = () => {
+    let total = selectedSizePrice * quantity;
+    if (productType === "pizza") {
+      cheeselist.forEach((addon) => {
+        if (addons[addon.key]) {
+          total += addon.prices[selectedCLSize] * quantity;
+        }
+      });
+    }
+    return total;
+  };
 
-  // selectedAddons.forEach((addon) => {
-  //     total += AddonsPrice * quantity;  // This might need adjustment if addon prices change per size
-  // });
+  // Add-to-cart handler that varies by product type
+  const handleAddToCart = () => {
+   // Only require a size selection for products that offer size options
+   if ((productType === "pizza" || productType === "custom") && selectedSize === "") {
+    alert("Please select a size.");
+    return;
+  }
 
-  selectedCheeses.forEach((addon) => {
-      total += addon.price * quantity;  // Fix: Use the dynamically determined cheese price
-  });
+    if (productType === "pizza") {
+      // For pizza: gather selected cheese addons
+      const selectedCheeses = [];
+      cheeselist.forEach((addon) => {
+        if (addons[addon.key]) {
+          selectedCheeses.push({
+            name: addon.name,
+            price: addon.prices[selectedCLSize],
+          });
+        }
+      });
+      const product = {
+        id,
+        name: selectedSize ? `${name} [${selectedSize}]` : name,
+        price: selectedSizePrice,
+        quantity,
+        image,
+        mrp,
+        ...(selectedCheeses.length > 0 && { cheeses: selectedCheeses }),
+      };
+      let total = selectedSizePrice * quantity;
+      selectedCheeses.forEach((addon) => {
+        total += addon.price * quantity;
+      });
+      product.totalPrice = total;
+      AddToCart(product);
+      incrementCart();
+      setSelectedSize(defaultSize);
+      setSelectedSizePrice(price.priceR);
+      setShow(false);
+      setShowButtons((prev) => ({ ...prev, [id]: true }));
+    } else if (productType === "custom") {
+      // For custom products
+      const product = {
+        id,
+        name: selectedSize ? `${name} [${selectedSize}]` : name,
+        price: selectedSizePrice,
+        quantity,
+        image,
+        mrp,
+      };
+      AddToCart(product);
+      incrementCart();
+      setSelectedSize(defaultSize);
+      setShow(false);
+      setShowButtons((prev) => ({ ...prev, [id]: true }));
+    } else {
+      // Default (no size options)
+      const product = { id, name, price, quantity, image, mrp };
+      AddToCart(product);
+      incrementCart();
+      setShow(false);
+      setShowButtons((prev) => ({ ...prev, [id]: true }));
+    }
+  };
 
-  product.totalPrice = total;
-
-  AddToCart(product);
-  incrementCart();
-  setSelectedSize("");
-  setSelectedSizePrice(priceR); 
-  setShow(false);
-  setShowButtons((prevShowButtons) => ({ ...prevShowButtons, [id]: true }));
-};
-
+  // Remove-from-cart handler (common for both types)
   const handleRemoveToCart = () => {
     decrementCart();
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     updateCartItemQuantity(id, 0);
-    setShowButtons((prevShowButtons) => ({ ...prevShowButtons, [id]: false }));
+    setShowButtons((prev) => ({ ...prev, [id]: false }));
     localStorage.removeItem(`${id}_quantity`);
   };
 
-  useEffect(() => {
-    // Retrieve quantity from local storage on component mount
-    const storedQuantity = localStorage.getItem(`${id}_quantity`);
-    if (storedQuantity) {
-      setQuantity(parseInt(storedQuantity, 10));
-      setShowButtons((prevShowButtons) => ({ ...prevShowButtons, [id]: true }));
+  // Render the modal content conditionally based on the product type.
+  const renderModalContent = () => {
+    if (productType === "pizza") {
+      return (
+        <>
+          <Modal.Header closeButton className="modalheader">
+            <img src={image} alt={name} />
+            <Modal.Title>{name}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="modal-body">
+            <h3>Select Size</h3>
+            <Table striped bordered hover>
+              <tbody>
+                <tr>
+                  <td>{size.size1}</td>
+                  <td>₹{price.priceR}</td>
+                  <td>
+                    <input
+                      type="radio"
+                      value={size.size1}
+                      checked={selectedSize === size.size1}
+                      onChange={handleSizeChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>{size.size2}</td>
+                  <td>₹{price.priceM}</td>
+                  <td>
+                    <input
+                      type="radio"
+                      value={size.size2}
+                      checked={selectedSize === size.size2}
+                      onChange={handleSizeChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>{size.size3}</td>
+                  <td>₹{price.priceL}</td>
+                  <td>
+                    <input
+                      type="radio"
+                      value={size.size3}
+                      checked={selectedSize === size.size3}
+                      onChange={handleSizeChange}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+            <h3>Addons</h3>
+            <Table striped bordered hover>
+              <tbody>
+                {cheeselist.map((addon) => (
+                  <tr key={addon.key}>
+                    <td>{addon.name}</td>
+                    <td>₹{addon.prices[selectedCLSize]}</td>
+                    <td>
+                      <Form.Check
+                        type="checkbox"
+                        checked={addons[addon.key]}
+                        onChange={() => handleAddonChange(addon.key)}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Modal.Body>
+          <Modal.Footer className="modalfooter">
+            <div className="quantity-update">
+              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleDecrement}>
+                <FaMinus />
+              </Button>
+              <span style={{ margin: "0 0.5rem", color: "white" }}>{quantity}</span>
+              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleIncrement}>
+                <FaPlus />
+              </Button>
+            </div>
+            <Button className="addtocart" onClick={handleAddToCart}>
+              Add to Cart{" "}
+              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>₹{getTotalPrice()}</span>
+            </Button>
+          </Modal.Footer>
+        </>
+      );
+    } else if (productType === "custom") {
+      return (
+        <>
+          <Modal.Header closeButton className="modalheader">
+            <Modal.Title>{name}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="modal-body">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              <img src={image} alt={name} style={{ maxWidth: "18rem", borderRadius: "1rem" }} />
+            </div>
+            <Table striped bordered hover style={{ marginBottom: "10rem" }}>
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>Price</th>
+                  <th>Choose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{size.size1}</td>
+                  <td>₹{price.priceH}</td>
+                  <td>
+                    <input
+                      type="radio"
+                      value={size.size1}
+                      checked={selectedSize === size.size1}
+                      onChange={handleSizeChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>{size.size2}</td>
+                  <td>₹{price.priceF}</td>
+                  <td>
+                    <input
+                      type="radio"
+                      value={size.size2}
+                      checked={selectedSize === size.size2}
+                      onChange={handleSizeChange}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </Modal.Body>
+          <Modal.Footer className="modalfooter">
+            <div className="quantity-update">
+              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleDecrement}>
+                <FaMinus />
+              </Button>
+              <span style={{ margin: "0 0.5rem", color: "white" }}>{quantity}</span>
+              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleIncrement}>
+                <FaPlus />
+              </Button>
+            </div>
+            <Button className="addtocart" onClick={handleAddToCart}>
+              Add to Cart{" "}
+              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>₹{getTotalPrice()}</span>
+            </Button>
+          </Modal.Footer>
+        </>
+      );
+    } else {
+      // For default products (without any size options)
+      return (
+        <>
+          <Modal.Header closeButton className="modalheader">
+            <Modal.Title>{name}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="modal-body">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              <img src={image} alt={name} style={{ maxWidth: "18rem", borderRadius: "1rem" }} />
+            </div>
+            <h5>{name}</h5>
+            <p style={{ fontWeight: "700" }}>
+              ₹{price}
+              <span style={{ textDecoration: "line-through", marginLeft: ".5rem", color: "grey" }}>{mrp}</span>
+              <span style={{ marginLeft: ".5rem", color: "var(--yellow)" }}>
+                {(((mrp - price) / mrp) * 100).toFixed(0)}% off
+              </span>
+            </p>
+            <p>{description}</p>
+          </Modal.Body>
+          <Modal.Footer className="modalfooter">
+            <div className="quantity-update">
+              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleDecrement}>
+                <FaMinus />
+              </Button>
+              <span style={{ margin: "0 0.5rem", color: "white" }}>{quantity}</span>
+              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleIncrement}>
+                <FaPlus />
+              </Button>
+            </div>
+            <Button className="addtocart" onClick={handleAddToCart}>
+              Add to Cart{" "}
+              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>₹{getTotalPrice()}</span>
+            </Button>
+          </Modal.Footer>
+        </>
+      );
     }
-  }, [id]);
+  };
 
-  const hasPriceOptions =
-    typeof price === "object" &&
-    "priceR" in price &&
-    "priceM" in price &&
-    "priceL" in price;
-
-      const [showFullDescription, setShowFullDescription] = useState(false);
-      const toggleDescription = () => setShowFullDescription(!showFullDescription);
   return (
     <>
       <hr />
       <div className="product-card">
         <div className="product-details">
-          <h3>{name}</h3>
+          <h3>
+            {name}{" "}
+            {defaultSize && productType !== "default" ? `[${defaultSize}]` : ""}
+          </h3>
           <p style={{ fontWeight: "700" }}>
-            ₹{priceR || price}
-            <span
-              style={{
-                textDecoration: "line-through",
-                marginLeft: ".5rem",
-                color: "grey",
-              }}
-            >
+            ₹{defaultPrice}
+            <span style={{ textDecoration: "line-through", marginLeft: ".5rem", color: "grey" }}>
               {mrp}
             </span>
-            {!hasPriceOptions && (
-              <span
-                style={{
-                  marginLeft: ".5rem",
-                  color: "var(--yellow)",
-                }}
-              >
-                {(((mrp - price) / mrp) * 100).toFixed(0)}% off
-              </span>
-            )}
-            {hasPriceOptions && (
-              <span
-                style={{
-                  marginLeft: ".5rem",
-                  color: "var(--yellow)",
-                }}
-              >
-                {(((mrp - priceR || price) / mrp) * 100).toFixed(0)}% off
+            {productType !== "default" && (
+              <span style={{ marginLeft: ".5rem", color: "var(--yellow)" }}>
+                {(((mrp - defaultPrice) / mrp) * 100).toFixed(0)}% off
               </span>
             )}
           </p>
           <p className="description" onClick={toggleDescription}>
-            {showFullDescription ? (
-              description
-            ) : (
-              <>
-                {description.length > 50
-                  ? description.substring(0, 50) + "..."
-                  : description}
-                {description.length > 50 && (
-                 <span style={{ color: "var(--yellow)", fontWeight: 500 }}>
-                 {" "}
-                 read more
-               </span>
-                )}
-              </>
+            {showFullDescription
+              ? description
+              : description.length > 50
+              ? description.substring(0, 50) + "..."
+              : description}
+            {description.length > 50 && !showFullDescription && (
+              <span style={{ color: "var(--yellow)", fontWeight: 500 }}> read more</span>
             )}
-          </p>        </div>
+          </p>
+        </div>
         <div className="add-to-cart">
           <div>
-            <img src={image} alt="Product" onClick={handleShow}/>
+            <img src={image} alt="Product" onClick={handleShow} />
           </div>
           <div className="add-btn">
-            {productShowButtons && (
+            {productShowButtons ? (
               <button
-                variant="contained"
                 style={{
                   color: "whitesmoke",
                   border: "none",
@@ -293,268 +469,17 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
               >
                 Added
               </button>
-            )}
-            {!productShowButtons && (
-              <button
-                variant="contained"
-                className="btn"
-                onClick={handleShow}
-              >
+            ) : (
+              <button className="btn" onClick={handleShow}>
                 ADD
               </button>
             )}
-            {hasPriceOptions && (
-              <Modal
-                className="modeldialog"
-                show={show}
-                onHide={handleClose}
-              >
-                <Modal.Header closeButton className="modalheader">
-                  <img
-                    src={image}
-                    alt={name}
-                  />
-                  <Modal.Title>{name}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="modal-body">
-                  <h3>Select Size</h3>
-
-                  <Table striped bordered hover>
-                    <tbody>
-                      <tr>
-                        <td>{size1}</td>
-                        <td>₹{priceR}</td>
-                        <td>
-                          <input
-                            type="radio"
-                            value={size1}
-                            checked={selectedSize === size1}
-                            onChange={handleSizeChange}
-                          />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>{size2}</td>
-                        <td>₹{priceM}</td>
-                        <td>
-                          <input
-                            type="radio"
-                            value={size2}
-                            checked={selectedSize === size2}
-                            onChange={handleSizeChange}
-                          />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>{size3}</td>
-                        <td>₹{priceL}</td>
-                        <td>
-                          <input
-                            type="radio"
-                            value={size3}
-                            checked={selectedSize === size3}
-                            onChange={handleSizeChange}
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>
-
-                 <h3>Addons</h3>
-
-                  <Table striped bordered hover>
-                    <tbody>
-                      {cheeselist.map((addon) => (
-                        <tr key={addon.key}>
-                          <td>{addon.name}</td>
-                          <td>₹{addon.prices[selectedCLSize]}</td> {/* Display price based on selected size */}
-                          <td>
-                            <Form.Check
-                              type="checkbox"
-                              checked={addons[addon.key]}
-                              onChange={() => handleAddonChange(addon.key)}
-                            />
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                {/*    <h3>Toppings</h3>
-
-                  <Table
-                    striped
-                    bordered
-                    hover
-                    style={{ marginBottom: "10rem" }}
-                  >
-                    <tbody>
-                      {addonsList.map((addon) => (
-                        <tr key={addon.key}>
-                          <td>{addon.name}</td>
-                          <td>₹{AddonsPrice}</td>
-                          <td>
-                            <Form.Check
-                              type="checkbox"
-                              checked={addons[addon.key]}
-                              onChange={() => handleAddonChange(addon.key)}
-                            />
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table> */}
-                </Modal.Body>
-                <Modal.Footer className="modalfooter">
-                  <div className="quantity-update">
-                    <Button
-                      variant="contained"
-                      style={{ color: "var(--yellow)" }}
-                      onClick={handleDecrement}
-                    >
-                      <FaMinus />
-                    </Button>
-                    <span style={{ margin: "0 0.5rem", color: "white" }}>
-                      {quantity}
-                    </span>
-                    <Button
-                      variant="contained"
-                      style={{ color: "var(--yellow)", border: "none" }}
-                      onClick={handleIncrement}
-                    >
-                      <FaPlus />
-                    </Button>
-                  </div>
-                  <Button className="addtocart" onClick={handleAddToCart}>
-                    Add to Cart
-                    <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>
-                      ₹{getTotalPrice()}
-                    </span>
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            )}
-            {!hasPriceOptions && (
-              <Modal
-                className="modeldialog"
-                show={show}
-                onHide={handleClose}
-              >
-                <Modal.Header closeButton className="modalheader">
-                  <Modal.Title>
-                    <div
-                      style={{
-                        textAlign: "center",
-                        fontWeight: "700",
-                      }}
-                    >
-                      Australian Bite
-                    </div>
-                  </Modal.Title>
-                </Modal.Header>
-                <Modal.Body
-                  style={{
-                    height: "75vh",
-                    overflowY: "auto",
-                    scrollbarWidth: "thin",
-                    scrollbarColor: "transparent transparent",
-                    background: "var(--in)",
-                    color: "whitesmoke"
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginBottom: "1rem", // Add some margin at the bottom for spacing
-                    }}
-                  >
-                    <img
-                      src={image}
-                      alt={name}
-                      style={{
-                        maxWidth: "18rem",
-                        borderRadius: "1rem",
-                      }}
-                    />
-                  </div>
-
-                  <h5 style={{ fontSize: "1.7rem" }}>{name}</h5>
-                  <p
-                    style={{
-                      fontWeight: "700",
-                      marginBottom: ".5rem",
-                      fontSize: "1.3rem",
-                    }}
-                  >
-                    ₹{price}
-                    <span
-                      style={{
-                        textDecoration: "line-through",
-                        marginLeft: ".5rem",
-                        color: "grey",
-                      }}
-                    >
-                      {mrp}
-                    </span>
-                    <span
-                      style={{
-                        marginLeft: ".5rem",
-                        color: "var(--yellow)",
-                      }}
-                    >
-                      {(((mrp - price) / mrp) * 100).toFixed(0)}% off
-                    </span>
-                  </p>
-
-                  <p className="description" onClick={toggleDescription}>
-            {showFullDescription ? (
-              description
-            ) : (
-              <>
-                {description.length > 50
-                  ? description.substring(0, 50) + "..."
-                  : description}
-                {description.length > 50 && (
-                 <span style={{ color: "var(--yellow)", fontWeight: 500 }}>
-                 {" "}
-                 read more
-               </span>
-                )}
-              </>
-            )}
-          </p>                   </Modal.Body>
-                <Modal.Footer className="modalfooter">
-                  <div className="quantity-update">
-                    <Button
-                      variant="contained"
-                      style={{ color: "var(--yellow)" }}
-                      onClick={handleDecrement}
-                    >
-                      <FaMinus />
-                    </Button>
-                    <span style={{ margin: "0 0.5rem", color: "white" }}>
-                      {quantity}
-                    </span>
-                    <Button
-                      variant="contained"
-                      style={{ color: "var(--yellow)" }}
-                      onClick={handleIncrement}
-                    >
-                      <FaPlus />
-                    </Button>
-                  </div>
-                  <Button className="addtocart" onClick={handleAddToCart}>
-                    Add to Cart
-                    <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>
-                      ₹{getTotalPrice()}
-                    </span>
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            )}
           </div>
-          {hasPriceOptions && <div className="cust">customized</div>}
+          {productType !== "default" && <div className="cust">customized</div>}
+
+          <Modal className="modeldialog" show={show} onHide={handleClose}>
+            {renderModalContent()}
+          </Modal>
         </div>
       </div>
     </>
