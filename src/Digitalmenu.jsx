@@ -88,6 +88,7 @@ import {
 } from "./components/data/FoodData";
 import PizzaPage from "./components/Pages/Pizza/PizzaPage";
 import { useCart } from "./ContextApi";
+import { useLocation } from "react-router-dom";
 
 const menuItems = [
   { name: "Simple Veg", component: <SimplePizza />, data: simplepizzadata },
@@ -148,13 +149,25 @@ const menuItems = [
   },
 ];
 
-const MenuLayout = () => {
+const Digitalmenu = () => {
   const [showCategory, setShowCategory] = useState(false); // State to toggle Category visibility
   const [searchText, setSearchText] = useState(""); // State to handle search input
   const [loading, setLoading] = useState(true); // Loading state to track the fetch status
   const [filteredMenuItems, setFilteredMenuItems] = useState(menuItems);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const { cartItemsCount } = useCart();
+
+  const [tableNumber, setTableNumber] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const table = queryParams.get("table");
+    setTableNumber(table);
+    // Optionally, you could store it in localStorage or Context if needed later
+    localStorage.setItem("tableNumber", table);
+  }, [location]);
+
 
   const toggleCategory = () => {
     if (!showCategory) {
@@ -210,14 +223,14 @@ const MenuLayout = () => {
     }
   }, [cartItemsCount]);
 
-    useEffect(() => {
-        localStorage.removeItem("tableNumber");
-    }, []);
-
   return (
     <>
       <Header />
 
+      {tableNumber && (
+        <div className="table-info">Table Number: {tableNumber}</div>
+      )}
+      
       <div
         className={`menu-btn-container ${
           isFooterVisible ? "footer-visible" : ""
@@ -264,4 +277,4 @@ const MenuLayout = () => {
   );
 };
 
-export default MenuLayout;
+export default Digitalmenu;

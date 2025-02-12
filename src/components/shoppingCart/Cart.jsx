@@ -68,7 +68,7 @@ const Cart = ({ id }) => {
   //     }, 0);
   // };
 
-  const calculateTotalForItem = (item) => {
+  const calculateTotalForcartItem = (item) => {
     const basePrice = item.price * item.quantity;
 
     const addonsPrice = item.addons
@@ -83,6 +83,11 @@ const Cart = ({ id }) => {
     return basePrice + addonsPrice + cheesesPrice;
   };
 
+  const calculateTotalForItem = (item) => {
+    const basePrice = item.price;
+
+    return basePrice;
+  };
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
       const basePrice = item.price * item.quantity;
@@ -172,12 +177,18 @@ const Cart = ({ id }) => {
 
   const handlePlaceOrder = () => {
     const whatsappNumber = "+917404339777";
+    // const whatsappNumber = "+917015823645";
 
     // Construct the WhatsApp message
     function getRandom4DigitNumber() {
       return Math.floor(1000 + Math.random() * 9000);
     }
     const orderId = getRandom4DigitNumber();
+
+    // Retrieve the table number (either from localStorage or Context)
+  const tableNumber = localStorage.getItem("tableNumber") || "";
+  const tableMessage = tableNumber ? `Table no.  : *${tableNumber}*` : "";
+
     const orderDetails = cartItems.map((item) => {
       const addonsDetails = item.addons
         ? item.addons.map((addon) => `Addons\n${addon.name} + ₹${addon.price}\n`)
@@ -196,6 +207,7 @@ const Cart = ({ id }) => {
     const message = `
 Order      : *ORD-${orderId}*
 Amount   : *₹${total}*
+${tableMessage}
     ----------Items----------\n
 ${productDetails}
 `;
@@ -315,7 +327,7 @@ ${productDetails}
                           <td
                           className="cart-item-total"
                           >
-                            ₹{calculateTotalForItem(item)}
+                            ₹{calculateTotalForcartItem(item)}
                           </td>
                         </tr>
                       ))
