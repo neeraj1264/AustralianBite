@@ -225,7 +225,6 @@ const Digitalmenu = () => {
 
   return (
     <>
-      <Header />
 
       {tableNumber && (
         <div className="table-info">Table Number: {tableNumber}</div>

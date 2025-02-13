@@ -4,27 +4,27 @@ a {
 :root {
   --bg: #d32e2e;
   --out: #2d3748;
-  --in: #0F172B;
+  --in: #0f172b;
   --light: #edf2f7;
-  --yellow: #FEA116;
+  --yellow: #fea116;
 }
 /* .main-content {
   margin-bottom: 4rem;
 } */
 
-body{
+body {
   background-color: var(--out) !important;
 }
 body.dark-theme {
   background-color: var(--light) !important; /* Dark background */
-  color: black !important;  /* Light text */
+  color: black !important; /* Light text */
 }
-.menu-items{
+.menu-items {
   background: var(--out);
 }
-.menu-item{
+.menu-item {
   background: var(--out);
-  margin: 0 .3rem;
+  margin: 0 0.3rem;
   border-radius: 1rem;
 }
 .product-card {
@@ -100,7 +100,7 @@ body.dark-theme {
 
 .cust {
   color: grey;
-  margin: -0.5rem auto 0 0 ;
+  margin: -0.5rem auto 0 0;
 }
 
 /* -------------------------------------Header Css------------------------------------ */
@@ -265,7 +265,7 @@ body.dark-theme {
   color: var(--yellow);
 }
 
-.search-results{
+.search-results {
   margin-top: 3rem;
 }
 
@@ -296,15 +296,15 @@ body.dark-theme {
 }
 
 .outer-card a {
-  width: 100%;  
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.category-card{
+.category-card {
   display: flex;
   justify-content: space-between;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .outer-card .category-card h2 {
@@ -329,22 +329,17 @@ body.dark-theme {
   color: var(--yellow);
 }
 
-#Simple_Pizza{
-  margin-top: 2rem;
-}
 --------------------------------loading--------------------------------------
-
-
-.lds-ripple,
+  .lds-ripple,
 .lds-ripple div {
   box-sizing: border-box;
 }
 .lds-ripple {
-    position: fixed;
-    top: 44%;
-    left: 38%;
-    transform: translate(-50%, -50%);
-    color: var(--yellow);
+  position: fixed;
+  top: 44%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  color: var(--yellow);
 }
 .lds-ripple div {
   position: absolute;
@@ -387,8 +382,17 @@ body.dark-theme {
   }
 }
 
-.loading{
+.loading {
   position: absolute;
   top: 45%;
   left: 25%;
+}
+
+.table-info {
+  color: var(--yellow) !important;
+  text-align: center;
+  background: var(--in);
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  border-radius: 0 0 1rem 1rem;
 }
