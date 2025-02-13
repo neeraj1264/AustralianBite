@@ -2162,7 +2162,7 @@ export const TandooriNonVegData = [
       "Marinated chicken in a creamy, flavorful blend of spices, cooked to perfection in the tandoor for a rich and juicy bite.",
     size: { size1: "Half", size2: "Full" },
     price: { priceH: "350", priceF: "600" },
-    mrp: "310",
+    mrp: "410",
   },
   {
     id: 231,

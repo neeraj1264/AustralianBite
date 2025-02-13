@@ -21,17 +21,32 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
   // - If price contains priceH and priceF → treat as "custom" type.
   // - Otherwise, treat it as a default product.
   const isPizza =
-    price && typeof price === "object" && "priceR" in price && "priceM" in price && "priceL" in price;
+    price &&
+    typeof price === "object" &&
+    "priceR" in price &&
+    "priceM" in price &&
+    "priceL" in price;
   const isCustom =
-    price && typeof price === "object" && "priceH" in price && "priceF" in price;
+    price &&
+    typeof price === "object" &&
+    "priceH" in price &&
+    "priceF" in price;
 
   const productType = isPizza ? "pizza" : isCustom ? "custom" : "default";
 
   // For products with size options, pick the default size and price.
   const defaultSize =
-    productType === "pizza" ? (size?.size1 || "") : productType === "custom" ? (size?.size1 || "") : "";
+    productType === "pizza"
+      ? size?.size1 || ""
+      : productType === "custom"
+      ? size?.size1 || ""
+      : "";
   const defaultPrice =
-    productType === "pizza" ? price.priceR : productType === "custom" ? price.priceH : price;
+    productType === "pizza"
+      ? price.priceR
+      : productType === "custom"
+      ? price.priceH
+      : price;
 
   // Component states
   const [show, setShow] = useState(false);
@@ -59,8 +74,16 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
 
   // Define the cheeselist (only for pizza)
   const cheeselist = [
-    { name: "Extra Cheese", key: "extraCheese", prices: { R: 35, M: 50, L: 90 } },
-    { name: "CheeseBrust", key: "cheeseburst", prices: { R: 60, M: 90, L: 110 } },
+    {
+      name: "Extra Cheese",
+      key: "extraCheese",
+      prices: { R: 35, M: 50, L: 90 },
+    },
+    {
+      name: "CheeseBrust",
+      key: "cheeseburst",
+      prices: { R: 60, M: 90, L: 110 },
+    },
     { name: "PanBase", key: "PanBase", prices: { R: 10, M: 20, L: 30 } },
     { name: "ThinCrust", key: "ThinCrust", prices: { R: 20, M: 30, L: 50 } },
   ];
@@ -144,11 +167,14 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
 
   // Add-to-cart handler that varies by product type
   const handleAddToCart = () => {
-   // Only require a size selection for products that offer size options
-   if ((productType === "pizza" || productType === "custom") && selectedSize === "") {
-    alert("Please select a size.");
-    return;
-  }
+    // Only require a size selection for products that offer size options
+    if (
+      (productType === "pizza" || productType === "custom") &&
+      selectedSize === ""
+    ) {
+      alert("Please select a size.");
+      return;
+    }
 
     if (productType === "pizza") {
       // For pizza: gather selected cheese addons
@@ -287,17 +313,29 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
           </Modal.Body>
           <Modal.Footer className="modalfooter">
             <div className="quantity-update">
-              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleDecrement}>
+              <Button
+                variant="contained"
+                style={{ color: "var(--yellow)" }}
+                onClick={handleDecrement}
+              >
                 <FaMinus />
               </Button>
-              <span style={{ margin: "0 0.5rem", color: "white" }}>{quantity}</span>
-              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleIncrement}>
+              <span style={{ margin: "0 0.5rem", color: "white" }}>
+                {quantity}
+              </span>
+              <Button
+                variant="contained"
+                style={{ color: "var(--yellow)" }}
+                onClick={handleIncrement}
+              >
                 <FaPlus />
               </Button>
             </div>
             <Button className="addtocart" onClick={handleAddToCart}>
               Add to Cart{" "}
-              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>₹{getTotalPrice()}</span>
+              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>
+                ₹{getTotalPrice()}
+              </span>
             </Button>
           </Modal.Footer>
         </>
@@ -317,7 +355,11 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                 marginBottom: "1rem",
               }}
             >
-              <img src={image} alt={name} style={{ maxWidth: "18rem", borderRadius: "1rem" }} />
+              <img
+                src={image}
+                alt={name}
+                style={{ maxWidth: "18rem", borderRadius: "1rem" }}
+              />
             </div>
             <Table striped bordered hover style={{ marginBottom: "10rem" }}>
               <thead>
@@ -357,17 +399,29 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
           </Modal.Body>
           <Modal.Footer className="modalfooter">
             <div className="quantity-update">
-              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleDecrement}>
+              <Button
+                variant="contained"
+                style={{ color: "var(--yellow)" }}
+                onClick={handleDecrement}
+              >
                 <FaMinus />
               </Button>
-              <span style={{ margin: "0 0.5rem", color: "white" }}>{quantity}</span>
-              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleIncrement}>
+              <span style={{ margin: "0 0.5rem", color: "white" }}>
+                {quantity}
+              </span>
+              <Button
+                variant="contained"
+                style={{ color: "var(--yellow)" }}
+                onClick={handleIncrement}
+              >
                 <FaPlus />
               </Button>
             </div>
             <Button className="addtocart" onClick={handleAddToCart}>
               Add to Cart{" "}
-              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>₹{getTotalPrice()}</span>
+              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>
+                ₹{getTotalPrice()}
+              </span>
             </Button>
           </Modal.Footer>
         </>
@@ -388,12 +442,24 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                 marginBottom: "1rem",
               }}
             >
-              <img src={image} alt={name} style={{ maxWidth: "18rem", borderRadius: "1rem" }} />
+              <img
+                src={image}
+                alt={name}
+                style={{ maxWidth: "18rem", borderRadius: "1rem" }}
+              />
             </div>
-            <h5 style={{fontSize: "1.2rem"}}>{name}</h5>
+            <h5 style={{ fontSize: "1.2rem" }}>{name}</h5>
             <p style={{ fontWeight: "700" }}>
               ₹{price}
-              <span style={{ textDecoration: "line-through", marginLeft: ".5rem", color: "grey" }}>{mrp}</span>
+              <span
+                style={{
+                  textDecoration: "line-through",
+                  marginLeft: ".5rem",
+                  color: "grey",
+                }}
+              >
+                {mrp}
+              </span>
               <span style={{ marginLeft: ".5rem", color: "var(--yellow)" }}>
                 {(((mrp - price) / mrp) * 100).toFixed(0)}% off
               </span>
@@ -402,17 +468,29 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
           </Modal.Body>
           <Modal.Footer className="modalfooter">
             <div className="quantity-update">
-              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleDecrement}>
+              <Button
+                variant="contained"
+                style={{ color: "var(--yellow)" }}
+                onClick={handleDecrement}
+              >
                 <FaMinus />
               </Button>
-              <span style={{ margin: "0 0.5rem", color: "white" }}>{quantity}</span>
-              <Button variant="contained" style={{ color: "var(--yellow)" }} onClick={handleIncrement}>
+              <span style={{ margin: "0 0.5rem", color: "white" }}>
+                {quantity}
+              </span>
+              <Button
+                variant="contained"
+                style={{ color: "var(--yellow)" }}
+                onClick={handleIncrement}
+              >
                 <FaPlus />
               </Button>
             </div>
             <Button className="addtocart" onClick={handleAddToCart}>
               Add to Cart{" "}
-              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>₹{getTotalPrice()}</span>
+              <span style={{ paddingLeft: ".3rem", fontWeight: "800" }}>
+                ₹{getTotalPrice()}
+              </span>
             </Button>
           </Modal.Footer>
         </>
@@ -425,20 +503,32 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
       <hr />
       <div className="product-card">
         <div className="product-details">
-          <h3 style={{fontSize: "1.2rem" , fontFamily: "initial", fontWeight: "bold"}}>
+          <h3
+            style={{
+              fontSize: "1.2rem",
+              fontFamily: "initial",
+              fontWeight: "bold",
+            }}
+          >
             {name}{" "}
             {defaultSize && productType !== "default" ? `[${defaultSize}]` : ""}
           </h3>
-          <p style={{ fontWeight: "700" , fontFamily: "initial"}}>
+          <p style={{ fontWeight: "700", fontFamily: "initial" }}>
             ₹{defaultPrice}
-            <span style={{ textDecoration: "line-through", marginLeft: ".5rem", color: "grey" }}>
+            <span
+              style={{
+                textDecoration: "line-through",
+                marginLeft: ".5rem",
+                color: "grey",
+              }}
+            >
               {mrp}
             </span>
-            {productType !== "default" && (
+            {/* {productType !== "default" && ( */}
               <span style={{ marginLeft: ".5rem", color: "var(--yellow)" }}>
                 {(((mrp - defaultPrice) / mrp) * 100).toFixed(0)}% off
               </span>
-            )}
+            {/* )} */}
           </p>
           <p className="description" onClick={toggleDescription}>
             {showFullDescription
@@ -447,7 +537,10 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
               ? description.substring(0, 50) + "..."
               : description}
             {description.length > 50 && !showFullDescription && (
-              <span style={{ color: "var(--yellow)", fontWeight: 500 }}> read more</span>
+              <span style={{ color: "var(--yellow)", fontWeight: 500 }}>
+                {" "}
+                read more
+              </span>
             )}
           </p>
         </div>
