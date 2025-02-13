@@ -21,6 +21,7 @@ body.dark-theme {
 }
 .menu-items {
   background: var(--out);
+  margin-bottom: 5rem;
 }
 .menu-item {
   background: var(--out);
@@ -133,9 +134,9 @@ body.dark-theme {
   box-shadow: -2px 1px 2px 2px black;
   border-radius: 10rem;
 }
-#Simple_Pizza{
+/* #Simple_Pizza{
   margin-top: 4rem;
-}
+} */
 /* -------------------------------------------------search-icon -------------------------------------------------- */
 
 @keyframes pulsate {

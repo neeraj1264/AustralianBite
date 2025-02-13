@@ -1,9 +1,9 @@
 import React from 'react';
 import { NonVegMainData } from '../data/FoodData';
-import CustomCard from './CustomCard';
+import PizzaPage from './Pizza/PizzaPage';
 
 const renderCards = (data) => {
-  return data.map((item) => <CustomCard key={item.id} {...item} />);
+  return data.map((item) => <PizzaPage key={item.id} {...item} />);
 };
 const NonVegMain = () => {
   

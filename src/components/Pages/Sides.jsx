@@ -1,9 +1,9 @@
 import React from 'react';
-import Cards from './Un-CustomizeCard/cards';
+import PizzaPage from './Pizza/PizzaPage';
 import { SidesData } from '../data/FoodData';
 
 const renderCards = (data) => {
-  return data.map((item) => <Cards key={item.id} {...item} />);
+  return data.map((item) => <PizzaPage key={item.id} {...item} />);
 };
 const Sides = () => {
   

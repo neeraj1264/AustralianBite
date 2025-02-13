@@ -90,7 +90,7 @@ import PizzaPage from "./components/Pages/Pizza/PizzaPage";
 import { useCart } from "./ContextApi";
 
 const menuItems = [
-  { name: "Simple Veg", component: <SimplePizza />, data: simplepizzadata },
+  { name: "Simple Veg", component: <SimplePizza menu={true}/>, data: simplepizzadata },
   { name: "Veg1 ", component: <Veg1 />, data: Veg1Data },
   { name: "Veg2", component: <Veg2 />, data: Veg2Data },
   { name: "Veg3", component: <Veg3 />, data: Veg3Data },

@@ -2,9 +2,9 @@ import React from "react";
 import PizzaPage from "./PizzaPage";
 import { simplepizzadata } from "../../data/FoodData";
 
-const SimplePizza = () => {
+const SimplePizza = ({ menu }) => {
   return (
-    <div>
+    <div style={{ marginTop: menu ? "4rem" : "0rem" }}>
       <h2 id="Simple_Pizza" className='category-header'>
         Simple Veg Pizza
       </h2>

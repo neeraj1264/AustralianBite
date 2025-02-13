@@ -1,9 +1,9 @@
 import React from 'react';
 import { ChickenSnackData } from '../data/FoodData';
-import Cards from './Un-CustomizeCard/cards';
+import PizzaPage from './Pizza/PizzaPage';
 
 const renderCards = (data) => {
-  return data.map((item) => <Cards key={item.id} {...item} />);
+  return data.map((item) => <PizzaPage key={item.id} {...item} />);
 };
 const ChickenSnack = () => {
   
