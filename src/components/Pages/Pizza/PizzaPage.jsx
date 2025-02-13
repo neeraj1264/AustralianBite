@@ -390,7 +390,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
             >
               <img src={image} alt={name} style={{ maxWidth: "18rem", borderRadius: "1rem" }} />
             </div>
-            <h5>{name}</h5>
+            <h5 style={{fontSize: "1.2rem"}}>{name}</h5>
             <p style={{ fontWeight: "700" }}>
               ₹{price}
               <span style={{ textDecoration: "line-through", marginLeft: ".5rem", color: "grey" }}>{mrp}</span>
@@ -425,11 +425,11 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
       <hr />
       <div className="product-card">
         <div className="product-details">
-          <h3>
+          <h3 style={{fontSize: "1.2rem" , fontFamily: "initial", fontWeight: "bold"}}>
             {name}{" "}
             {defaultSize && productType !== "default" ? `[${defaultSize}]` : ""}
           </h3>
-          <p style={{ fontWeight: "700" }}>
+          <p style={{ fontWeight: "700" , fontFamily: "initial"}}>
             ₹{defaultPrice}
             <span style={{ textDecoration: "line-through", marginLeft: ".5rem", color: "grey" }}>
               {mrp}
