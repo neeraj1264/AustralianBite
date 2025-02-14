@@ -14,7 +14,7 @@ const Team = () => {
     // { img: "./img/chef4.jpg", name: "Manjot singh", designation: "Manager"},
     { img: "./img/chef3.jpg", name: "Shweta", designation: "Receptionist" },
     { img: "./img/chef1.jpeg", name: "Raj Kumar", designation: "Chinese Chef" },
-    { img: "./img/chef2.jpg", name: "Nandu", designation: "Indian Chef" , insta:"https://www.instagram.com/nandu_rajput_uk01/?igsh=a2g5b3RjcGJnZmQ5#"},
+    { img: "./img/chef2.jpg", name: "Nandu", designation: "Indian Chef"},
   ];
 
   return (

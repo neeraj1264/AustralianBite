@@ -25,7 +25,6 @@ const About = () => {
                 <LazyLoadImage
                   className="img-fluid rounded w-100 wow zoomIn"
                   data-wow-delay="0.1s"
-                  // src="/img/a1.jpg"
                   src="/outer.jpg"
                   alt="About 1"
                   effect="blur"
@@ -35,9 +34,9 @@ const About = () => {
               </div>
               <div className="col-6 text-start">
                 <LazyLoadImage
-                  className="img-fluid rounded w-75 wow zoomIn"
+                  className="img-fluid rounded w-100 wow zoomIn"
                   data-wow-delay="0.3s"
-                  src="/img/a4.jpg"
+                  src="/img/a2.jpg"
                   alt="About 2"
                   style={{ marginTop: "25%" }}
                   effect="blur"
@@ -47,7 +46,7 @@ const About = () => {
               </div>
               <div className="col-6 text-end">
                 <LazyLoadImage
-                  className="img-fluid rounded w-75 wow zoomIn"
+                  className="img-fluid rounded w-100 wow zoomIn"
                   data-wow-delay="0.5s"
                   src="/img/a3.jpg"
                   alt="About 3"
@@ -60,7 +59,7 @@ const About = () => {
                 <LazyLoadImage
                   className="img-fluid rounded w-100 wow zoomIn"
                   data-wow-delay="0.7s"
-                  src="/img/a2.jpg"
+                  src="/img/a4.jpg"
                   alt="About 4"
                   effect="blur"
                   visibleByDefault={false} 

@@ -1,7 +1,7 @@
 .custom-navbar {
   padding: 0;
   border-radius: 0 0 1rem 1rem;
-  background-color: #0F172B;
+  background-color: #0f172b;
   box-shadow: 0px 3px 4px 0px black;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .custom-navbar .navbar-brand {
-  color: #FEA116 !important; /* Custom brand color */
+  color: #fea116 !important; /* Custom brand color */
   margin: 0;
   font-weight: bold;
 }
@@ -61,7 +61,7 @@
   border: 2px solid var(--out);
   border-radius: 2rem;
   background: #eee;
-  padding: .3rem.5rem !important;
+  padding: 0.3rem.5rem !important;
 }
 /* input::placeholder {
   color: var(--out); 
@@ -201,4 +201,10 @@ input:checked + .slider:before {
 .dark-theme {
   background-color: #121212;
   color: white;
+}
+
+.theme-mode {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 }

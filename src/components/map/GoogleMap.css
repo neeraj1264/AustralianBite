@@ -5,7 +5,8 @@
   font-weight: bold;
 }
 .contact-main{
-  margin: 1rem;
+  margin: auto;
+  width: fit-content;
   background: var(--in);
   padding: 1rem;
   border-radius: 1rem;

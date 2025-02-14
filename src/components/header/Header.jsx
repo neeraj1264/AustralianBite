@@ -137,7 +137,7 @@ const Header = ({ headerName, setSearch, onClick }) => {
                 Feedback
               </Link>
             </li>
-            <li>
+            <li className="theme-mode">
         {/* Dark Mode Toggle Switch */}
               <label className="theme-switch">
                 <input type="checkbox" checked={!isDarkMode} onChange={toggleTheme} />
