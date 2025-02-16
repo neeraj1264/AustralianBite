@@ -24,8 +24,8 @@ body.dark-theme {
   margin-bottom: 5rem;
 }
 .menu-item {
-  background: var(--out);
-  margin: 0 0.3rem;
+  background: var(--in);
+  /* margin: 5rem .3rem 1rem; */
   border-radius: 1rem;
 }
 .product-card {

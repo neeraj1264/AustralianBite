@@ -148,7 +148,7 @@ const menuItems = [
   },
 ];
 
-const MenuLayout = () => {
+const MenuLayout = ({menu}) => {
   const [showCategory, setShowCategory] = useState(false); // State to toggle Category visibility
   const [searchText, setSearchText] = useState(""); // State to handle search input
   const [loading, setLoading] = useState(true); // Loading state to track the fetch status
@@ -240,7 +240,7 @@ const MenuLayout = () => {
           <h2 className="loading">Menu Loading...</h2>
         ) : (
           filteredMenuItems.map((item, index) => (
-            <div key={index} className="menu-item">
+            <div key={index} className="menu-item" style={{ margin: menu ? "0" : " 5rem .3rem 1rem" }}>
               {/* Show category name only if not search results */}
               {item.name !== "Search Results" && (
                 <h2 className="category-header"></h2>
