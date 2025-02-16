@@ -553,9 +553,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
               <button
                 style={{
                   color: "whitesmoke",
-                  border: "none",
                   background: "var(--in)",
-                  borderRadius: ".5rem",
                   boxShadow: "var(--out) 1px 0px 3px 3px",
                 }}
                 onClick={handleRemoveToCart}

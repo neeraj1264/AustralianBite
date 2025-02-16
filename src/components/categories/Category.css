@@ -26,8 +26,11 @@
   border: none;
 }
 .category-header {
-  text-align: center;
-  padding:  .5rem ;
   font-size: 1.5rem;
+  text-align: left;
+  padding: .5rem;
   color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
+  line-height: 36px;
+  font-weight: 600;
 }

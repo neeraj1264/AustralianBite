@@ -62,23 +62,22 @@ body.dark-theme {
 }
 .add-btn {
   box-shadow: 1px 0px 3px 3px var(--in);
-  background: whitesmoke;
   width: fit-content;
   align-items: center;
   margin: -1rem auto 0.5rem;
-  /* padding: 0.2rem 1rem; */
-  border-radius: 0.5rem;
   display: inline-block;
   font-size: 1rem;
   font-weight: 800;
   color: var(--yellow);
+  border-radius: 25px;
 }
 .add-btn button {
   color: var(--in);
   font-weight: 800;
-  padding: 0.4rem 1rem;
+  padding: 5px 20px;
   font-size: 1.2rem;
-  background: ghostwhite;
+  background: #eee;
+  border-radius: 25px;
 }
 .added {
   border: none;

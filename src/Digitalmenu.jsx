@@ -168,6 +168,10 @@ const Digitalmenu = ({menu}) => {
     localStorage.setItem("tableNumber", table);
   }, [location]);
 
+  useEffect(() => {
+    document.body.classList.add("dark-theme");
+    localStorage.setItem("theme", "dark");
+  }, []);
 
   const toggleCategory = () => {
     if (!showCategory) {
@@ -252,7 +256,7 @@ const Digitalmenu = ({menu}) => {
           <h2 className="loading">Menu Loading...</h2>
         ) : (
           filteredMenuItems.map((item, index) => (
-            <div key={index} className="menu-item" style={{ margin: menu ? "0" : " 2rem .3rem 1rem" }}>
+            <div key={index} className="menu-item" style={{ margin: menu ? "0" : " 2rem 1rem 1rem" }}>
               {/* Show category name only if not search results */}
               {item.name !== "Search Results" && (
                 <h2 className="category-header"></h2>
