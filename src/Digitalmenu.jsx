@@ -208,7 +208,14 @@ const Digitalmenu = ({menu}) => {
         setFilteredMenuItems([
           {
             name: "Not Found",
-            component: <h2 className="not-found">No items found!</h2>,
+            component: (
+            <div className="not-found">
+            <h2>No items found!</h2>
+            <img
+                src="/nofound.png"
+              />
+            </div>
+            ),
             data: [],
           },
         ]);
@@ -251,7 +258,11 @@ const Digitalmenu = ({menu}) => {
         </h1>
       </div>
       
-      <div className="menu-items">
+      <div
+        className={`menu-items ${
+          isFooterVisible ? "footer-visible" : ""
+        }`}
+      >
         {loading ? (
           <h2 className="loading">Menu Loading...</h2>
         ) : (

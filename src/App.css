@@ -199,6 +199,9 @@ body.dark-theme {
   bottom: 11vh; /* Adjust the height value according to the footer's height */
 }
 
+.menu-items.footer-visible {
+  margin-bottom: 10rem; /* Increase when footer is visible */
+}
 .menu-btn {
   cursor: pointer;
   font-size: 1.3rem;
@@ -388,4 +391,12 @@ body.dark-theme {
   font-size: 1.4rem;
   border-radius: 0 0 1rem 1rem;
   font-family: initial;
+}
+.not-found{
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+.not-found img{
+  width: 60%;
 }

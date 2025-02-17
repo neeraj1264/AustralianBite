@@ -188,3 +188,6 @@ background: white;
 .dark-theme .active{
     color: var(--yellow);
 }
+.dark-theme .not-found{
+    color: black;
+}
