@@ -65,11 +65,17 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
   const [addons, setAddons] = useState({
     extraCheese: false,
     cheeseburst: false,
+    PanBase: false,
+    ThinCrust: false,
     onion: false,
     capsicum: false,
-    tomato: false,
-    sweetcorn: false,
+    paneer: false,
     mushroom: false,
+    jalapeno: false,
+    peper: false,
+    corn: false,
+    olives: false,
+    tomato: false,
   });
 
   // Define the cheeselist (only for pizza)
@@ -86,6 +92,45 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
     },
     { name: "PanBase", key: "PanBase", prices: { R: 10, M: 20, L: 30 } },
     { name: "ThinCrust", key: "ThinCrust", prices: { R: 20, M: 30, L: 50 } },
+  ]
+  const toppingList = [
+    {
+      name: "onion",
+      key: "onion",
+      prices: { R: 25, M: 35, L: 55 },
+    }, {
+      name: "capsicum",
+      key: "capsicum",
+      prices: { R: 25, M: 35, L: 55 },
+    }, {
+      name: "paneer",
+      key: "paneer",
+      prices: { R: 25, M: 35, L: 55 },
+    }, {
+      name: "mushroom",
+      key: "mushroom",
+      prices: { R: 25, M: 35, L: 55 },
+    }, {
+      name: "jalapeno",
+      key: "jalapeno",
+      prices: { R: 25, M: 35, L: 55 },
+    }, {
+      name: "Red peper",
+      key: "Red peper",
+      prices: { R: 25, M: 35, L: 55 },
+    },{
+      name: "corn",
+      key: "corn",
+      prices: { R: 25, M: 35, L: 55 },
+    },{
+      name: "black olives",
+      key: "black olives",
+      prices: { R: 25, M: 35, L: 55 },
+    },{
+      name: "tomato",
+      key: "tomato",
+      prices: { R: 25, M: 35, L: 55 },
+    },
   ];
 
   // Handle addon checkbox changes (for pizza type)
@@ -161,6 +206,11 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
           total += addon.prices[selectedCLSize] * quantity;
         }
       });
+      toppingList.forEach((topping) => {
+        if (addons[topping.key]) {
+          total += topping.prices[selectedCLSize] * quantity;
+        }
+      });
     }
     return total;
   };
@@ -187,6 +237,18 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
           });
         }
       });
+
+        // Gather selected topping addons
+        const selectedToppings = [];
+        toppingList.forEach((topping) => {
+          if (addons[topping.key]) {
+            selectedToppings.push({
+              name: topping.name,
+              price: topping.prices[selectedCLSize],
+            });
+          }
+        });
+        
       const product = {
         id,
         name: selectedSize ? `${name} [${selectedSize}]` : name,
@@ -195,10 +257,14 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
         image,
         mrp,
         ...(selectedCheeses.length > 0 && { cheeses: selectedCheeses }),
+        ...(selectedToppings.length > 0 && { toppings: selectedToppings }),
       };
       let total = selectedSizePrice * quantity;
       selectedCheeses.forEach((addon) => {
         total += addon.price * quantity;
+      });
+      selectedToppings.forEach((topping) => {
+        total += topping.price * quantity;
       });
       product.totalPrice = total;
       AddToCart(product);
@@ -304,6 +370,24 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
                         type="checkbox"
                         checked={addons[addon.key]}
                         onChange={() => handleAddonChange(addon.key)}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+            <h3>Extra Toppings</h3>
+            <Table striped bordered hover>
+              <tbody>
+                {toppingList.map((topping) => (
+                  <tr key={topping.key}>
+                    <td>{topping.name}</td>
+                    <td>₹{topping.prices[selectedCLSize]}</td>
+                    <td>
+                      <Form.Check
+                        type="checkbox"
+                        checked={addons[topping.key]}
+                        onChange={() => handleAddonChange(topping.key)}
                       />
                     </td>
                   </tr>

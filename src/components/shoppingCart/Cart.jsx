@@ -71,8 +71,8 @@ const Cart = ({ id }) => {
   const calculateTotalForcartItem = (item) => {
     const basePrice = item.price * item.quantity;
 
-    const addonsPrice = item.addons
-      ? item.addons.reduce((sum, addon) => sum + addon.price, 0) * item.quantity
+    const toppingsPrice = item.toppings
+      ? item.toppings.reduce((sum, topping) => sum + topping.price, 0) * item.quantity
       : 0;
 
     const cheesesPrice = item.cheeses
@@ -80,7 +80,7 @@ const Cart = ({ id }) => {
         item.quantity
       : 0;
 
-    return basePrice + addonsPrice + cheesesPrice;
+    return basePrice + toppingsPrice + cheesesPrice;
   };
 
   const calculateTotalForItem = (item) => {
@@ -92,17 +92,16 @@ const Cart = ({ id }) => {
     return cartItems.reduce((total, item) => {
       const basePrice = item.price * item.quantity;
 
-      const addonsPrice = item.addons
-        ? item.addons.reduce((sum, addon) => sum + addon.price, 0) *
-          item.quantity
-        : 0;
+      const toppingsPrice = item.toppings
+      ? item.toppings.reduce((sum, topping) => sum + topping.price, 0) * item.quantity
+      : 0;
 
       const cheesesPrice = item.cheeses
         ? item.cheeses.reduce((sum, cheese) => sum + cheese.price, 0) *
           item.quantity
         : 0;
 
-      return total + basePrice + addonsPrice + cheesesPrice;
+      return total + basePrice + toppingsPrice + cheesesPrice;
     }, 0); // Assuming 20 is the initial total (Service Charge)
   };
 
@@ -257,10 +256,10 @@ ${productDetails}
                             >
                               {item.name}
                             </div>
-                            {item.addons && item.addons.length > 0 && (
+                            {item.toppings && (
                               <div style={{ color: "grey", fontSize: ".8rem" }}>
-                                Addons:
-                                {item.addons.map((addon) => (
+                                Extra Topping
+                                {item.toppings.map((addon) => (
                                   <div
                                     key={addon.name}
                                   >
@@ -270,7 +269,8 @@ ${productDetails}
                               </div>
                             )}
                             {item.cheeses && (
-                              <div>
+                              <div  style={{ color: "grey", fontSize: ".8rem" }}>
+                                Addons
                                 {item.cheeses.map((cheese) => (
                                   <div
                                     key={cheese.name}
