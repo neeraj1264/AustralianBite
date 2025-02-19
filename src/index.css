@@ -121,9 +121,10 @@
   color: black;
 }
 .dark-theme .cart-header {
-  background: whitesmoke;
-  color: black;
-  box-shadow: 7px 3px 4px 0px var(--in);
+  background: white;
+  color: var(--yellow);
+  box-shadow: 2p 2px 2px 2px var(--yellow);
+  border: 3px solid;
 }
 .dark-theme .slider {
   box-shadow: 0px 2px 15px 5px black;
