@@ -1,18 +1,18 @@
 import React from 'react';
 import PizzaPage from './Pizza/PizzaPage';
-import { SandwichData } from '../data/FoodData';
+import { ComboMixData } from '../data/FoodData';
 
 const renderCards = (data) => {
   return data.map((item) => <PizzaPage key={item.id} {...item} />);
 };
-const Sandwich = () => {
+const Combo = () => {
   
   return (
     <>
-      <h2 id='Sandwich' className='category-header'>Sandwich</h2>
-      {renderCards(SandwichData)}
+      <h2 id='Combo_Mix' className='category-header'> Combo Mix</h2>
+      {renderCards(ComboMixData)}
     </>
   );
 };
 
-export default Sandwich;
+export default Combo;

@@ -57,7 +57,7 @@ const Header = ({ headerName, setSearch, onClick }) => {
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
         <i className="fa fa-utensils me-2"></i>
-          Foodies Hub
+          Australian Bite
         </Link>
         <button
           ref={toggleButtonRef}
