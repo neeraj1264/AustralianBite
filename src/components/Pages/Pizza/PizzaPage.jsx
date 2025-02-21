@@ -615,7 +615,7 @@ const PizzaPage = ({ id, name, description, price, image, mrp, size }) => {
             {/* )} */}
           </p>
           <p className="description" onClick={toggleDescription}>
-            {showFullDescription
+            {showFullDescription 
               ? description
               : description.length > 50
               ? description.substring(0, 50) + "..."
