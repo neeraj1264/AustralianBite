@@ -66,10 +66,10 @@ const MyCarousel = () => {
   return (
     <>
         <Header/>
-        <img src="indvspak.jpg" alt="" srcset="" style={{width: "90%", margin: "20% 5% 0%"}} />
         <Hero/>
         <Services/>
         <About/>
+        <Team/>
         {/* <div className="front-image">
   <img src="/img/outer2.jpg" alt="Delicious Food" />
   <Link to="/menu" className="menu-button">

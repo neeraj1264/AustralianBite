@@ -1,6 +1,6 @@
 import React from 'react';
-import { pastaData } from '../../data/FoodData';
-import PizzaPage from '../Pizza/PizzaPage';
+import PizzaPage from './Pizza/PizzaPage';
+import { PastaData } from '../data/FoodData';
 
 const renderCards = (data) => {
   return data.map((item) => <PizzaPage key={item.id} {...item} />);
@@ -9,8 +9,8 @@ const Pasta = () => {
   
   return (
     <>
-       <h2 id='pasta' className='category-header'>Delicious Pasta</h2>
-       {renderCards(pastaData)}
+      <h2 id='Pasta' className='category-header'>Pasta</h2>
+      {renderCards(PastaData)}
     </>
   );
 };

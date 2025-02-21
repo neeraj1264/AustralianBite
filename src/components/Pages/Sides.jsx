@@ -1,18 +1,18 @@
 import React from 'react';
-import { SnacksData } from '../data/FoodData';
 import PizzaPage from './Pizza/PizzaPage';
+import { SidesData } from '../data/FoodData';
 
 const renderCards = (data) => {
   return data.map((item) => <PizzaPage key={item.id} {...item} />);
 };
-const Snacks = () => {
+const Sides = () => {
   
   return (
     <>
-      <h2 id='snacks' className='category-header'>Delicious Snacks</h2>
-      {renderCards(SnacksData)}
+      <h2 id='Sides' className='category-header'>Sides</h2>
+      {renderCards(SidesData)}
     </>
   );
 };
 
-export default Snacks;
+export default Sides;
