@@ -189,15 +189,15 @@ const Cart = ({ id }) => {
   const tableMessage = tableNumber ? `Table no.  : *${tableNumber}*` : "";
 
     const orderDetails = cartItems.map((item) => {
-      const addonsDetails = item.addons
-        ? item.addons.map((addon) => `Addons\n${addon.name} + ₹${addon.price}\n`)
+      const toppingsDetails = item.toppings
+        ? item.toppings.map((addon) => `Addons\n${addon.name} + ₹${addon.price}`)
         : [];
   
         const cheesesDetails = item.cheeses
-        ? item.cheeses.map((cheese) => `${cheese.name} + ₹${cheese.price}\n\n`)
+        ? item.cheeses.map((cheese) => `Addons\n${cheese.name} + ₹${cheese.price}`)
         : [];
   
-      return `${item.quantity}.0 x ${item.name}= ${calculateTotalForItem(item)}\n${addonsDetails.join("\n")}\n${cheesesDetails.join("")}`;
+      return `${item.quantity}.0 x ${item.name}= ${calculateTotalForItem(item)}\n${toppingsDetails.join("\n")}\n${cheesesDetails.join("\n")}`;
     });
 
    const productDetails = orderDetails.join("");
